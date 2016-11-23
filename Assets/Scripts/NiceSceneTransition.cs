@@ -68,7 +68,7 @@ public class NiceSceneTransition : MonoBehaviour
 #if UNITY_5_1
         Application.LoadLevel(nextScene);
 #else
-        SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
+        //SceneManager.LoadScene(nextScene, LoadSceneMode.Single);
 #endif
         StartCoroutine(StartScene());
     }

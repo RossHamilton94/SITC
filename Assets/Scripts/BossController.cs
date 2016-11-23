@@ -116,7 +116,7 @@ public class BossController : MonoBehaviour
         }
     }
 
-    void Damage(int amount)
+    public void Damage(int amount)
     {
         //if (baseHealth - amount <= 0.0f)
         //{

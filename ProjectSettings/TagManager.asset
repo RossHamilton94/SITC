@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - Pickup
   - CapturePoint
+  - ObjectiveSystem
   layers:
   - Default
   - TransparentFX
