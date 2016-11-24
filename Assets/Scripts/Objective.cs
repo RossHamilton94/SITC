@@ -115,6 +115,10 @@ public class Objective : MonoBehaviour
     private void EndFire()
     {
         lineRenderer.enabled = false;
+        percentage_bar.color = Color.white;
+        Reset();
+        currentCharge = 0.0f;
+        percentage_bar.fillAmount = currentCharge;
         locked = false;
     }
 }
