@@ -249,7 +249,7 @@ public class PlayerController : Entity
     {
         if (col.transform.tag == "CapturePoint")
         {
-            Debug.Log("i'm inside you (the collider)");
+            //Debug.Log("i'm inside you (the collider)");
             col.gameObject.GetComponent<Objective>().active = true;
         }
     }
@@ -258,7 +258,7 @@ public class PlayerController : Entity
     {
         if (col.transform.tag == "CapturePoint")
         {
-            Debug.Log("i pulled out (of the collider)");
+            //Debug.Log("i pulled out (of the collider)");
             col.gameObject.GetComponent<Objective>().active = false;
             // Make sure we reset the co-routines running on this script otherwise they'll overlap and fuck up the fill amount lerp
             col.gameObject.GetComponent<Objective>().Reset();

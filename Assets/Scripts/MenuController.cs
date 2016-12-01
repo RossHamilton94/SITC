@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class MenuController : MonoBehaviour
     }
     [SerializeField]
     public MenuState menuState = MenuState.MAINMENU;
+
+    //public SceneManager sm = new SceneManager();
 
     public GameObject[] canvasHolder;
     public GameObject[] defaultButton;
@@ -319,9 +322,10 @@ public class MenuController : MonoBehaviour
         currentNumberOfClones = int.Parse(cloneNoText.text);
     }
 
-    public void LoadLevel(int levelIndex)
+    public void LoadLevel(int levelNumber)
     {
         SetPlayerPrefs();
-        Application.LoadLevel(levelIndex);
+        //sm.LoadLevel("Level_" + levelNumber);
+        SceneManager.LoadScene("Level_" + levelNumber);
     }
 }
