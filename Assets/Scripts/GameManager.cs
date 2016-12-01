@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         em.Init();
 
         // Spawn players
-        em.SpawnPlayers(playerCount);
+        em.SpawnPlayers(PlayerPrefs.GetInt("NoOfPlayers"));
 
         // Spawn boss
         // em.SpawnBoss();

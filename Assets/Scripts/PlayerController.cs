@@ -24,11 +24,11 @@ public class PlayerController : Entity
         //Returns whether or not player is touching wall.
         public bool isWall()
         {
-            bool left = Physics.Raycast(new Vector2(player.transform.position.x - width, player.transform.position.y), -Vector2.right, length);
-            bool right = Physics.Raycast(new Vector2(player.transform.position.x + width, player.transform.position.y), Vector2.right, length);
+            bool left = Physics.Raycast(new Vector3(player.transform.position.x - width, player.transform.position.y, player.transform.position.z), -Vector2.right, length);
+            bool right = Physics.Raycast(new Vector3(player.transform.position.x + width, player.transform.position.y, player.transform.position.z), Vector2.right, length);
 
-            Debug.DrawRay(new Vector2(player.transform.position.x - width, player.transform.position.y), -Vector2.right, Color.red, 0.1f);
-            Debug.DrawRay(new Vector2(player.transform.position.x + width, player.transform.position.y), Vector2.right, Color.red, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x - width, player.transform.position.y, player.transform.position.z), -Vector2.right, Color.red, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x + width, player.transform.position.y, player.transform.position.z), Vector2.right, Color.red, 0.1f);
 
             if (left || right)
                 return true;
@@ -39,13 +39,13 @@ public class PlayerController : Entity
         //Returns whether or not player is touching ground.
         public bool isGround()
         {
-            bool bottom1 = Physics.Raycast(new Vector2(player.transform.position.x, player.transform.position.y - height), -Vector2.up, length);
-            bool bottom2 = Physics.Raycast(new Vector2(player.transform.position.x + (width - 0.2f), player.transform.position.y - height), -Vector2.up, length);
-            bool bottom3 = Physics.Raycast(new Vector2(player.transform.position.x - (width - 0.2f), player.transform.position.y - height), -Vector2.up, length);
+            bool bottom1 = Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - height), -Vector2.up, length);
+            bool bottom2 = Physics.Raycast(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y - height), -Vector2.up, length);
+            bool bottom3 = Physics.Raycast(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y - height), -Vector2.up, length);
 
-            Debug.DrawRay(new Vector2(player.transform.position.x, player.transform.position.y - height), -Vector2.up, Color.green, 0.1f);
-            Debug.DrawRay(new Vector2(player.transform.position.x + (width - 0.2f), player.transform.position.y - height), -Vector2.up, Color.green, 0.1f);
-            Debug.DrawRay(new Vector2(player.transform.position.x - (width - 0.2f), player.transform.position.y - height), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
 
             if (bottom1 || bottom2 || bottom3)
                 return true;
@@ -67,8 +67,8 @@ public class PlayerController : Entity
         {
             RaycastHit left_hi, right_hi;
             bool left, right;
-            Ray left_ray = new Ray(new Vector2(player.transform.position.x - width, player.transform.position.y), -Vector2.right);
-            Ray right_ray = new Ray(new Vector2(player.transform.position.x + width, player.transform.position.y), Vector2.right);
+            Ray left_ray = new Ray(new Vector3(player.transform.position.x - width, player.transform.position.y, player.transform.position.z), -Vector2.right);
+            Ray right_ray = new Ray(new Vector3(player.transform.position.x + width, player.transform.position.y, player.transform.position.z), Vector2.right);
 
             Debug.DrawRay(left_ray.origin, left_ray.direction, Color.blue, 0.2f);
             Debug.DrawRay(right_ray.origin, right_ray.direction, Color.blue, 0.2f);
