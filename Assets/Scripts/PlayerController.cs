@@ -74,9 +74,9 @@ public class PlayerController : Entity
             Debug.DrawRay(right_ray.origin, right_ray.direction, Color.blue, 0.2f);
 
             //bool test_a = 
-                Physics.Raycast(left_ray.origin, left_ray.direction, out left_hi, length);
+            Physics.Raycast(left_ray.origin, left_ray.direction, out left_hi, length);
             //bool test_b = 
-                Physics.Raycast(right_ray.origin, right_ray.direction, out right_hi, length);
+            Physics.Raycast(right_ray.origin, right_ray.direction, out right_hi, length);
 
             if (left_hi.transform != null)
             {
@@ -117,6 +117,8 @@ public class PlayerController : Entity
     //private Rigidbody rb;
     private InputController ic;
     public EntityManager em;
+    public Transform audioPool;
+    private AudioSource[] audioSources;
 
     private Vector3 spawnPos = Vector3.zero;
 
@@ -143,6 +145,7 @@ public class PlayerController : Entity
         ic = GetComponent<InputController>();
         ic.SetPlayer(id);
         spawnPos = transform.position;
+        audioSources = audioPool.gameObject.GetComponents<AudioSource>();
     }
 
     private Vector2 input;
@@ -161,21 +164,24 @@ public class PlayerController : Entity
 
     protected override void Update()
     {
-        if(!usingKeyboard)
+        if (!usingKeyboard)
         {
-            if(ic.LeftHorizontal() != 0)
+            if (ic.LeftHorizontal() != 0)
                 input.x = ic.LeftHorizontal();
             if (ic.PressedA())
                 input.y = 1;
         }
         else
         {
-            if(Input.GetAxis("LeftHorizontal") != 0)
+            if (Input.GetAxis("LeftHorizontal") != 0)
                 input.x = Input.GetAxis("LeftHorizontal");
             if (Input.GetButtonDown("Jump"))
+            {
                 input.y = 1;
+                PlayAudio("Player_Jump", "Effects");
+            }
         }
-        
+
         //if (ic.RightTrigger() > 0)
         //{
         //    if (energy - energy_cost >= 0)
@@ -267,7 +273,7 @@ public class PlayerController : Entity
 
     public void Respawn()
     {
-        if(em.clonesRemaining > 0)
+        if (em.clonesRemaining > 0)
         {
             transform.position = spawnPos;
             em.clonesRemaining--;
@@ -283,4 +289,20 @@ public class PlayerController : Entity
     {
         em.CheckWinState();
     }
+
+    #region Audio Controls
+
+    public void PlayAudio(string track, string group)
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            if (!source.isPlaying)
+            {
+                AudioClip clip = Resources.Load("Sounds/" + track) as AudioClip;
+                source.PlayOneShot(clip);
+            }
+        }
+    }
+
+    #endregion
 }

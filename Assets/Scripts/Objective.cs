@@ -12,6 +12,9 @@ public class Objective : MonoBehaviour
     ObjectiveSystem objSystem;
     LineRenderer lineRenderer;
 
+    public Transform audioPool;
+    private AudioSource[] audioSources;
+
     public float currentCharge = 0.0f;
 
     // Use this for initialization
@@ -25,6 +28,8 @@ public class Objective : MonoBehaviour
         lineRenderer.enabled = false;
         lineRenderer.SetVertexCount(2);
         lineRenderer.SetPosition(0, transform.position);
+
+        audioSources = audioPool.gameObject.GetComponents<AudioSource>();
     }
 
     // Update is called once per frame
@@ -68,7 +73,6 @@ public class Objective : MonoBehaviour
             {
                 locked = true;
                 percentage_bar.color = Color.green;
-
                 objSystem.RegisterChargedObj(this);
             }
             yield return null;
@@ -80,16 +84,34 @@ public class Objective : MonoBehaviour
         StopAllCoroutines();
     }
 
+    void OnTriggerEnter(Collider col)
+    {
+        Debug.Log("Hello darkness, my old friend");
+        if (col.transform.tag == "Player")
+        {
+            PlayAudio("laser_charge", "Effects");
+        }
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.transform.tag == "Player")
+        {
+            // Stop playing the charging sound
+        }
+        Debug.Log("Goodbye darkness");
+    }
+
     void OnTriggerStay(Collider col)
     {
+
     }
 
     public void TakeDamage()
     {
-
         objSystem.RegisterDechargedObj(this);
-        
-        if(currentCharge > 0.25f)
+
+        if (currentCharge > 0.25f)
         {
             currentCharge -= 0.25f;
         }
@@ -120,5 +142,17 @@ public class Objective : MonoBehaviour
         currentCharge = 0.0f;
         percentage_bar.fillAmount = currentCharge;
         locked = false;
+    }
+
+    public void PlayAudio(string track, string group)
+    {
+        foreach (AudioSource source in audioSources)
+        {
+            if (!source.isPlaying)
+            {
+                AudioClip clip = Resources.Load("Sounds/" + track) as AudioClip;
+                source.PlayOneShot(clip);
+            }
+        }
     }
 }
