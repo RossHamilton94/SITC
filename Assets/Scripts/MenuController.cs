@@ -315,6 +315,7 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("BossIndex", currentlyTheBoss);
         PlayerPrefs.SetInt("InitialClones", currentNumberOfClones);
         PlayerPrefs.SetInt("KeyboardIndex", currentKeyboardPlayer);
+        PlayerPrefs.SetInt("NoOfPlayers", currentNoOfPlayers);
     }
 
     public void NumberOfClonesSet()
