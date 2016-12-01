@@ -341,7 +341,7 @@ MonoBehaviour:
   speed: 12
   accel: 6
   air_accel: 3
-  jump: 8
+  jump: 23
   gravity_scale: -9.81
   wall_push: 2.5
   shift_mod_factor: 1.5

@@ -43,7 +43,7 @@ public class MenuController : MonoBehaviour
 
     bool waiting = false;
 
-    public int minNoOfPlayers = 1;
+    public int minNoOfPlayers = 2;
 
     void Start()
     {

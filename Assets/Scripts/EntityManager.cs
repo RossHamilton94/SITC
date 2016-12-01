@@ -54,8 +54,8 @@ public class EntityManager : MonoBehaviour
         clonesRemaining = PlayerPrefs.GetInt("InitialClones");
         bossIndex = PlayerPrefs.GetInt("BossIndex");
         playerUsingKeyboard = PlayerPrefs.GetInt("KeyboardIndex");
-        if (bossIndex == 4)
-            bossIndex = 3;
+        //if (bossIndex == 4)
+        //    bossIndex = 3;
     }
 
     Vector3 RandomSpawnPoint()
@@ -65,6 +65,12 @@ public class EntityManager : MonoBehaviour
 
     public void SpawnPlayers(int player_count)
     {
+        Debug.Log(bossIndex);
+        if (bossIndex == 4)
+        {
+            bossIndex = UnityEngine.Random.Range(0, player_count);
+        }
+        Debug.Log(bossIndex);
         int playersSpawned = 0;
         for (int i = 0; i < player_count; i++)
         {
