@@ -326,7 +326,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000010264137612}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6044590a329cfb849a94321dfb70ce58, type: 3}
+  m_Script: {fileID: 11500000, guid: ed332c3d09383be488c57d1f21aa745a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
@@ -339,21 +339,22 @@ MonoBehaviour:
   energy_cost: 5
   regen_rate: 0.2
   speed: 12
-  accel: 12
+  accel: 6
   air_accel: 3
-  jump: 23
+  jump: 8
   gravity_scale: -9.81
-  wall_push: 1
-  shift_mod_factor: 1.2
+  wall_push: 2.5
+  shift_mod_factor: 1.5
   mod_factor: 1
   capture_speed: 0.1
   em: {fileID: 0}
   groundState:
     player: {fileID: 0}
-    width: 0.4
-    height: 0.3
-    length: 1
+    width: 0
+    height: 0
+    length: 0
   usingKeyboard: 0
+  carriedCharge: 0
 --- !u!114 &114000012786678688
 MonoBehaviour:
   m_ObjectHideFlags: 1

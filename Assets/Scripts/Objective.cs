@@ -32,7 +32,7 @@ public class Objective : MonoBehaviour
     {
         if (active)
         {
-            StartCoroutine(SmoothBetweenValues(currentCharge, 1.0f, 5.0f));
+            //StartCoroutine(SmoothBetweenValues(currentCharge, 1.0f, 5.0f));
         }
         else
         {
@@ -55,6 +55,11 @@ public class Objective : MonoBehaviour
         }
 
         percentage_bar.fillAmount = currentCharge;
+    }
+
+    public void AddCharge(float chargeToAdd)
+    {
+        currentCharge = currentCharge + chargeToAdd;
     }
 
     public IEnumerator SmoothBetweenValues(float start, float end, float time)
@@ -115,10 +120,6 @@ public class Objective : MonoBehaviour
     private void EndFire()
     {
         lineRenderer.enabled = false;
-        percentage_bar.color = Color.white;
-        Reset();
-        currentCharge = 0.0f;
-        percentage_bar.fillAmount = currentCharge;
         locked = false;
     }
 }
