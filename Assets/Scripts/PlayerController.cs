@@ -127,6 +127,8 @@ public class PlayerController : Entity
 
     public bool usingKeyboard = false;
 
+    public float carriedCharge = 0.0f;
+
     protected override void OnEnable()
     {
         base.OnEnable();
@@ -244,6 +246,12 @@ public class PlayerController : Entity
             col.GetComponent<Pickup>().Use(this);
         }
 
+        if (col.transform.tag == "Battery")
+        {
+            Debug.Log("battery collision");
+            col.GetComponent<Battery>().Use(this);
+        }
+
         if (col.transform.tag == "CapturePoint")
         {
             // Make sure we reset the co-routines running on this script otherwise they'll overlap and fuck up the fill amount lerp
@@ -255,8 +263,21 @@ public class PlayerController : Entity
     {
         if (col.transform.tag == "CapturePoint")
         {
-            //Debug.Log("i'm inside you (the collider)");
-            col.gameObject.GetComponent<Objective>().active = true;
+            Debug.Log("i'm inside you (the collider)");
+
+            float chargeChange = capture_speed * Time.deltaTime;
+
+            if (carriedCharge > 0)
+            {
+                col.gameObject.GetComponent<Objective>().active = true;
+                carriedCharge = carriedCharge - chargeChange;
+                col.gameObject.GetComponent<Objective>().AddCharge(chargeChange);
+            }
+
+            else if (carriedCharge < 0)
+            {
+                carriedCharge = 0;
+            }
         }
     }
 
@@ -264,7 +285,7 @@ public class PlayerController : Entity
     {
         if (col.transform.tag == "CapturePoint")
         {
-            //Debug.Log("i pulled out (of the collider)");
+            Debug.Log("i pulled out (of the collider)");
             col.gameObject.GetComponent<Objective>().active = false;
             // Make sure we reset the co-routines running on this script otherwise they'll overlap and fuck up the fill amount lerp
             col.gameObject.GetComponent<Objective>().Reset();
@@ -289,7 +310,7 @@ public class PlayerController : Entity
     {
         em.CheckWinState();
     }
-
+     
     #region Audio Controls
 
     public void PlayAudio(string track, string group)
@@ -304,5 +325,10 @@ public class PlayerController : Entity
         }
     }
 
-    #endregion
+    #endregion 
+
+    public void AddCharge(float chargeToAdd)
+    {
+        carriedCharge = carriedCharge + chargeToAdd;
+    } 
 }
