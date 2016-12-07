@@ -24,11 +24,11 @@ public class SlamController : MonoBehaviour
                 // Get the bridge rigidbodies and send them flying
                 Debug.Log("I hit a bridge"); 
                 Rigidbody[] rbarr = col.transform.GetComponents<Rigidbody>();
-                Debug.Log("We just hit " rbarr.Length " rigidbodies");
+                Debug.Log("We just hit " + rbarr.Length + " rigidbodies");
                 foreach(Rigidbody rb in rbarr) 
                 {
                     rb.isKinematic = false;
-                    rb.AddForce(new Vector3(Random.Range(-5.0f, 0.0f), rb.transform.position.y - 1, Random.Range(-5.0f, 0.0f)));
+                    rb.AddForce(new Vector3(Random.Range(-5.0f, 0.0f), rb.transform.position.y - 1, Random.Range(-5.0f, 0.0f)), ForceMode.Impulse);
                 }
             break; 
             default:
