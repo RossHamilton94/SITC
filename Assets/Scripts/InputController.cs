@@ -355,6 +355,7 @@ public class InputController : MonoBehaviour
 
     #endregion
 
+#if UNITY_STANDALONE_WIN
     public void VibrateStart()
     {
         StartCoroutine(VibrateController(0.5f));
@@ -366,5 +367,6 @@ public class InputController : MonoBehaviour
         yield return new WaitForSeconds(timeToWait);
         GamePad.SetVibration(playerIndex, 0f, 0f);
     }
+#endif
 }
 
