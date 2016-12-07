@@ -40,8 +40,8 @@ public class UnityGamePadState
         //dRight = Input.GetButton(("DRightP" + (index + 1)));
         leftHorizontal = Input.GetAxis(("LeftHorizontalP" + (index + 1)));
         leftVertical = Input.GetAxis(("LeftVerticalP" + (index + 1)));
-        //rightHorizontal = Input.GetAxis(("RightHorizontalP" + (index + 1)));
-        //rightVertical = Input.GetAxis(("RightVerticalP" + (index + 1)));
+        rightHorizontal = Input.GetAxis(("RightHorizontalP" + (index + 1)));
+        rightVertical = Input.GetAxis(("RightVerticalP" + (index + 1)));
         leftTrigger = Input.GetAxis((platform + "LeftTriggerP" + (index + 1)));
         rightTrigger = Input.GetAxis(("RightTriggerP" + (index + 1)));
     }
