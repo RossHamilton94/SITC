@@ -10,7 +10,7 @@ public class SlamController : MonoBehaviour
     {
         if(col.transform.tag == "Player" && isActive)
         {
-            col.transform.GetComponent<PlayerController>().Respawn();
+            col.transform.GetComponent<PlayerController>().Respawn(true);
         }
         if(col.transform.tag == "CapturePoint" && isActive)
         {

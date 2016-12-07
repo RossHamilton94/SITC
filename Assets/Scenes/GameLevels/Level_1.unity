@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1020193304}
-  m_IndirectSpecularColor: {r: 0.18053626, g: 0.22601849, b: 0.30718803, a: 1}
+  m_IndirectSpecularColor: {r: 0.18053587, g: 0.22601774, b: 0.30718702, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2454,6 +2454,8 @@ GameObject:
   - 4: {fileID: 164489374}
   - 33: {fileID: 164489377}
   - 23: {fileID: 164489376}
+  - 65: {fileID: 164489378}
+  - 114: {fileID: 164489375}
   m_Layer: 4
   m_Name: Tile
   m_TagString: Untagged
@@ -2474,6 +2476,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2116760272}
   m_RootOrder: 0
+--- !u!114 &164489375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 164489373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e019545ec8c0b924f9e88c6f577075b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &164489376
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2512,6 +2525,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 164489373}
   m_Mesh: {fileID: 4300002, guid: 681e41ee1260343b395ca58745c94870, type: 3}
+--- !u!65 &164489378
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 164489373}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 100, y: 6.123236e-15, z: 100.000015}
+  m_Center: {x: 0, y: -1, z: -0.000009536743}
 --- !u!1 &363054035
 GameObject:
   m_ObjectHideFlags: 0
@@ -2740,10 +2765,10 @@ Transform:
   m_PrefabParentObject: {fileID: 438232, guid: f02c5617f4d2ddb4f893dc82279b72c2, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 526616510}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 7.18, y: 2.64, z: 0.87}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_Children: []
   m_Father: {fileID: 426407968}
   m_RootOrder: 0
@@ -3699,6 +3724,8 @@ GameObject:
   - 4: {fileID: 820565735}
   - 33: {fileID: 820565738}
   - 23: {fileID: 820565737}
+  - 65: {fileID: 820565739}
+  - 114: {fileID: 820565736}
   m_Layer: 4
   m_Name: Tile
   m_TagString: Untagged
@@ -3719,6 +3746,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2116760272}
   m_RootOrder: 2
+--- !u!114 &820565736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820565734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e019545ec8c0b924f9e88c6f577075b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &820565737
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3757,6 +3795,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 820565734}
   m_Mesh: {fileID: 4300002, guid: 681e41ee1260343b395ca58745c94870, type: 3}
+--- !u!65 &820565739
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 820565734}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 100, y: 6.123236e-15, z: 100.000015}
+  m_Center: {x: 0, y: -1, z: -0.000009536743}
 --- !u!1 &825503669 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 110734, guid: baf76ce72d6e88546b10d28c22862882, type: 2}

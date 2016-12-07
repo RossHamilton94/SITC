@@ -197,8 +197,8 @@ public class PlayerController : Entity
         //    mod_factor = 1.0f;
         //}
 
-        if (transform.position.y < -10.0f)
-            Respawn();
+        //if (transform.position.y < -10.0f)
+        //    Respawn();
 
         base.Update();
 
@@ -286,7 +286,7 @@ public class PlayerController : Entity
         }
     }
 
-    public void Respawn()
+    public void Respawn(bool vibrate)
     {
         if (em.clonesRemaining > 0)
         {

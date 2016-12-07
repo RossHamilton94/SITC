@@ -23,7 +23,7 @@ public class EntityManager : MonoBehaviour
     int playerUsingKeyboard = 4;
 
     public List<GameObject> players;
-    private Vector3[] spawnPoints;
+    private Transform[] spawnPoints;
     //bool waiting = false;
 
     // Called when this object is instantiated in the scene
@@ -45,10 +45,10 @@ public class EntityManager : MonoBehaviour
         if (playerPrefab == null) Debug.Log("Error: Please attach a player prefab object to this script.");
 
         int i = 0;
-        spawnPoints = new Vector3[spawnPointsList.childCount];
+        spawnPoints = new Transform[spawnPointsList.childCount];
         for (i = 0; i < spawnPointsList.childCount; i++)
         {
-            spawnPoints[i] = spawnPointsList.GetChild(i).transform.position;
+            spawnPoints[i] = spawnPointsList.GetChild(i).transform;
         }
 
         clonesRemaining = PlayerPrefs.GetInt("InitialClones");
@@ -60,7 +60,7 @@ public class EntityManager : MonoBehaviour
 
     Vector3 RandomSpawnPoint()
     {
-        return spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)];
+        return spawnPoints[UnityEngine.Random.Range(0, spawnPoints.Length)].position;
     }
 
     public void SpawnPlayers(int player_count)
@@ -91,7 +91,7 @@ public class EntityManager : MonoBehaviour
             }
             else
             {
-                GameObject temp_player = Instantiate(playerPrefab, spawnPoints[playersSpawned], Quaternion.identity) as GameObject;
+                GameObject temp_player = Instantiate(playerPrefab, spawnPoints[playersSpawned].position, spawnPoints[playersSpawned].rotation) as GameObject;
                 temp_player.transform.parent = entityContainer.transform;
                 temp_player.GetComponent<PlayerController>().em = this;
 
