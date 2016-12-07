@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance = null;      // Singleton to help access global vars from other scripts
     public EntityManager em;                        // Drag the script from the same object onto here
+    public AudioManager am;
     public int playerCount = 1;                    // How many players are gonna be playing this game?
 
     // State flags help pin down what went wrong in what stage for easier debugging

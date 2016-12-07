@@ -6,9 +6,9 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: PBR_TL_SS
-  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP _SPECGLOSSMAP
+  m_Name: SkyboxShader
+  m_Shader: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -16,10 +16,16 @@ Material:
     serializedVersion: 2
     m_TexEnvs:
     - first:
+        name: _BackTex
+      second:
+        m_Texture: {fileID: 2800000, guid: b0bbbec62e1528242a027fe46427747e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _BumpMap
       second:
-        m_Texture: {fileID: 2800000, guid: 21bc1f4f763f643499c74a8220514da9, type: 3}
-        m_Scale: {x: 1, y: 12}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _DetailAlbedoMap
@@ -40,21 +46,39 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _DownTex
+      second:
+        m_Texture: {fileID: 2800000, guid: c43af3fafbaec82479e45aa57c6af3aa, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _EmissionMap
       second:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
+        name: _FrontTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 58089cb454e614e4c887f491cf558ef9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _LeftTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 5cfec2a3e0bd5074a8192a3df2f55375, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 2497ca1b6803f5540a91a63afbe7dd33, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MetallicGlossMap
       second:
-        m_Texture: {fileID: 2800000, guid: b19945ce47be5ee459fbed9b6bef37de, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -70,9 +94,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
-        name: _SpecGlossMap
+        name: _RightTex
       second:
-        m_Texture: {fileID: 2800000, guid: b19945ce47be5ee459fbed9b6bef37de, type: 3}
+        m_Texture: {fileID: 2800000, guid: b4bfe89257e0bed4daf54d58d066f11d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - first:
+        name: _UpTex
+      second:
+        m_Texture: {fileID: 2800000, guid: 7a7cac1233df11949a04b2cc2af4908a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -88,6 +118,9 @@ Material:
     - first:
         name: _DstBlend
       second: 0
+    - first:
+        name: _Exposure
+      second: 1
     - first:
         name: _GlossMapScale
       second: 1
@@ -108,7 +141,10 @@ Material:
       second: 1
     - first:
         name: _Parallax
-      second: 0.005
+      second: 0.02
+    - first:
+        name: _Rotation
+      second: 0
     - first:
         name: _SmoothnessTextureChannel
       second: 0
@@ -132,5 +168,5 @@ Material:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
-        name: _SpecColor
-      second: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+        name: _Tint
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
