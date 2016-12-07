@@ -24,6 +24,7 @@ GameObject:
   - 114: {fileID: 114000012786678688}
   - 114: {fileID: 114000013855476440}
   - 23: {fileID: 23000011832976816}
+  - 136: {fileID: 136000013652405284}
   m_Layer: 8
   m_Name: NewPlayerPrefab
   m_TagString: Player
@@ -637,6 +638,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactingMat: {fileID: 2100000, guid: 64202eeeb13d84d448827cd9c3ba7148, type: 2}
   notInteractingMat: {fileID: 2100000, guid: 831a4d4a5baf69a41923ee97c828e4bb, type: 2}
+--- !u!136 &136000013652405284
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010264137612}
+  m_Material: {fileID: 13400000, guid: 8c180e8a0db524f47bd9844680108575, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3.8
+  m_Direction: 1
+  m_Center: {x: 0.2759589, y: 1.82, z: 0.01}
 --- !u!136 &136000014009920012
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -645,7 +659,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1000011773280316}
   m_Material: {fileID: 13400000, guid: 8c180e8a0db524f47bd9844680108575, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 3.8
   m_Direction: 1

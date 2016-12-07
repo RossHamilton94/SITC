@@ -132,11 +132,13 @@ public class PlayerController : Entity
     protected override void OnEnable()
     {
         base.OnEnable();
+        Respawner.OnDeath += PlayAudio;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
+        Respawner.OnDeath -= PlayAudio;
     }
 
     void Start()
@@ -180,7 +182,7 @@ public class PlayerController : Entity
             if ( Input.GetButtonDown("Jump"))
             {
                 input.y = 1;
-                PlayAudio("Player_Jump", "Effects");
+                PlayAudio("mb_jump", "Effects");
             }
         }
 
@@ -302,7 +304,7 @@ public class PlayerController : Entity
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 1.0f);
         }
     }
 
@@ -315,6 +317,7 @@ public class PlayerController : Entity
 
     public void PlayAudio(string track, string group)
     {
+        Debug.Log("Playing track: " + track + " on channel: " + group);
         foreach (AudioSource source in audioSources)
         {
             if (!source.isPlaying)
@@ -330,5 +333,5 @@ public class PlayerController : Entity
     public void AddCharge(float chargeToAdd)
     {
         carriedCharge = carriedCharge + chargeToAdd;
-    } 
+    }
 }

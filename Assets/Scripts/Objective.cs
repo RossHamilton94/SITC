@@ -147,6 +147,7 @@ public class Objective : MonoBehaviour
 
     public void PlayAudio(string track, string group)
     {
+        Debug.Log("Playing track: " + track + " on channel: " + group);
         foreach (AudioSource source in audioSources)
         {
             if (!source.isPlaying)
