@@ -294,6 +294,9 @@ public class PlayerController : Entity
 
     public void Respawn(bool vibrate)
     {
+#if UNITY_STANDALONE_WIN
+        ic.VibrateStart();
+#endif
         if (em.clonesRemaining > 0)
         {
             transform.position = spawnPos;
