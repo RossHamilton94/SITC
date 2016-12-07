@@ -152,12 +152,17 @@ public class BossController : MonoBehaviour
             rightCollider.isActive = true;
         }
         
+        // Wait for the attack to smash
         yield return new WaitForSeconds(attackTime);
+        
         if (attackWithLeft)
             leftCollider.isActive = false;
         else
             rightCollider.isActive = false;
+            
+        // Give the player back control of the arm when the cooldown expires
         yield return new WaitForSeconds(attackCooldownLength - attackTime);
+
         if(attackWithLeft)
         {
             leftArmRB.isKinematic = true;

@@ -10,6 +10,8 @@ TagManager:
   - Pickup
   - CapturePoint
   - ObjectiveSystem
+  - Battery
+  - Bridge
   layers:
   - Default
   - TransparentFX

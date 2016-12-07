@@ -39,9 +39,9 @@ public class PlayerController : Entity
         //Returns whether or not player is touching ground.
         public bool isGround()
         {
-            bool bottom1 = Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - height), -Vector2.up, length);
-            bool bottom2 = Physics.Raycast(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y - height), -Vector2.up, length);
-            bool bottom3 = Physics.Raycast(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y - height), -Vector2.up, length);
+            bool bottom1 = Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - height, player.transform.position.z), -Vector2.up, length);
+            bool bottom2 = Physics.Raycast(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, length);
+            bool bottom3 = Physics.Raycast(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, length);
 
             Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
             Debug.DrawRay(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
@@ -177,7 +177,7 @@ public class PlayerController : Entity
         {
             if (Input.GetAxis("LeftHorizontal") != 0)
                 input.x = Input.GetAxis("LeftHorizontal");
-            if (Input.GetButtonDown("Jump"))
+            if ( Input.GetButtonDown("Jump"))
             {
                 input.y = 1;
                 PlayAudio("Player_Jump", "Effects");
