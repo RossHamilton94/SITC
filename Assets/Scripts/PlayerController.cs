@@ -10,25 +10,26 @@ public class PlayerController : Entity
         public GameObject player;
         public float width;
         public float height;
-        public float length;
+        public float length = 1.0f;
 
         //GroundState constructor.  Sets offsets for raycasting.
         public GroundState(GameObject playerRef)
         {
             player = playerRef;
-            width = player.GetComponentInChildren<Collider>().bounds.extents.x - 0.1f;
-            height = player.GetComponentInChildren<Collider>().bounds.extents.y - 0.2f;
-            length = 1.0f;
+            width = player.GetComponentInChildren<Collider>().bounds.extents.x;
+            height = player.GetComponentInChildren<Collider>().bounds.extents.y;
         }
 
         //Returns whether or not player is touching wall.
         public bool isWall()
         {
-            bool left = Physics.Raycast(new Vector3(player.transform.position.x - width, player.transform.position.y, player.transform.position.z), -Vector2.right, length);
-            bool right = Physics.Raycast(new Vector3(player.transform.position.x + width, player.transform.position.y, player.transform.position.z), Vector2.right, length);
+            bool left = Physics.Raycast(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, length);
+            bool right = Physics.Raycast(new Vector3(player.transform.position.x + width, player.transform.position.y + (0.5f * height), player.transform.position.z), Vector2.right, length);
 
-            Debug.DrawRay(new Vector3(player.transform.position.x - width, player.transform.position.y, player.transform.position.z), -Vector2.right, Color.red, 0.1f);
-            Debug.DrawRay(new Vector3(player.transform.position.x + width, player.transform.position.y, player.transform.position.z), Vector2.right, Color.red, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, Color.red, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x + width, player.transform.position.y + (0.5f * height), player.transform.position.z), Vector2.right, Color.red, 0.1f);
+
+            Debug.Log("Wall: " + left + " " + right);
 
             if (left || right)
                 return true;
@@ -39,13 +40,15 @@ public class PlayerController : Entity
         //Returns whether or not player is touching ground.
         public bool isGround()
         {
-            bool bottom1 = Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y - height, player.transform.position.z), -Vector2.up, length);
-            bool bottom2 = Physics.Raycast(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, length);
-            bool bottom3 = Physics.Raycast(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, length);
+            bool bottom1 = Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), -Vector2.up, length);
+            bool bottom2 = Physics.Raycast(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, length);
+            bool bottom3 = Physics.Raycast(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, length);
 
-            Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
-            Debug.DrawRay(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
-            Debug.DrawRay(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y - height, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+
+            Debug.Log("Ground: " + (bottom1 || bottom2 || bottom3));
 
             if (bottom1 || bottom2 || bottom3)
                 return true;

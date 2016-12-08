@@ -91,7 +91,7 @@ public class Objective : MonoBehaviour
 
     void OnTriggerEnter(Collider col)
     {
-        Debug.Log("Hello darkness, my old friend");
+        // Debug.Log("Hello darkness, my old friend");
         if (col.transform.tag == "Player")
         {
             PlayAudio("laser_charge", "Effects");
@@ -104,7 +104,7 @@ public class Objective : MonoBehaviour
         {
             // Stop playing the charging sound
         }
-        Debug.Log("Goodbye darkness");
+        // Debug.Log("Goodbye darkness");
     }
 
     void OnTriggerStay(Collider col)
