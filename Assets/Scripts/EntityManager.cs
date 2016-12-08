@@ -81,9 +81,11 @@ public class EntityManager : MonoBehaviour
                 temp_player.GetComponent<BossController>().em = this;
 
                 // Handles all scripts that inherit from entity
-                if (temp_player.GetComponent<Entity>() != null)
-                    temp_player.GetComponent<Entity>().id = bossIndex;
-                if(playerUsingKeyboard == i)
+                //if (temp_player.GetComponent<Entity>() != null)
+                //    temp_player.GetComponent<Entity>().id = bossIndex;
+                if (temp_player.GetComponent<BossController>() != null)
+                    temp_player.GetComponent<BossController>().playerIndex = bossIndex;
+                if (playerUsingKeyboard == i)
                 {
                     temp_player.GetComponent<BossController>().usingKeyboard = true;
                 }

@@ -104,6 +104,19 @@ public class BossController : MonoBehaviour
         if (rightStickActive)
             rightArmMovePoint.transform.Translate(new Vector3(rightStick.x * armSpeed * Time.deltaTime, rightStick.y * armSpeed * Time.deltaTime, 0f), Space.World);
 
+        if(leftArmMovePoint.transform.position.y < 0)
+        {
+            Vector3 tempPos = leftArmMovePoint.transform.position;
+            tempPos.y = 0;
+            leftArmMovePoint.transform.position = tempPos;
+        }
+        if (rightArmMovePoint.transform.position.y < 0)
+        {
+            Vector3 tempPos = rightArmMovePoint.transform.position;
+            tempPos.y = 0;
+            rightArmMovePoint.transform.position = tempPos;
+        }
+
         //Set up for boss specific FixedUpdate
         switch (bossType)
         {
