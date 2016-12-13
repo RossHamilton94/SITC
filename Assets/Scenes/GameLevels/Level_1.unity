@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1020193304}
-  m_IndirectSpecularColor: {r: 0.005116702, g: 0.0065037347, b: 0.008449861, a: 1}
+  m_IndirectSpecularColor: {r: 0.005117059, g: 0.0065038637, b: 0.008449998, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -5457,7 +5457,7 @@ MonoBehaviour:
   objectiveSpawnList: {fileID: 1654799337}
   objectivePrefab: {fileID: 449000, guid: 5df945204c76e884982d536dc30c1c01, type: 2}
   batterySpawnList: {fileID: 1362928837}
-  batteryPrefab: {fileID: 4000011396749016, guid: a5143fc4af402fe4887f554cce6677c6,
+  batteryPrefab: {fileID: 4000012808635230, guid: e0374a08645d63d4b9c1304efdd852fe,
     type: 2}
   objectives: []
   currentObjectiveCount: 0
