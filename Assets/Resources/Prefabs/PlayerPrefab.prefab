@@ -766,7 +766,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013185356736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 7.81, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -1382,7 +1382,7 @@ MonoBehaviour:
   speed: 12
   accel: 6
   air_accel: 3
-  jump: 23
+  jump: 25
   gravity_scale: -9.81
   wall_push: 1.5
   shift_mod_factor: 1.5
@@ -1405,6 +1405,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9e09dd480171f9b47a473a15da8614b4, type: 2}
   - {fileID: 2100000, guid: 75494b63d8d5ee84892a096604e8dd60, type: 2}
   - {fileID: 2100000, guid: 9c3cd315bcbe1c64493426ae6c2bdf1e, type: 2}
+  input: {x: 0, y: 0}
 --- !u!114 &114000012786678688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1435,7 +1436,7 @@ CapsuleCollider:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010264137612}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 8c180e8a0db524f47bd9844680108575, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 3.5

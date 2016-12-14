@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325b29d2424e41141b293aff3df18091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chargeAmount: 0.25
+  chargeAmount: 0.33
   audioPool: {fileID: 4000010117304834}
 --- !u!136 &136000013034134976
 CapsuleCollider:
