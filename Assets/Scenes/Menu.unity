@@ -1525,9 +1525,9 @@ MonoBehaviour:
   - {fileID: 1935725303}
   - {fileID: 1406648391}
   currentNoOfPlayers: 0
-  currentlyTheBoss: 3
+  currentlyTheBoss: 4
   cloneNoText: {fileID: 1349050794}
-  minNoOfPlayers: 1
+  minNoOfPlayers: 2
 --- !u!1 &617083886
 GameObject:
   m_ObjectHideFlags: 0
