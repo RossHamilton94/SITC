@@ -36,6 +36,13 @@ public class Objective : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentCharge >= 0.975f)
+        {
+            currentCharge = 1.0f;
+            locked = true;
+            percentage_bar.color = Color.green;
+            objSystem.RegisterChargedObj(this);
+        }
         if (active)
         {
             //StartCoroutine(SmoothBetweenValues(currentCharge, 1.0f, 5.0f));
