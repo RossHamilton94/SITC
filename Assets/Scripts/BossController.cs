@@ -116,10 +116,49 @@ public class BossController : MonoBehaviour
             tempPos.y = 0;
             leftArmMovePoint.transform.position = tempPos;
         }
+        else if (leftArmMovePoint.transform.position.y > 32)
+        {
+            Vector3 tempPos = leftArmMovePoint.transform.position;
+            tempPos.y = 32;
+            leftArmMovePoint.transform.position = tempPos;
+        }
         if (rightArmMovePoint.transform.position.y < 0)
         {
             Vector3 tempPos = rightArmMovePoint.transform.position;
             tempPos.y = 0;
+            rightArmMovePoint.transform.position = tempPos;
+        }
+        else if (rightArmMovePoint.transform.position.y > 32)
+        {
+            Vector3 tempPos = rightArmMovePoint.transform.position;
+            tempPos.y = 32;
+            rightArmMovePoint.transform.position = tempPos;
+        }
+
+
+        //X Limitations
+        if (leftArmMovePoint.transform.position.x < 10)
+        {
+            Vector3 tempPos = leftArmMovePoint.transform.position;
+            tempPos.x = 10;
+            leftArmMovePoint.transform.position = tempPos;
+        }
+        else if (leftArmMovePoint.transform.position.x > 52)
+        {
+            Vector3 tempPos = leftArmMovePoint.transform.position;
+            tempPos.x = 52;
+            leftArmMovePoint.transform.position = tempPos;
+        }
+        if (rightArmMovePoint.transform.position.x < 12)
+        {
+            Vector3 tempPos = rightArmMovePoint.transform.position;
+            tempPos.x = 12;
+            rightArmMovePoint.transform.position = tempPos;
+        }
+        else if (rightArmMovePoint.transform.position.x > 57)
+        {
+            Vector3 tempPos = rightArmMovePoint.transform.position;
+            tempPos.x = 57;
             rightArmMovePoint.transform.position = tempPos;
         }
 
