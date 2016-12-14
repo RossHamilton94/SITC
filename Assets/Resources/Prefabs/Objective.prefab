@@ -48,6 +48,7 @@ GameObject:
   - 223: {fileID: 22329224}
   - 114: {fileID: 11490610}
   - 114: {fileID: 11408528}
+  - 114: {fileID: 114000013580264244}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -61,8 +62,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120016}
-  m_LocalRotation: {x: 0, y: 0.707106, z: 0, w: 0.7071076}
-  m_LocalPosition: {x: 33.422, y: 11.268669, z: 16.48398}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.903486, y: 21.273418, z: 11.76668}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -140,7 +141,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!114 &11490580
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -627,3 +628,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114000013580264244
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 182234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3f6157b880c894d9c1dc15368f0e92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
