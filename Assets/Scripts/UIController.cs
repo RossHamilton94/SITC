@@ -26,7 +26,7 @@ public class UIController : MonoBehaviour
     {
         
     }
-
+     
     void SetupInitialUI()
     {
         bossHealthImage.fillAmount = 1;
