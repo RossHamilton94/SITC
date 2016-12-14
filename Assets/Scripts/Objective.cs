@@ -65,7 +65,7 @@ public class Objective : MonoBehaviour
     public void AddCharge(float chargeToAdd)
     {
         currentCharge = currentCharge + chargeToAdd;
-        PlayAudio("laser_charge", "Effects");
+        PlayAudio("LoadingPad", "Effects");
     }
 
     public IEnumerator SmoothBetweenValues(float start, float end, float time)

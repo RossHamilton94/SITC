@@ -17,7 +17,7 @@ public class PlayerController : Entity
         public GroundState(GameObject playerRef)
         {
             player = playerRef;
-            width = player.GetComponentInChildren<Collider>().bounds.extents.x;
+            // width = player.GetComponentInChildren<Collider>().bounds.extents.x;
             height = player.GetComponentInChildren<Collider>().bounds.extents.y;
         }
 
