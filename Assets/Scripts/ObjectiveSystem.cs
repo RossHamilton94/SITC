@@ -23,8 +23,8 @@ public class ObjectiveSystem : MonoBehaviour
     public List<GameObject> objectives;
     public int currentObjectiveCount = 0;
 
-    private Vector3[] objectiveSpawns;
-    private Vector3[] batterySpawns;
+    private Transform[] objectiveSpawns;
+    private Transform[] batterySpawns;
 
     private List<Objective> chargedObjs;
     private BossController boss;
@@ -51,18 +51,18 @@ public class ObjectiveSystem : MonoBehaviour
         //if (objectivePrefab == null) Debug.Log("Error: Please attach an objective prefab object to this script.");
 
         int i = 0;
-        objectiveSpawns = new Vector3[objectiveSpawnList.childCount];
-        batterySpawns = new Vector3[batterySpawnList.childCount];
+        objectiveSpawns = new Transform[objectiveSpawnList.childCount];
+        batterySpawns = new Transform[batterySpawnList.childCount];
 
         chargedObjs = new List<Objective>();
 
         for (i = 0; i < objectiveSpawnList.childCount; i++)
         {
-            objectiveSpawns[i] = objectiveSpawnList.GetChild(i).transform.position;
+            objectiveSpawns[i] = objectiveSpawnList.GetChild(i).transform;
         }
         for (i = 0; i < batterySpawnList.childCount; i++)
         {
-            batterySpawns[i] = batterySpawnList.GetChild(i).transform.position;
+            batterySpawns[i] = batterySpawnList.GetChild(i).transform;
         }
     }
 
@@ -70,9 +70,12 @@ public class ObjectiveSystem : MonoBehaviour
     {
         //Debug.Log("TurretSystem spawning");
 
-        foreach (Vector3 spawnPoint in objectiveSpawns)
-        {
-            GameObject tempObj = Instantiate(objectivePrefab.gameObject, spawnPoint, Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+        for (int i = 0; i < objectiveSpawns.Length; i++)
+        { 
+
+        // foreach (Vector3 spawnPoint in objectiveSpawns)
+        // {
+            GameObject tempObj = Instantiate(objectivePrefab.gameObject, objectiveSpawns[i].position, objectiveSpawns[i].rotation) as GameObject;
 
             objectives.Add(tempObj);
 
@@ -98,7 +101,7 @@ public class ObjectiveSystem : MonoBehaviour
 
                 lastBatterySpawn = rand;
 
-                GameObject tempObj = Instantiate(batteryPrefab.gameObject, batterySpawns[rand], Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+                GameObject tempObj = Instantiate(batteryPrefab.gameObject, batterySpawns[rand].position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
 
                 tempObj.transform.parent = GameObject.Find("BatteryHolder").transform;
 
