@@ -9,19 +9,37 @@ ModelImporter:
     100002: Eye2
     100004: Tongue2
     100006: //RootNode
+    100008: polySurface3
+    100010: polySurface4
+    100012: polySurface5
     400000: BossMesh
     400002: Eye2
     400004: Tongue2
     400006: //RootNode
+    400008: polySurface3
+    400010: polySurface4
+    400012: polySurface5
     2300000: BossMesh
     2300002: Eye2
     2300004: Tongue2
+    2300006: polySurface3
+    2300008: polySurface4
+    2300010: polySurface5
+    2300012: //RootNode
     3300000: BossMesh
     3300002: Eye2
     3300004: Tongue2
+    3300006: polySurface3
+    3300008: polySurface4
+    3300010: polySurface5
+    3300012: //RootNode
     4300000: Eye2
     4300002: BossMesh
     4300004: Tongue2
+    4300006: polySurface3
+    4300008: polySurface4
+    4300010: polySurface5
+    4300012: BossMesh1
     9500000: //RootNode
   materials:
     importMaterials: 1

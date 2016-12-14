@@ -38,10 +38,10 @@ public class SlamController : MonoBehaviour
                     col.transform.GetComponent<PlayerController>().Respawn(true);
                     isActive = false;
                     break;
-                case "CapturePoint":
-                    col.transform.GetComponent<Objective>().TakeDamage();
-                    isActive = false;
-                    break;
+                //case "CapturePoint":
+                //    col.transform.GetComponent<Objective>().TakeDamage();
+                //    isActive = false;
+                //    break;
                 case "Wall":
                     Debug.Log("I hit a wall");
                     break;
