@@ -28,6 +28,7 @@ public class ObjectiveSystem : MonoBehaviour
 
     private List<Objective> chargedObjs;
     private BossController boss;
+    public Transform firelocation;
 
     void Start()
     {
@@ -131,7 +132,7 @@ public class ObjectiveSystem : MonoBehaviour
 
             foreach (Objective obj in chargedObjs)
             {
-                obj.Fire(boss.transform.position);
+                obj.Fire(boss.transform.FindChild("Pupil").position);
             }
 
             chargedObjs.Clear();

@@ -16,6 +16,7 @@ public class Objective : MonoBehaviour
     private AudioSource[] audioSources;
 
     public float currentCharge = 0.0f;
+    public Transform beamOrigin;
 
     // Use this for initialization
     void Start()
@@ -133,9 +134,11 @@ public class Objective : MonoBehaviour
     public void Fire(Vector3 bossPos)
     {
         lineRenderer.enabled = true;
+        lineRenderer.SetPosition(0, beamOrigin.position);
         lineRenderer.SetPosition(1, bossPos);
 
         currentCharge = 0.0f;
+        percentage_bar.color = Color.blue;
         locked = true;
 
         Invoke("EndFire", 3.0f);

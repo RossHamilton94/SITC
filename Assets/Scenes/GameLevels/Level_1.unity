@@ -71,8 +71,9 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightingDataAsset: {fileID: 0}
-  m_RuntimeCPUUsage: 25
+  m_LightingDataAsset: {fileID: 112000171, guid: 1812af776b60441438388260b4132a42,
+    type: 2}
+  m_RuntimeCPUUsage: 50
 --- !u!196 &5
 NavMeshSettings:
   serializedVersion: 2
@@ -276,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6397059, g: 0.6397059, b: 0.6397059, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -316,7 +317,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &14892760
 RectTransform:
   m_ObjectHideFlags: 0
@@ -551,6 +552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1 &54863154 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100088, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
@@ -1133,7 +1135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75, g: 0.10477942, b: 0.10477942, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.8068962, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1405,6 +1407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1001 &376191788
 Prefab:
   m_ObjectHideFlags: 0
@@ -1544,6 +1547,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 1
+  shape: 0
 --- !u!1 &426407967
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,6 +1995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1 &527291010
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,6 +2160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1 &568791927 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100078, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
@@ -3066,6 +3072,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1 &723956672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,6 +3191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 1
+  shape: 0
 --- !u!1 &746208422 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100164, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
@@ -3710,7 +3718,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11429286, guid: ab0a7b79c0fa85943bc1ca9e9e88d6de, type: 2}
       propertyPath: endRestrained
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 448822, guid: ab0a7b79c0fa85943bc1ca9e9e88d6de, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5996,6 +6004,8 @@ MonoBehaviour:
     type: 2}
   objectives: []
   currentObjectiveCount: 0
+  firelocation: {fileID: 4000010805503882, guid: e68c3cd3970462c48947bcfc26cf1a16,
+    type: 2}
 --- !u!4 &952738961
 Transform:
   m_ObjectHideFlags: 0
@@ -7025,7 +7035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.75, g: 0.10477942, b: 0.10477942, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.8068962, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7577,6 +7587,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1001 &1400399248
 Prefab:
   m_ObjectHideFlags: 0
@@ -10834,6 +10845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 1
+  shape: 0
 --- !u!1 &1492396961
 GameObject:
   m_ObjectHideFlags: 0
@@ -11234,7 +11246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.8068962, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -11959,7 +11971,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11429286, guid: ab0a7b79c0fa85943bc1ca9e9e88d6de, type: 2}
       propertyPath: endRestrained
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 448822, guid: ab0a7b79c0fa85943bc1ca9e9e88d6de, type: 2}
       propertyPath: m_LocalRotation.x
@@ -14466,6 +14478,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11429286, guid: ab0a7b79c0fa85943bc1ca9e9e88d6de, type: 2}
+      propertyPath: endRestrained
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab0a7b79c0fa85943bc1ca9e9e88d6de, type: 2}
   m_IsPrefabParent: 0
@@ -14514,6 +14530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1 &1873735710
 GameObject:
   m_ObjectHideFlags: 0
@@ -16817,6 +16834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1 &1982937592 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100042, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
@@ -19574,11 +19592,11 @@ Prefab:
     - target: {fileID: 2300160, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9cf559e6a8a9fa41af4725f19629b7c, type: 2}
+      objectReference: {fileID: 2100000, guid: cee803165b69a7c4f9be4081bba471c5, type: 2}
     - target: {fileID: 2300070, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9cf559e6a8a9fa41af4725f19629b7c, type: 2}
+      objectReference: {fileID: 2100000, guid: cee803165b69a7c4f9be4081bba471c5, type: 2}
     - target: {fileID: 2300006, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -19634,7 +19652,7 @@ Prefab:
     - target: {fileID: 2300050, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9cf559e6a8a9fa41af4725f19629b7c, type: 2}
+      objectReference: {fileID: 2100000, guid: cee803165b69a7c4f9be4081bba471c5, type: 2}
     - target: {fileID: 2300088, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -19766,7 +19784,7 @@ Prefab:
     - target: {fileID: 2300130, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f9cf559e6a8a9fa41af4725f19629b7c, type: 2}
+      objectReference: {fileID: 2100000, guid: cee803165b69a7c4f9be4081bba471c5, type: 2}
     - target: {fileID: 2300138, guid: 09c17a97561805f4b94a17116a3a3ec3, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -20414,6 +20432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 2
   showDirection: 0
+  shape: 0
 --- !u!1 &2116267854
 GameObject:
   m_ObjectHideFlags: 0
