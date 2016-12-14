@@ -65,6 +65,7 @@ public class ObjectiveSystem : MonoBehaviour
         {
             batterySpawns[i] = batterySpawnList.GetChild(i).transform;
         }
+
     }
 
     public void SpawnObjectives()

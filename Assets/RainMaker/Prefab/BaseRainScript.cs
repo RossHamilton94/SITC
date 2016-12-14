@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace DigitalRuby.RainMaker
 {
@@ -10,6 +11,9 @@ namespace DigitalRuby.RainMaker
     {
         [Tooltip("Camera the rain should hover over, defaults to main camera")]
         public Camera Camera;
+
+        [Tooltip("The audio mixer group for the audio to play through")]
+        public AudioMixerGroup MixerGroup;
 
         [Tooltip("Light rain looping clip")]
         public AudioClip RainSoundLight;
@@ -213,10 +217,10 @@ namespace DigitalRuby.RainMaker
                 Camera = Camera.main;
             }
 
-            audioSourceRainLight = new LoopingAudioSource(this, RainSoundLight);
-            audioSourceRainMedium = new LoopingAudioSource(this, RainSoundMedium);
-            audioSourceRainHeavy = new LoopingAudioSource(this, RainSoundHeavy);
-            audioSourceWind = new LoopingAudioSource(this, WindSound);
+            audioSourceRainLight = new LoopingAudioSource(this, RainSoundLight, MixerGroup);
+            audioSourceRainMedium = new LoopingAudioSource(this, RainSoundMedium, MixerGroup);
+            audioSourceRainHeavy = new LoopingAudioSource(this, RainSoundHeavy, MixerGroup);
+            audioSourceWind = new LoopingAudioSource(this, WindSound, MixerGroup);
 
             if (RainFallParticleSystem != null)
             {
@@ -303,11 +307,12 @@ namespace DigitalRuby.RainMaker
         public AudioSource AudioSource { get; private set; }
         public float TargetVolume { get; private set; }
 
-        public LoopingAudioSource(MonoBehaviour script, AudioClip clip)
+        public LoopingAudioSource(MonoBehaviour script, AudioClip clip, AudioMixerGroup mixer)
         {
             AudioSource = script.gameObject.AddComponent<AudioSource>();
             AudioSource.loop = true;
             AudioSource.clip = clip;
+            AudioSource.outputAudioMixerGroup = mixer;
             AudioSource.Stop();
             TargetVolume = 1.0f;
         }
