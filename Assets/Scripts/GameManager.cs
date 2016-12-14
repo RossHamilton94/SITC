@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("The game manager has restarted the game");
             Init();
         }
-
+        Time.timeScale = 1.0f;
         // Sets this to not be destroyed when reloading scene
         //DontDestroyOnLoad(gameObject);
     }
@@ -66,7 +66,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(state == GameState.GAMEOVER)
+        {
+            //Time.timeScale = 0.0f;
+        }
     }
 
     void Init()

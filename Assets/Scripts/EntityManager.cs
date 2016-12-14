@@ -117,11 +117,13 @@ public class EntityManager : MonoBehaviour
         {
             ui.winnerText.text = "Clones Win!";
             ui.SwitchCanvas(1);
+            GameManager.instance.SetState(GameManager.GameState.GAMEOVER);
         }
         if(entityContainer.childCount == 0)
         {
             ui.winnerText.text = "Boss Wins!";
             ui.SwitchCanvas(1);
+            GameManager.instance.SetState(GameManager.GameState.GAMEOVER);
         }
     }
 

@@ -75,8 +75,9 @@ public class Objective : MonoBehaviour
         {
             currentCharge = Mathf.Lerp(start, end, (elapsedTime / time));
             elapsedTime += Time.deltaTime;
-            if (currentCharge >= 0.99f)
+            if (currentCharge >= 0.95f)
             {
+                currentCharge = 1.0f;
                 locked = true;
                 percentage_bar.color = Color.green;
                 objSystem.RegisterChargedObj(this);

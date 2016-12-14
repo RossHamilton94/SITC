@@ -6,7 +6,7 @@ using System.Collections.Generic;
 public class ObjectiveSystem : MonoBehaviour
 {
     [SerializeField]
-    public int damagePerCharge = 10;
+    public int damagePerCharge = 25;
     public float secsBetweenBatterySpawns = 5.0f;
     public int maxBatteries = 2;
 

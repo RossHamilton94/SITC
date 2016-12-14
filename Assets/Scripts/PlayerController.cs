@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : Entity
 {
@@ -237,6 +238,11 @@ public class PlayerController : Entity
                 input.y = 1;
                 PlayAudio("mb_jump", "Effects");
             }
+        }
+
+        if(GameManager.instance.state == GameManager.GameState.GAMEOVER && (ic.PressedStart() || Input.GetKeyDown(KeyCode.Return)))
+        {
+            SceneManager.LoadScene(0);
         }
 
         //if (ic.RightTrigger() > 0)

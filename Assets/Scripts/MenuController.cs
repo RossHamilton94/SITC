@@ -325,7 +325,14 @@ public class MenuController : MonoBehaviour
 
     public void NumberOfClonesSet()
     {
-        currentNumberOfClones = int.Parse(cloneNoText.text);
+        if(cloneNoText.text != "")
+        {
+            currentNumberOfClones = int.Parse(cloneNoText.text);
+        }
+        else
+        {
+            currentNumberOfClones = 0;
+        }
     }
 
     public void LoadLevel(int levelNumber)

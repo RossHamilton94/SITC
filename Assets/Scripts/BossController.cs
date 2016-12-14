@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
@@ -94,6 +95,11 @@ public class BossController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F8))
         {
             Damage(25);
+        }
+
+        if (GameManager.instance.state == GameManager.GameState.GAMEOVER && (iC.PressedStart() || Input.GetKeyDown(KeyCode.Return)))
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
