@@ -81,14 +81,14 @@ public class Rope : MonoBehaviour
         }
     }
 
-    void OnGUI()
-    {
-        if (GUILayout.Button("Reset rope"))
-        {
-            Reset();
-            BuildRope();
-        }
-    }
+    //void OnGUI()
+    //{
+    //    if (GUILayout.Button("Reset rope"))
+    //    {
+    //        Reset();
+    //        BuildRope();
+    //    }
+    //}
 
     void Reset()
     {

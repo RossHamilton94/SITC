@@ -12,7 +12,8 @@ public class UIController : MonoBehaviour
     public Image bossHealthDetail;
     public float healthAnimationLength = 1.0f;
     public Text clonesRemainingText;
-
+    public GameObject[] playerUIHolder;
+    public Image[] playerChargeLevel;
 
     //Winner UI
     public Text winnerText;
@@ -40,6 +41,20 @@ public class UIController : MonoBehaviour
         canvasHolder[indexToEnable].SetActive(true);
         currentActiveCanvas = indexToEnable;
     }
+
+    #region Player UI Methods
+
+    public void ActivatePlayerUI(int cloneNumber)
+    {
+        playerUIHolder[cloneNumber].SetActive(true);
+    }
+
+    public void UpdatePlayerCharge(int cloneNumber, float fillAmount)
+    {
+        playerChargeLevel[cloneNumber].fillAmount = fillAmount;
+    }
+
+    #endregion
 
     #region Boss UI Methods
     public void UpdateBossHealth(float currentHealth, float maxHealth)

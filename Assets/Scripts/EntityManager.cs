@@ -102,6 +102,7 @@ public class EntityManager : MonoBehaviour
                 {
                     temp_player.GetComponent<PlayerController>().usingKeyboard = true;
                 }
+                temp_player.GetComponent<PlayerController>().cloneNumber = playersSpawned;
                 players.Add(temp_player);
                 playersSpawned++;
             }

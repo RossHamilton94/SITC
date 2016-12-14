@@ -25,7 +25,7 @@ public class Battery : MonoBehaviour {
         GetComponent<MeshRenderer>().enabled = false;
         GetComponent<CapsuleCollider>().enabled = false;
         PlayAudio("mb_coin", "Effects");
-        Destroy(gameObject, 1.0f);
+        Destroy(gameObject, 0.2f);
     }
 
     //void OnTriggerEnter(Collider col)

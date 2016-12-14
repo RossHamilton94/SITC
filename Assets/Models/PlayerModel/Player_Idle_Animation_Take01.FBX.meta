@@ -93,7 +93,99 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Bn_Root01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_L_Clavicle01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_L_Clavicle01/Bn_L_Sholder
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_L_Clavicle01/Bn_L_Sholder/Bn_L_ForeArm01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_L_Clavicle01/Bn_L_Sholder/Bn_L_ForeArm01/Bn_L_Wrist01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_L_Clavicle01/Bn_L_Sholder/Bn_L_ForeArm01/Bn_L_Wrist01/Be_L_Wrist01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_Neck01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_Neck01/Bn_Head01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_Neck01/Bn_Head01/Be_Head01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_R_Clavicle01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_R_Clavicle01/Bn_R_Sholder01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_R_Clavicle01/Bn_R_Sholder01/Bn_R_ForeArm01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_R_Clavicle01/Bn_R_Sholder01/Bn_R_ForeArm01/Bn_R_Wrist01
+        weight: 1
+      - path: Bn_Root01/Bn_Back01/Bn_Chest01/Bn_R_Clavicle01/Bn_R_Sholder01/Bn_R_ForeArm01/Bn_R_Wrist01/Be_R_Wrist01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Be_Pelvis01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_L_Thigh01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_L_Thigh01/Bn_L_Shin01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_L_Thigh01/Bn_L_Shin01/Be_L_Ankle01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_L_Thigh01/Bn_L_Shin01/Be_L_Ankle01/Bn_L_Ankle01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_L_Thigh01/Bn_L_Shin01/Be_L_Ankle01/Bn_L_Ankle01/Bn_L_Foot01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_L_Thigh01/Bn_L_Shin01/Be_L_Ankle01/Bn_L_Ankle01/Bn_L_Foot01/Be_L_Toe01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_R_Thigh01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_R_Thigh01/Bn_R_Shin01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_R_Thigh01/Bn_R_Shin01/Be_R_Ankle01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_R_Thigh01/Bn_R_Shin01/Be_R_Ankle01/Bn_R_Ankle01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_R_Thigh01/Bn_R_Shin01/Be_R_Ankle01/Bn_R_Ankle01/Bn_R_Foot01
+        weight: 1
+      - path: Bn_Root01/Bn_Pelvis01/Bn_R_Thigh01/Bn_R_Shin01/Be_R_Ankle01/Bn_R_Ankle01/Bn_R_Foot01/Be_R_Toe01
+        weight: 1
+      - path: Full_Body
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

@@ -29,7 +29,7 @@ public class PlayerController : Entity
             Debug.DrawRay(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, Color.red, 0.1f);
             Debug.DrawRay(new Vector3(player.transform.position.x + width, player.transform.position.y + (0.5f * height), player.transform.position.z), Vector2.right, Color.red, 0.1f);
 
-            Debug.Log("Wall: " + left + " " + right);
+            //Debug.Log("Wall: " + left + " " + right);
 
             if (left || right)
                 return true;
@@ -48,7 +48,7 @@ public class PlayerController : Entity
             Debug.DrawRay(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
             Debug.DrawRay(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
 
-            Debug.Log("Ground: " + (bottom1 || bottom2 || bottom3));
+            //Debug.Log("Ground: " + (bottom1 || bottom2 || bottom3));
 
             if (bottom1 || bottom2 || bottom3)
                 return true;
@@ -133,6 +133,10 @@ public class PlayerController : Entity
     public bool usingKeyboard = false;
 
     public float carriedCharge = 0.0f;
+    public float maxCharge = 1.0f;
+    public int cloneNumber;
+    public SkinnedMeshRenderer playerMesh;
+    public Material[] playerColourMaterials;
 
     protected override void OnEnable()
     {
@@ -153,11 +157,15 @@ public class PlayerController : Entity
         //rb = GetComponent<Rigidbody>();
         ic = GetComponent<InputController>();
         ic.SetPlayer(id);
+        playerMesh.material = playerColourMaterials[cloneNumber];
+        em.ui.ActivatePlayerUI(cloneNumber);
+        carriedCharge = 0.0f;
+        em.ui.UpdatePlayerCharge(cloneNumber, carriedCharge);
         spawnPos = transform.position;
         audioSources = audioPool.gameObject.GetComponents<AudioSource>();
     }
 
-    private Vector2 input;
+    public Vector2 input;
 
     //void OnGUI()
     //{
@@ -176,7 +184,32 @@ public class PlayerController : Entity
         if (!usingKeyboard)
         {
             if (ic.LeftHorizontal() != 0)
+            {
                 input.x = ic.LeftHorizontal();
+                if (input.x > -0.3f && input.x < 0.3f)
+                    input.x = 0;
+                if(input.x != 0)
+                {
+                    if (groundState.isGround())
+                    {
+                        anim.SetBool("Running", true);
+                    }
+                    else
+                    {
+                        anim.SetBool("Running", false);
+                    }
+                }
+                else
+                {
+                    anim.SetBool("Running", false);
+                }
+            }
+            else
+            {
+                input.x = 0;
+                anim.SetBool("Running", false);
+            }
+                
             if (ic.PressedA())
                 input.y = 1;
         }
@@ -285,7 +318,7 @@ public class PlayerController : Entity
     {
         if (col.transform.tag == "CapturePoint")
         {
-            Debug.Log("i'm inside you (the collider)");
+            //Debug.Log("i'm inside you (the collider)");
 
             float chargeChange = capture_speed * Time.deltaTime;
 
@@ -294,6 +327,7 @@ public class PlayerController : Entity
                 col.gameObject.GetComponent<Objective>().active = true;
                 carriedCharge = carriedCharge - chargeChange;
                 col.gameObject.GetComponent<Objective>().AddCharge(chargeChange);
+                em.ui.UpdatePlayerCharge(cloneNumber, carriedCharge);
             }
 
             else if (carriedCharge < 0)
@@ -307,7 +341,7 @@ public class PlayerController : Entity
     {
         if (col.transform.tag == "CapturePoint")
         {
-            Debug.Log("i pulled out (of the collider)");
+            //Debug.Log("i pulled out (of the collider)");
             col.gameObject.GetComponent<Objective>().active = false;
             // Make sure we reset the co-routines running on this script otherwise they'll overlap and fuck up the fill amount lerp
             col.gameObject.GetComponent<Objective>().Reset();
@@ -330,6 +364,8 @@ public class PlayerController : Entity
         {
             Destroy(gameObject, 1.0f);
         }
+        carriedCharge = 0.0f;
+        em.ui.UpdatePlayerCharge(cloneNumber, carriedCharge);
     }
 
     void OnDestroy()
@@ -357,5 +393,8 @@ public class PlayerController : Entity
     public void AddCharge(float chargeToAdd)
     {
         carriedCharge = carriedCharge + chargeToAdd;
+        if (carriedCharge > maxCharge)
+            carriedCharge = maxCharge;
+        em.ui.UpdatePlayerCharge(cloneNumber, carriedCharge);
     }
 }

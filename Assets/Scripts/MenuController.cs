@@ -29,6 +29,7 @@ public class MenuController : MonoBehaviour
     public GameObject[] player2JoinedState;
     public GameObject[] player3JoinedState;
     public GameObject[] player4JoinedState;
+    public GameObject pressStartImage;
 
     public GameObject[] currentlyTheBossImage;
 
@@ -273,6 +274,10 @@ public class MenuController : MonoBehaviour
                 playersJoined++;
         }
         currentNoOfPlayers = playersJoined;
+        if (currentNoOfPlayers >= minNoOfPlayers)
+            pressStartImage.SetActive(true);
+        else
+            pressStartImage.SetActive(false);
     }
 
     public void SwitchCanvas(int canvasToSwitchTo)

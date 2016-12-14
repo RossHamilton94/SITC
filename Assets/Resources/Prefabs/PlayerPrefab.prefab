@@ -1398,6 +1398,13 @@ MonoBehaviour:
   anim: {fileID: 95000011248098352}
   usingKeyboard: 0
   carriedCharge: 0
+  maxCharge: 1
+  cloneNumber: 0
+  playerMesh: {fileID: 137000013200269028}
+  playerColourMaterials:
+  - {fileID: 2100000, guid: 9e09dd480171f9b47a473a15da8614b4, type: 2}
+  - {fileID: 2100000, guid: 75494b63d8d5ee84892a096604e8dd60, type: 2}
+  - {fileID: 2100000, guid: 9c3cd315bcbe1c64493426ae6c2bdf1e, type: 2}
 --- !u!114 &114000012786678688
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1448,7 +1455,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ddfff792510d6af4cb7e005bf6d3ed5e, type: 2}
+  - {fileID: 2100000, guid: 132123ab4f7efe5449093a509c651528, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
