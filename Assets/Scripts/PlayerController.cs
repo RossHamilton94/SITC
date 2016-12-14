@@ -26,9 +26,12 @@ public class PlayerController : Entity
         {
             bool left = Physics.Raycast(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, length);
             bool right = Physics.Raycast(new Vector3(player.transform.position.x + width, player.transform.position.y + (0.5f * height), player.transform.position.z), Vector2.right, length);
+            
+            // Green is left
+            Debug.DrawRay(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, Color.green, 0.1f);
 
-            Debug.DrawRay(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, Color.red, 0.1f);
-            Debug.DrawRay(new Vector3(player.transform.position.x + width, player.transform.position.y + (0.5f * height), player.transform.position.z), Vector2.right, Color.red, 0.1f);
+            // Blue is right
+            Debug.DrawRay(new Vector3(player.transform.position.x + width, player.transform.position.y + (0.5f * height), player.transform.position.z), Vector2.right, Color.blue, 0.1f);
 
             //Debug.Log("Wall: " + left + " " + right);
 
