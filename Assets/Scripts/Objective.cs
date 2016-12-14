@@ -33,7 +33,7 @@ public class Objective : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (active)
         {
@@ -44,7 +44,14 @@ public class Objective : MonoBehaviour
             // Save the progress of the bar in segments so that the player has a 'save point'
             if (!locked)
             {
-                if (currentCharge > 0.75f)
+                if (currentCharge >= 0.975f)
+                {
+                    currentCharge = 1.0f;
+                    locked = true;
+                    percentage_bar.color = Color.green;
+                    objSystem.RegisterChargedObj(this);
+                }
+                else if (currentCharge > 0.75f && currentCharge < 0.975f)
                 {
                     StartCoroutine(SmoothBetweenValues(currentCharge, 0.75f, 2.5f));
                 }
