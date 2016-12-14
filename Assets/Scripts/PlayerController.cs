@@ -128,6 +128,8 @@ public class PlayerController : Entity
     [SerializeField]
     public GroundState groundState;
 
+    public Animator anim;
+
     public bool usingKeyboard = false;
 
     public float carriedCharge = 0.0f;
@@ -181,7 +183,22 @@ public class PlayerController : Entity
         else
         {
             if (Input.GetAxis("LeftHorizontal") != 0)
+            {
                 input.x = Input.GetAxis("LeftHorizontal");
+                if (groundState.isGround())
+                {
+                    anim.SetBool("Running", true);
+                }
+                else
+                {
+                    anim.SetBool("Running", false);
+                }
+            }
+            else
+            {
+                anim.SetBool("Running", false);
+            }
+
             if ( Input.GetButtonDown("Jump"))
             {
                 input.y = 1;

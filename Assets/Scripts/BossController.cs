@@ -86,7 +86,7 @@ public class BossController : MonoBehaviour
         {
             case BossType.OCTOPUS:
                 {
-                    OctopusSpecificInput();
+                    //OctopusSpecificInput();
                     break;
                 }    
         }

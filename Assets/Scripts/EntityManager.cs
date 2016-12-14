@@ -65,12 +65,10 @@ public class EntityManager : MonoBehaviour
 
     public void SpawnPlayers(int player_count)
     {
-        Debug.Log(bossIndex);
         if (bossIndex == 4)
         {
             bossIndex = UnityEngine.Random.Range(0, player_count);
         }
-        Debug.Log(bossIndex);
         int playersSpawned = 0;
         for (int i = 0; i < player_count; i++)
         {

@@ -134,7 +134,7 @@ public class MenuController : MonoBehaviour
                         }
                     }
 
-                    if (Input.GetKeyDown(KeyCode.Return))
+                    if (Input.GetKeyDown(KeyCode.Return) && !waiting)
                     {
                         if (playerState[0] == 0 && !keyboardJoined)
                         {
@@ -164,6 +164,7 @@ public class MenuController : MonoBehaviour
                         {
                             if(currentNoOfPlayers >= minNoOfPlayers && keyboardJoined)
                             {
+                                
                                 SwitchCanvas(2);
                             }
                         }
@@ -276,21 +277,20 @@ public class MenuController : MonoBehaviour
 
     public void SwitchCanvas(int canvasToSwitchTo)
     {
-        if (waiting)
+        if (!waiting)
         {
-            return;
+            StartCoroutine(Wait(0.1f));
+            canvasHolder[currentCanvas].SetActive(false);
+            currentCanvas = canvasToSwitchTo;
+            menuState = (MenuState)currentCanvas;
+            canvasHolder[currentCanvas].SetActive(true);
+            if (defaultButton[currentCanvas] != null)
+            {
+                EventSystem.current.SetSelectedGameObject(canvasHolder[currentCanvas]);
+                EventSystem.current.SetSelectedGameObject(defaultButton[currentCanvas]);
+            }
+            SetPlayerPrefs();
         }
-        StartCoroutine(Wait(0.1f));
-        canvasHolder[currentCanvas].SetActive(false);
-        currentCanvas = canvasToSwitchTo;
-        menuState = (MenuState)currentCanvas;
-        canvasHolder[currentCanvas].SetActive(true);
-        if (defaultButton[currentCanvas] != null)
-        {
-            EventSystem.current.SetSelectedGameObject(canvasHolder[currentCanvas]);
-            EventSystem.current.SetSelectedGameObject(defaultButton[currentCanvas]);
-        }
-        SetPlayerPrefs();
     }
 
     void SwitchBoss(int newBoss)
