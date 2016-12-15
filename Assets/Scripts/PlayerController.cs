@@ -215,7 +215,11 @@ public class PlayerController : Entity
             }
                 
             if (ic.PressedA())
+            {
                 input.y = 1;
+                PlayAudio("mb_jump", "Effects");
+            }
+                
         }
         else
         {
