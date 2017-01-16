@@ -128,6 +128,9 @@ public class PlayerController : Entity
     private AudioSource[] audioSources;
 
     private Vector3 spawnPos = Vector3.zero;
+    public float[] spawnDirectionAndDistance;
+
+    public bool waiting = false;
 
     [SerializeField]
     public GroundState groundState;
@@ -189,9 +192,13 @@ public class PlayerController : Entity
         {
             if (ic.LeftHorizontal() != 0)
             {
-                input.x = ic.LeftHorizontal();
-                if (input.x > -0.3f && input.x < 0.3f)
-                    input.x = 0;
+                if(!waiting)
+                {
+                    input.x = ic.LeftHorizontal();
+                    if (input.x > -0.3f && input.x < 0.3f)
+                        input.x = 0;
+                }
+                
                 if(input.x != 0)
                 {
                     if (groundState.isGround())
@@ -210,11 +217,14 @@ public class PlayerController : Entity
             }
             else
             {
-                input.x = 0;
-                anim.SetBool("Running", false);
+                if(!waiting)
+                {
+                    input.x = 0;
+                    anim.SetBool("Running", false);
+                }
             }
                 
-            if (ic.PressedA())
+            if (ic.PressedA() && !waiting)
             {
                 input.y = 1;
                 PlayAudio("mb_jump", "Effects");
@@ -225,7 +235,11 @@ public class PlayerController : Entity
         {
             if (Input.GetAxis("LeftHorizontal") != 0)
             {
-                input.x = Input.GetAxis("LeftHorizontal");
+                if(!waiting)
+                {
+                    input.x = Input.GetAxis("LeftHorizontal");
+                }
+                
                 if (groundState.isGround())
                 {
                     anim.SetBool("Running", true);
@@ -237,10 +251,11 @@ public class PlayerController : Entity
             }
             else
             {
-                anim.SetBool("Running", false);
+                if(!waiting)
+                    anim.SetBool("Running", false);
             }
 
-            if ( Input.GetButtonDown("Jump"))
+            if ( Input.GetButtonDown("Jump") && !waiting)
             {
                 input.y = 1;
                 PlayAudio("mb_jump", "Effects");
@@ -372,6 +387,7 @@ public class PlayerController : Entity
             transform.position = spawnPos;
             em.clonesRemaining--;
             em.ui.UpdateCloneNumber(em.clonesRemaining);
+            StartCoroutine(MoveOnSpawn());
         }
         else
         {
@@ -409,5 +425,45 @@ public class PlayerController : Entity
         if (carriedCharge > maxCharge)
             carriedCharge = maxCharge;
         em.ui.UpdatePlayerCharge(cloneNumber, carriedCharge);
+    }
+
+    IEnumerator MoveOnSpawn()
+    {
+        waiting = true;
+        bool finishedTraveling = false;
+        while(!finishedTraveling)
+        {
+            if (spawnDirectionAndDistance[cloneNumber] > 0)
+            {
+                input.x = 1;
+                if (transform.position.x >= (spawnPos.x + spawnDirectionAndDistance[cloneNumber]))
+                {
+                    finishedTraveling = true;
+                }
+            }    
+            else if (spawnDirectionAndDistance[cloneNumber] < 0)
+            {
+                input.x = -1;
+                if (transform.position.x <= (spawnPos.x + spawnDirectionAndDistance[cloneNumber]))
+                {
+                    finishedTraveling = true;
+                }
+            } 
+            else
+            {
+                Debug.Log("Check SpawnDirectionAndDistance for clone" + cloneNumber);
+            }
+            yield return finishedTraveling;
+        }
+        
+        input.x = 0;
+        waiting = false;
+    }
+
+    IEnumerator Wait(float timeToWait)
+    {
+        waiting = true;
+        yield return new WaitForSeconds(timeToWait);
+        waiting = false;
     }
 }

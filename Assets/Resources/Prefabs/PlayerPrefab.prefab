@@ -1390,6 +1390,10 @@ MonoBehaviour:
   capture_speed: 0.1
   em: {fileID: 0}
   audioPool: {fileID: 4000011434563294}
+  spawnDirectionAndDistance:
+  - 5
+  - 5
+  - -5
   groundState:
     player: {fileID: 0}
     width: 0
