@@ -317,7 +317,7 @@ MonoBehaviour:
   entityContainer: {fileID: 4000012094598694}
   spawnPointsList: {fileID: 451576}
   bossSpawnPoint: {fileID: 430776}
-  playerPrefab: {fileID: 1000010264137612, guid: 2e5937808de224f428fe0b28382f20bc,
+  playerPrefab: {fileID: 1000010264137612, guid: ec1b7118a05f2b54195cc886ad2c4e23,
     type: 2}
   bossPrefabs:
   - {fileID: 1000013201930778, guid: e68c3cd3970462c48947bcfc26cf1a16, type: 2}

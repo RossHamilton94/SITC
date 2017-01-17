@@ -201,13 +201,20 @@ public class PlayerController : Entity
                 
                 if(input.x != 0)
                 {
-                    if (groundState.isGround())
+                    if(!waiting)
                     {
-                        anim.SetBool("Running", true);
+                        if (groundState.isGround())
+                        {
+                            anim.SetBool("Running", true);
+                        }
+                        else
+                        {
+                            anim.SetBool("Running", false);
+                        }
                     }
                     else
                     {
-                        anim.SetBool("Running", false);
+                        anim.SetBool("Running", true);
                     }
                 }
                 else
@@ -246,7 +253,8 @@ public class PlayerController : Entity
                 }
                 else
                 {
-                    anim.SetBool("Running", false);
+                    if (!waiting)
+                        anim.SetBool("Running", false);
                 }
             }
             else
@@ -431,8 +439,10 @@ public class PlayerController : Entity
     {
         waiting = true;
         bool finishedTraveling = false;
-        while(!finishedTraveling)
+        anim.SetBool("Running", true);
+        while (!finishedTraveling)
         {
+            
             if (spawnDirectionAndDistance[cloneNumber] > 0)
             {
                 input.x = 1;
