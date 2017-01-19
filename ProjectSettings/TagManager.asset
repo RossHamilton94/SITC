@@ -12,6 +12,7 @@ TagManager:
   - ObjectiveSystem
   - Battery
   - Bridge
+  - MenuController
   layers:
   - Default
   - TransparentFX

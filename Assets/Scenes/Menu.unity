@@ -1612,7 +1612,7 @@ GameObject:
   - 114: {fileID: 526129312}
   m_Layer: 0
   m_Name: CanvasHolder
-  m_TagString: Untagged
+  m_TagString: MenuController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1683,6 +1683,7 @@ MonoBehaviour:
   - {fileID: 1406648391}
   currentNoOfPlayers: 0
   currentlyTheBoss: 4
+  currentKeyboardPlayer: 4
   cloneNoText: {fileID: 1349050794}
   minNoOfPlayers: 2
 --- !u!1 &566835015
@@ -1701,7 +1702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &566835016
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4288,6 +4289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commandPanel: {fileID: 566835015}
+  mc: {fileID: 0}
   commandInput: {fileID: 939809628}
   previousCommands: {fileID: 1850317964}
 --- !u!1 &1470132957
@@ -5153,10 +5155,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 40
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 4
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -5164,25 +5166,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Command 1
+  m_Text: 'time (stop/start)
 
-    Command 2
+    player charge (0/1)
 
-    Command 3
+    start-(NoOfPlayers(1-4))-(Boss(0-3))-(Keyboard(0-3))-(LevelIndex)
 
-    Command 4
-
-    Command 5
-
-    Command 6
-
-    Command 7
-
-    Command 8
-
-    Command 9
-
-    Command 10'
+'
 --- !u!222 &1751218685
 CanvasRenderer:
   m_ObjectHideFlags: 0
