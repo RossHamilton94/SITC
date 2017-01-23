@@ -41,8 +41,9 @@ public class BossController : MonoBehaviour
     float attackTime = 1.0f;
     public float baseHealth = 100.0f;
     public float currentHealth = 100.0f;
-    
-    
+
+    //Raycast Specific Variables
+    RaycastHit rayhit;
 
     //Octopus Specific Variables
     bool leftObjHeld = false;
@@ -200,6 +201,11 @@ public class BossController : MonoBehaviour
             leftStickActive = false;
             leftArmRB.isKinematic = false;
             leftArmRB.AddForce(new Vector3(0, -0.002f, 0));
+            Physics.Raycast(new Ray(leftArmMovePoint.position, Vector3.down), out rayhit);
+            if (rayhit.collider.tag == "Wall")
+            {
+                GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = rayhit.point;
+            }
             leftCollider.isActive = true;
         }
         else
@@ -207,6 +213,11 @@ public class BossController : MonoBehaviour
             rightStickActive = false;
             rightArmRB.isKinematic = false;
             rightArmRB.AddForce(new Vector3(0, -0.002f, 0));
+            Physics.Raycast(new Ray(rightArmMovePoint.position, Vector3.down), out rayhit);
+            if (rayhit.collider.tag == "Wall")
+            {
+                GameObject.CreatePrimitive(PrimitiveType.Cube).transform.position = rayhit.point;
+            }
             rightCollider.isActive = true;
         }
         
