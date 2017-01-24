@@ -13,6 +13,7 @@ public class CommandConsole : MonoBehaviour
 
     public InputField commandInput;
     public Text previousCommands;
+    public string[] commandHistory = new string[10];
     bool active = false;
 
     void Awake()
@@ -22,6 +23,7 @@ public class CommandConsole : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(this);
         }
         else if (instance != this)
         {
@@ -55,6 +57,15 @@ public class CommandConsole : MonoBehaviour
         {
             mc = GameObject.FindGameObjectWithTag("MenuController").GetComponent<MenuController>();
         }
+
+        if (Input.GetKeyDown(KeyCode.F1) && active)
+        {
+            commandInput.text = "start-2-0-0-1";
+        }
+        if (Input.GetKeyDown(KeyCode.F2) && active)
+        {
+            commandInput.text = "start-2-1-0-1";
+        }
     }
 
     public void CheckCommand()
@@ -77,11 +88,13 @@ public class CommandConsole : MonoBehaviour
             {
                 Time.timeScale = 0;
                 previousCommands.text = previousCommands.text + commandToCheck;
+                UpdateCommandHistory(commandToCheck);
             }
             else if (commandToCheck.Contains("start") && !commandToCheck.Contains("stop"))
             {
                 Time.timeScale = 1;
                 previousCommands.text = previousCommands.text + commandToCheck;
+                UpdateCommandHistory(commandToCheck);
             }
             else
             {
@@ -94,11 +107,11 @@ public class CommandConsole : MonoBehaviour
             {
                 if (commandToCheck.Contains("0"))
                 {
-
+                    UpdateCommandHistory(commandToCheck);
                 }
                 else if (commandToCheck.Contains("1"))
                 {
-
+                    UpdateCommandHistory(commandToCheck);
                 }
             }
             
@@ -107,16 +120,19 @@ public class CommandConsole : MonoBehaviour
         {
             if (commandToCheck.Contains("reset"))
             {
+                UpdateCommandHistory(commandToCheck);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
             else if (commandToCheck.Contains("load"))
             {
                 if(commandToCheck.Contains("1"))
                 {
+                    UpdateCommandHistory(commandToCheck);
                     SceneManager.LoadScene("Level_1");
                 }
                 else if(commandToCheck.Contains("menu"))
                 {
+                    UpdateCommandHistory(commandToCheck);
                     SceneManager.LoadScene("Menu");
                 }
             }
@@ -134,15 +150,72 @@ public class CommandConsole : MonoBehaviour
             int.TryParse(splitCommand[2], out bossPlayer);
             int.TryParse(splitCommand[3], out keyboardPlayer);
             int.TryParse(splitCommand[4], out levelToLoad);
-            mc.currentNoOfPlayers = noOfPlayers;
-            mc.currentlyTheBoss = bossPlayer;
-            mc.currentKeyboardPlayer = keyboardPlayer;
-            mc.LoadLevel(levelToLoad);
-            previousCommands.text = previousCommands.text + "Loading level, Please wait.";
+            if(!((noOfPlayers > 4 || noOfPlayers <2) || (bossPlayer > 3 || noOfPlayers < 0) || (keyboardPlayer > 3 || keyboardPlayer < 0) || (levelToLoad > 1 || levelToLoad < 1)))
+            {
+                UpdateCommandHistory(commandToCheck);
+                mc.currentNoOfPlayers = noOfPlayers;
+                mc.currentlyTheBoss = bossPlayer;
+                mc.currentKeyboardPlayer = keyboardPlayer;
+                mc.LoadLevel(levelToLoad);
+                previousCommands.text = previousCommands.text + "Loading level, Please wait.";
+            }
+            else
+            {
+                previousCommands.text = previousCommands.text + "Check number format in: '" + commandToCheck + "'.";
+            }
         }
         else
         {
             previousCommands.text = previousCommands.text + "Did not recognise: '" + commandToCheck + "'.";
+        }
+    }
+
+    void UpdateCommandHistory(string lastCommand)
+    {
+        //Check if command used previously
+        int previousCommandMatch = 10;
+        for (int i = 0; i < commandHistory.Length; i++)
+        {
+            if(commandHistory[i] == lastCommand)
+            {
+                previousCommandMatch = i;
+            }
+        }
+        if(previousCommandMatch < 10)
+        {
+            for (int i = previousCommandMatch; i > 1; i--)
+            {
+                commandHistory[i] = commandHistory[(i - 1)];
+            }
+            commandHistory[0] = lastCommand;
+        }
+        else
+        {
+            int commandHistorySlotFree = 10;
+            for (int i = 0; i < commandHistory.Length; i++)
+            {
+                if(commandHistorySlotFree == 10 && (commandHistory[i] == "" || commandHistory[i] == null))
+                {
+                    commandHistorySlotFree = i;
+                    Debug.Log(i);
+                }
+            }
+            if (commandHistorySlotFree < 10)
+            {
+                for (int i = commandHistorySlotFree; i > 1; i--)
+                {
+                    commandHistory[i] = commandHistory[(i - 1)];
+                }
+                commandHistory[0] = lastCommand;
+            }
+            else
+            {
+                for (int i = commandHistory.Length; i > 1; i--)
+                {
+                    commandHistory[i] = commandHistory[(i - 1)];
+                }
+                commandHistory[0] = lastCommand;
+            }
         }
     }
 }
