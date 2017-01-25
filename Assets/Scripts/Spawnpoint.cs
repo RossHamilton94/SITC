@@ -5,28 +5,38 @@ public class Spawnpoint : MonoBehaviour
 {
     public float debugSize = 2.0f;
     public bool showDirection = false;
-    public enum Shape
+    public Color drawColor = Color.green;
+    public Color selectionColor = Color.red;
+    public enum Shape 
     {
         BOX,
         SPHERE
     }
     public Shape shape;
+    public Transform connection = null;
 
     // Use this for initialization
-    void Start()
+    void Start() 
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
 
     }
 
     public void OnDrawGizmos()
     {
-        Gizmos.color = Color.green;
+        if (UnityEditor.Selection.Contains(gameObject))
+        {
+            Gizmos.color = selectionColor; 
+        }
+        else
+        {
+            Gizmos.color = drawColor;
+        }
 
         switch (shape)
         {
@@ -44,6 +54,11 @@ public class Spawnpoint : MonoBehaviour
         {
             Vector3 direction = transform.TransformDirection(Vector3.forward) * 5;
             Gizmos.DrawRay(transform.position, direction);
+        }
+
+        if (connection != null)
+        {
+            Gizmos.DrawLine(transform.position, connection.position);
         }
     }
 }
