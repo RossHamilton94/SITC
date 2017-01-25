@@ -6,8 +6,9 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance = null;      // Singleton to help access global vars from other scripts
-    public EntityManager em;                        // Drag the script from the same object onto here
-    public AudioManager am;
+    public EntityManager em;                        // Drag the entity manager from the same object here
+    public AudioManager am;                         // Drag the audio manager from the same object here
+    public CutsceneManager cm;                         // Drag the cutscene manager from the same object here
     public int playerCount = 1;                    // How many players are gonna be playing this game?
 
     // State flags help pin down what went wrong in what stage for easier debugging
@@ -82,6 +83,9 @@ public class GameManager : MonoBehaviour
 
         // Spawn players
         em.SpawnPlayers(PlayerPrefs.GetInt("NoOfPlayers"));
+
+        // Play the intro cutscene
+        cm.Play(SceneManager.GetActiveScene().buildIndex);
 
         // Spawn boss
         // em.SpawnBoss();
