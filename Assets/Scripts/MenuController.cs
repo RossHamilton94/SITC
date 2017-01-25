@@ -38,7 +38,7 @@ public class MenuController : MonoBehaviour
     public int currentlyTheBoss = 4;
     private int currentNumberOfClones = 0;
     bool keyboardJoined = false;
-    int currentKeyboardPlayer = 4;
+    public int currentKeyboardPlayer = 4;
 
     public Text cloneNoText;
 

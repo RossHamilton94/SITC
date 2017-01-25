@@ -1089,6 +1089,106 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 316748827}
+--- !u!1001 &321415778
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224000013892643312, guid: fdb145d583d3eaf468a13ee797a5383c,
+        type: 2}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: fdb145d583d3eaf468a13ee797a5383c, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &359798966
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,7 +1712,7 @@ GameObject:
   - 114: {fileID: 526129312}
   m_Layer: 0
   m_Name: CanvasHolder
-  m_TagString: Untagged
+  m_TagString: MenuController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1683,6 +1783,7 @@ MonoBehaviour:
   - {fileID: 1406648391}
   currentNoOfPlayers: 0
   currentlyTheBoss: 4
+  currentKeyboardPlayer: 4
   cloneNoText: {fileID: 1349050794}
   minNoOfPlayers: 2
 --- !u!1 &617083886

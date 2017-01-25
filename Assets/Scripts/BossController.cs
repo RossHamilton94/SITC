@@ -41,8 +41,9 @@ public class BossController : MonoBehaviour
     float attackTime = 1.0f;
     public float baseHealth = 100.0f;
     public float currentHealth = 100.0f;
-    
-    
+
+    //Raycast Specific Variables
+    RaycastHit rayhit;
 
     //Octopus Specific Variables
     bool leftObjHeld = false;
@@ -58,6 +59,8 @@ public class BossController : MonoBehaviour
     [SerializeField]
     List<Transform> rightTenticleObjects = new List<Transform>();
 
+    GameObject leftReticule = null;
+    GameObject rightReticule = null;
 
     void Start()
     {
@@ -89,7 +92,7 @@ public class BossController : MonoBehaviour
                 {
                     //OctopusSpecificInput();
                     break;
-                }    
+                }
         }
 
         if (Input.GetKeyDown(KeyCode.F8))
@@ -105,12 +108,21 @@ public class BossController : MonoBehaviour
 
     void FixedUpdate()
     {
+        #region Update tracking
+
+        CalculateReticule(leftArmMovePoint.position, 0);
+        CalculateReticule(rightArmMovePoint.position, 1);
+
+        #endregion
+
+        #region Movement Code
+
         if (leftStickActive)
             leftArmMovePoint.transform.Translate(new Vector3(leftStick.x * armSpeed * Time.deltaTime, leftStick.y * armSpeed * Time.deltaTime, 0f), Space.World);
         if (rightStickActive)
             rightArmMovePoint.transform.Translate(new Vector3(rightStick.x * armSpeed * Time.deltaTime, rightStick.y * armSpeed * Time.deltaTime, 0f), Space.World);
 
-        if(leftArmMovePoint.transform.position.y < 0)
+        if (leftArmMovePoint.transform.position.y < 0)
         {
             Vector3 tempPos = leftArmMovePoint.transform.position;
             tempPos.y = 0;
@@ -135,8 +147,11 @@ public class BossController : MonoBehaviour
             rightArmMovePoint.transform.position = tempPos;
         }
 
+        #endregion
 
-        //X Limitations
+        #region Limitations
+
+        // X Limitations
         if (leftArmMovePoint.transform.position.x < 10)
         {
             Vector3 tempPos = leftArmMovePoint.transform.position;
@@ -162,13 +177,13 @@ public class BossController : MonoBehaviour
             rightArmMovePoint.transform.position = tempPos;
         }
 
+        #endregion
+
         //Set up for boss specific FixedUpdate
         switch (bossType)
         {
             case BossType.OCTOPUS:
                 {
-
-
                     break;
                 }
         }
@@ -195,7 +210,7 @@ public class BossController : MonoBehaviour
 
     IEnumerator SlamAttack(bool attackWithLeft)
     {
-        if(attackWithLeft)
+        if (attackWithLeft)
         {
             leftStickActive = false;
             leftArmRB.isKinematic = false;
@@ -209,19 +224,19 @@ public class BossController : MonoBehaviour
             rightArmRB.AddForce(new Vector3(0, -0.002f, 0));
             rightCollider.isActive = true;
         }
-        
+
         // Wait for the attack to smash
         yield return new WaitForSeconds(attackTime);
-        
+
         if (attackWithLeft)
             leftCollider.isActive = false;
         else
             rightCollider.isActive = false;
-            
+
         // Give the player back control of the arm when the cooldown expires
         yield return new WaitForSeconds(attackCooldownLength - attackTime);
 
-        if(attackWithLeft)
+        if (attackWithLeft)
         {
             leftArmRB.isKinematic = true;
             leftStickActive = true;
@@ -230,6 +245,50 @@ public class BossController : MonoBehaviour
         {
             rightArmRB.isKinematic = true;
             rightStickActive = true;
+        }
+    }
+
+    void CalculateReticule(Vector3 armPosition, int tentacleid)
+    {
+        Physics.Raycast(new Ray(armPosition, Vector3.down), out rayhit);
+
+        if (rayhit.collider != null)
+        {
+            if (rayhit.collider.tag == "Wall")
+            {
+                if (leftReticule == null || rightReticule == null)
+                {
+                    switch (tentacleid)
+                    {
+                        case 0:
+                            leftReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                            leftReticule.transform.position = rayhit.point;
+                            break;
+                        case 1:
+                            rightReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                            rightReticule.transform.position = rayhit.point;
+                            break;
+                        default:
+                            Debug.Log("Created tentacle with id: " + tentacleid);
+                            break;
+                    }
+                }
+                else
+                {
+                    switch (tentacleid)
+                    {
+                        case 0:
+                            leftReticule.transform.position = rayhit.point;
+                            break;
+                        case 1:
+                            rightReticule.transform.position = rayhit.point;
+                            break;
+                        default:
+                            Debug.Log("Tracking tentacle...");
+                            break;
+                    }
+                }
+            }
         }
     }
 
@@ -242,8 +301,8 @@ public class BossController : MonoBehaviour
                 leftStick = new Vector2(iC.LeftHorizontal(), iC.LeftVertical());
 
                 if (iC.LeftTrigger() > 0)
-                    StartCoroutine(SlamAttack(true));   
-            }   
+                    StartCoroutine(SlamAttack(true));
+            }
             else
             {
                 leftStick = new Vector2(Input.GetAxis("LeftHorizontal"), Input.GetAxis("LeftVertical"));
@@ -251,30 +310,30 @@ public class BossController : MonoBehaviour
                 if (Input.GetButtonDown("LeftSlam"))
                     StartCoroutine(SlamAttack(true));
             }
-        }   
+        }
         if (rightStickActive)
         {
-            if(!usingKeyboard)
+            if (!usingKeyboard)
             {
                 rightStick = new Vector2(iC.RightHorizontal(), iC.RightVertical());
 
                 if (iC.RightTrigger() > 0)
-                    StartCoroutine(SlamAttack(false));   
-            } 
+                    StartCoroutine(SlamAttack(false));
+            }
             else
             {
                 rightStick = new Vector2(Input.GetAxis("RightHorizontal"), Input.GetAxis("RightVertical"));
 
                 if (Input.GetButtonDown("RightSlam"))
                     StartCoroutine(SlamAttack(false));
-            }    
-        }  
+            }
+        }
     }
-    
+
     #region Octopus Methods
     void OctopusSpecificInput()
     {
-        if(!usingKeyboard)
+        if (!usingKeyboard)
         {
             if (iC.PressedLeftShoulder() && leftStickActive)
             {
