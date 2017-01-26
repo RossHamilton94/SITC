@@ -52,7 +52,7 @@ public class SceneTransition : MonoBehaviour
 
     internal void Play()
     {
-        int index = 1;
+        int index = 0;
         StartCoroutine(MoveOverSeconds(GameObject.FindGameObjectWithTag("Boss").transform, waypoints[index].waypoint.position, waypoints[index].timer, index));
     }
 }
