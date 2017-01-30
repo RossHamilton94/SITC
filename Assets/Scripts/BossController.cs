@@ -71,6 +71,9 @@ public class BossController : MonoBehaviour
         leftArmRB = leftArmMovePoint.GetComponent<Rigidbody>();
         rightArmRB = rightArmMovePoint.GetComponent<Rigidbody>();
         entities = transform.parent.transform;
+        //Instantiation of gameobjects in start to prevent overhead.
+        leftReticule = GameObject.Find("LeftReticle");
+        rightReticule = GameObject.Find("RightReticle");
         switch (bossType)
         {
             case BossType.OCTOPUS:
@@ -251,6 +254,8 @@ public class BossController : MonoBehaviour
     void CalculateReticule(Vector3 armPosition, int tentacleid)
     {
         Physics.Raycast(new Ray(armPosition, Vector3.down), out rayhit);
+        //Convert World Position of hit to screen point to achieve accurate representation of reticle.
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(rayhit.point);
 
         if (rayhit.collider != null)
         {
@@ -261,12 +266,10 @@ public class BossController : MonoBehaviour
                     switch (tentacleid)
                     {
                         case 0:
-                            leftReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                            leftReticule.transform.position = rayhit.point;
+                            leftReticule.transform.position = screenPos;
                             break;
                         case 1:
-                            rightReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                            rightReticule.transform.position = rayhit.point;
+                            rightReticule.transform.position = screenPos;
                             break;
                         default:
                             Debug.Log("Created tentacle with id: " + tentacleid);
@@ -278,10 +281,12 @@ public class BossController : MonoBehaviour
                     switch (tentacleid)
                     {
                         case 0:
-                            leftReticule.transform.position = rayhit.point;
+                            leftReticule.transform.rotation = Quaternion.Euler(80.0f, 0.0f, 0.0f);
+                            leftReticule.transform.position = screenPos;
                             break;
                         case 1:
-                            rightReticule.transform.position = rayhit.point;
+                            rightReticule.transform.rotation = Quaternion.Euler(80.0f, 0.0f, 0.0f);
+                            rightReticule.transform.position = screenPos;
                             break;
                         default:
                             Debug.Log("Tracking tentacle...");
@@ -453,5 +458,14 @@ public class BossController : MonoBehaviour
         }
     }
 
+    public Transform GetLeftTentacle()
+    {
+        return leftArmMovePoint;
+    }
+
+    public Transform GetRightTentacle()
+    {
+        return rightArmMovePoint;
+    }
     #endregion
 }
