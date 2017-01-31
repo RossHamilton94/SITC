@@ -1394,6 +1394,7 @@ MonoBehaviour:
   - 5
   - 5
   - -5
+  waiting: 0
   groundState:
     player: {fileID: 0}
     width: 0
