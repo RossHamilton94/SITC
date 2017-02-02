@@ -81,7 +81,7 @@ Material:
       second: 0.2
     - first:
         name: _Brighness
-      second: 0.5
+      second: 0.35
     - first:
         name: _BumpScale
       second: 1
@@ -108,13 +108,13 @@ Material:
       second: 0
     - first:
         name: _MinRoughness
-      second: 0.18
+      second: 0
     - first:
         name: _Mode
       second: 0
     - first:
         name: _NormalIntensity
-      second: 0
+      second: 15
     - first:
         name: _OcclusionStrength
       second: 1
@@ -123,7 +123,7 @@ Material:
       second: 0.02
     - first:
         name: _RoughnessValue
-      second: 0.4
+      second: 0.2
     - first:
         name: _SrcBlend
       second: 1
