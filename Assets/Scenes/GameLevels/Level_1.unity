@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1020193304}
-  m_IndirectSpecularColor: {r: 0.097433925, g: 0.14111276, b: 0.20834394, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -58968,10 +58968,14 @@ MonoBehaviour:
   entityContainer: {fileID: 1887448708}
   spawnPointsList: {fileID: 1359504417}
   bossSpawnPoint: {fileID: 2003760722}
+  enemyContainer: {fileID: 0}
   playerPrefab: {fileID: 1000010264137612, guid: ec1b7118a05f2b54195cc886ad2c4e23,
     type: 2}
   bossPrefabs:
   - {fileID: 1000013201930778, guid: e68c3cd3970462c48947bcfc26cf1a16, type: 2}
+  enemyPrefab: {fileID: 4000010235122388, guid: 9736c9cbdbd0e424f983634f16b9177b,
+    type: 2}
+  enemyStartHeight: 50
   currentPlayerCount: 0
   clonesRemaining: 0
   players: []

@@ -10,11 +10,15 @@ public class EntityManager : MonoBehaviour
     public Transform entityContainer;
     public Transform spawnPointsList;
     public Transform bossSpawnPoint;
+    public Transform enemyContainer;
     [SerializeField]
     private GameObject playerPrefab;
     [SerializeField]
     private GameObject[] bossPrefabs;
     private int bossIndex = 0;
+
+    public Transform enemyPrefab;
+    public float enemyStartHeight = 50.0f;
 
     public int currentPlayerCount = 0;    // 0 indexed
 
@@ -56,6 +60,8 @@ public class EntityManager : MonoBehaviour
         playerUsingKeyboard = PlayerPrefs.GetInt("KeyboardIndex");
         //if (bossIndex == 4)
         //    bossIndex = 3;
+
+        SpawnEnemy();
     }
 
     Vector3 RandomSpawnPoint()
@@ -109,6 +115,17 @@ public class EntityManager : MonoBehaviour
             
             currentPlayerCount++;
         }
+    }
+
+    public void SpawnEnemy()
+    {
+        //Randomise X
+        float randX = UnityEngine.Random.Range(-6.0f, 74.0f);
+
+        GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
+
+        tempObj.transform.parent = enemyContainer.transform;
+
     }
 
     public void CheckWinState()
