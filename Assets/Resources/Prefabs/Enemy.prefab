@@ -122,10 +122,10 @@ MonoBehaviour:
   lockZrotation: 1
   lockXrotation: 1
   timeBetweenPlayerChecks: 5
-  minDirChangeTime: 2
-  maxDirChangeTime: 5
-  minJumpTime: 2
-  maxJumpTime: 5
+  minDirChangeTime: 0.5
+  maxDirChangeTime: 3
+  minJumpTime: 1
+  maxJumpTime: 4
   moveForce: 40
-  jumpForce: 1200
-  maxSpeed: 5
+  jumpForce: 10
+  speedTarget: 10

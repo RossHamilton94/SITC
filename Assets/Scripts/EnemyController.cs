@@ -31,7 +31,7 @@ public class EnemyController : MonoBehaviour
 
     public float moveForce = 20.0f;
     public float jumpForce = 150.0f;
-    public float maxSpeed = 10.0f;
+    public float speedTarget = 10.0f;
     private Vector3 currentVector;
 
     private bool fallHasBegun = false;
@@ -45,21 +45,14 @@ public class EnemyController : MonoBehaviour
 
         rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
         currentVector = new Vector3();
+
+        moveRight = UnityEngine.Random.value > 0.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
         currentVector = new Vector3();
-
-        if (rb.velocity.x >= maxSpeed)
-        {
-            rb.velocity.Set(maxSpeed - 0.1f, rb.velocity.y, rb.velocity.z);
-        }
-        if (rb.velocity.x <= -maxSpeed)
-        {
-            rb.velocity.Set(-maxSpeed + 0.1f, rb.velocity.y, rb.velocity.z);
-        }
 
         if (playerCheckTimer >= timeBetweenPlayerChecks)
         {
@@ -74,6 +67,17 @@ public class EnemyController : MonoBehaviour
         else
         {
             RandomMove();
+        }
+
+        if (rb.velocity.x >= speedTarget)
+        {
+            currentVector.x = 0;
+            rb.velocity.Set(speedTarget, rb.velocity.y, 0.0f);
+        }
+        if (rb.velocity.x <= -speedTarget)
+        {
+            currentVector.x = 0;
+            rb.velocity.Set(-speedTarget, rb.velocity.y, 0.0f);
         }
 
         playerCheckTimer = playerCheckTimer + Time.deltaTime;
@@ -176,5 +180,11 @@ public class EnemyController : MonoBehaviour
             jumpTimer = 0.0f;
             nextJumpTime = UnityEngine.Random.Range(minJumpTime, maxJumpTime);
         }
+    }
+
+    public void Despawn()
+    {
+        em.enemies.Remove(gameObject);
+        Destroy(gameObject);
     }
 }

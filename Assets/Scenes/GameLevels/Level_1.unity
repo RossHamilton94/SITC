@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1020193304}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.097433925, g: 0.14111276, b: 0.20834394, a: 1}
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -58968,14 +58968,18 @@ MonoBehaviour:
   entityContainer: {fileID: 1887448708}
   spawnPointsList: {fileID: 1359504417}
   bossSpawnPoint: {fileID: 2003760722}
-  enemyContainer: {fileID: 0}
+  enemyContainer: {fileID: 1928968708}
   playerPrefab: {fileID: 1000010264137612, guid: ec1b7118a05f2b54195cc886ad2c4e23,
     type: 2}
   bossPrefabs:
   - {fileID: 1000013201930778, guid: e68c3cd3970462c48947bcfc26cf1a16, type: 2}
   enemyPrefab: {fileID: 4000010235122388, guid: 9736c9cbdbd0e424f983634f16b9177b,
     type: 2}
+  aiSpawnMinX: -20
+  aiSpawnMaxX: 60
   enemyStartHeight: 50
+  numberOfEnemies: 5
+  enemies: []
   currentPlayerCount: 0
   clonesRemaining: 0
   players: []
@@ -76628,6 +76632,7 @@ Transform:
   - {fileID: 1887448708}
   - {fileID: 368684287}
   - {fileID: 700129885}
+  - {fileID: 1928968708}
   m_Father: {fileID: 1306617031}
   m_RootOrder: 1
 --- !u!1 &1648428981
@@ -91064,6 +91069,34 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!1 &1928968707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1928968708}
+  m_Layer: 0
+  m_Name: EnemyHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1928968708
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1928968707}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 1648062337}
+  m_RootOrder: 4
 --- !u!1 &1929448766
 GameObject:
   m_ObjectHideFlags: 0
