@@ -123,7 +123,7 @@ public class EntityManager : MonoBehaviour
                 playersSpawned++;
                 if(!joinedState[i])
                 {
-                    temp_player.gameObject.SetActive(false);
+                    temp_player.GetComponent<PlayerController>().SetPlayerInactive(entityContainer.transform);
                     temp_player.transform.parent = inactiveEntityContainer.transform;
                 }
             }

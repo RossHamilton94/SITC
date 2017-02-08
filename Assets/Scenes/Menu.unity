@@ -1780,6 +1780,7 @@ MonoBehaviour:
   - {fileID: 87958158}
   - {fileID: 1299258513}
   pressStartImage: {fileID: 403625298}
+  joinedState: 00000000
   currentlyTheBossImage:
   - {fileID: 1849172357}
   - {fileID: 1406809881}
