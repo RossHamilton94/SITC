@@ -37,11 +37,12 @@ public class MenuController : MonoBehaviour
     public int currentNoOfPlayers = 0;
 
     public int currentlyTheBoss = 4;
-    private int currentNumberOfClones = 0;
+    private int currentNumberOfClones = 5;
     bool keyboardJoined = false;
     public int currentKeyboardPlayer = 4;
 
     public Text cloneNoText;
+    public Slider clonesSlider;
 
     bool waiting = false;
 
@@ -304,6 +305,7 @@ public class MenuController : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(canvasHolder[currentCanvas]);
                 EventSystem.current.SetSelectedGameObject(defaultButton[currentCanvas]);
             }
+            NumberOfClonesSet();
             SetPlayerPrefs();
         }
     }
@@ -343,14 +345,8 @@ public class MenuController : MonoBehaviour
 
     public void NumberOfClonesSet()
     {
-        if(cloneNoText.text != "")
-        {
-            currentNumberOfClones = int.Parse(cloneNoText.text);
-        }
-        else
-        {
-            currentNumberOfClones = 0;
-        }
+        currentNumberOfClones = (int)clonesSlider.value;
+        cloneNoText.text = "Number of clones: " + currentNumberOfClones;
     }
 
     public void LoadLevel(int levelNumber)
