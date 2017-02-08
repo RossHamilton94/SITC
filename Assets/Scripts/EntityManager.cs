@@ -8,6 +8,7 @@ public class EntityManager : MonoBehaviour
     public UIController ui;
     public Transform bossContainer;
     public Transform entityContainer;
+    public Transform inactiveEntityContainer;
     public Transform spawnPointsList;
     public Transform bossSpawnPoint;
     [SerializeField]
@@ -15,6 +16,8 @@ public class EntityManager : MonoBehaviour
     [SerializeField]
     private GameObject[] bossPrefabs;
     private int bossIndex = 0;
+
+    bool[] joinedState = new bool[4];
 
     public int currentPlayerCount = 0;    // 0 indexed
 
@@ -54,6 +57,15 @@ public class EntityManager : MonoBehaviour
         clonesRemaining = PlayerPrefs.GetInt("InitialClones");
         bossIndex = PlayerPrefs.GetInt("BossIndex");
         playerUsingKeyboard = PlayerPrefs.GetInt("KeyboardIndex");
+
+        for (int j = 0; j < 4; j++)
+        {
+            if (PlayerPrefs.GetInt(("Player" + (j + 1) + "Joined")) == 0)
+                joinedState[j] = false;
+            else
+                joinedState[j] = true;
+        }
+
         //if (bossIndex == 4)
         //    bossIndex = 3;
     }
@@ -68,6 +80,10 @@ public class EntityManager : MonoBehaviour
         if (bossIndex == 4)
         {
             bossIndex = UnityEngine.Random.Range(0, player_count);
+            while(!joinedState[bossIndex])
+            {
+                bossIndex = UnityEngine.Random.Range(0, player_count);
+            }
         }
         int playersSpawned = 0;
         for (int i = 0; i < player_count; i++)
@@ -105,8 +121,12 @@ public class EntityManager : MonoBehaviour
                 temp_player.GetComponent<PlayerController>().cloneNumber = playersSpawned;
                 players.Add(temp_player);
                 playersSpawned++;
+                if(!joinedState[i])
+                {
+                    temp_player.gameObject.SetActive(false);
+                    temp_player.transform.parent = inactiveEntityContainer.transform;
+                }
             }
-            
             currentPlayerCount++;
         }
     }
