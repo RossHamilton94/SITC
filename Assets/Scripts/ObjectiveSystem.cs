@@ -162,7 +162,8 @@ public class ObjectiveSystem : MonoBehaviour
 
     private void OnGUI()
     {
-        if (GUI.Button(new Rect(150, 50, 150, 25), "FIRE THE ROCKETS"))
+        if (GUI.Button(new Rect(150, 50, 
+            200, 25), "LAUNCH THE TORPEDOS"))
             FireRockets(new Vector3(0.0f, 0.0f, 0.0f), 3.0f);
 
     }

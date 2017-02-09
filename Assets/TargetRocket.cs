@@ -39,7 +39,7 @@ public class TargetRocket : MonoBehaviour
     }
 
     void FireRocket(Vector3 targetPosition, float travelTime)
-    { 
+    {
         StartCoroutine(MoveRocket((GameObject)GameObject.Instantiate(rocket, fireLocation.position, Quaternion.identity), travelTime));
     }
 
@@ -51,6 +51,7 @@ public class TargetRocket : MonoBehaviour
             float reciprocalTime = elapsedTime / travelTime;
             g.transform.position =
                 bezierFlightPath.GetComponent<BezierCurve>().GetPointAt(reciprocalTime);
+            g.transform.LookAt(Vector3.up);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
