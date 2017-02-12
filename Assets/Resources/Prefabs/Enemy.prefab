@@ -124,8 +124,10 @@ MonoBehaviour:
   timeBetweenPlayerChecks: 5
   minDirChangeTime: 0.5
   maxDirChangeTime: 3
+  playerSearchRadius: 30
   minJumpTime: 1
-  maxJumpTime: 4
+  maxJumpTime: 3
   moveForce: 40
-  jumpForce: 10
+  jumpForce: 1500
   speedTarget: 10
+  attackRange: 2

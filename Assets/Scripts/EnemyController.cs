@@ -22,7 +22,7 @@ public class EnemyController : MonoBehaviour
     public float maxDirChangeTime = 5.0f;
     private bool moveRight = true;
     private bool playerInRange = false;
-    private float playerSearchRadius = 50;
+    public float playerSearchRadius = 50.0f;
 
     private float jumpTimer = 0.0f;
     private float nextJumpTime = 2.0f;
@@ -36,6 +36,7 @@ public class EnemyController : MonoBehaviour
 
     private bool fallHasBegun = false;
     private bool hasLanded = false;
+    public float attackRange;
 
     // Use this for initialization
     void Start()
@@ -47,6 +48,8 @@ public class EnemyController : MonoBehaviour
         currentVector = new Vector3();
 
         moveRight = UnityEngine.Random.value > 0.5f;
+
+        playerCheckTimer = timeBetweenPlayerChecks;
     }
 
     // Update is called once per frame
@@ -63,6 +66,7 @@ public class EnemyController : MonoBehaviour
         if (playerInRange)
         {
             MoveToPlayer();
+            AttemptAttack();
         }
         else
         {
@@ -85,9 +89,19 @@ public class EnemyController : MonoBehaviour
         jumpTimer = jumpTimer + Time.deltaTime;
     }
 
+    void AttemptAttack()
+    {
+        Vector3 distance = nearestPlayer.transform.position - this.transform.position;
+        if (Mathf.Abs(distance.magnitude) < attackRange)
+        {
+            Destroy(nearestPlayer);
+        }
+    }
+
     void FixedUpdate()
     {
         rb.AddForce(currentVector);
+
     }
 
     private void FindNearestPlayer()
@@ -147,7 +161,12 @@ public class EnemyController : MonoBehaviour
 
         if (playerPos.y > transform.position.y)
         {
-            currentVector.y = jumpForce;
+            if (jumpTimer >= nextJumpTime)
+            {
+                currentVector.y = jumpForce;
+                jumpTimer = 0.0f;
+                nextJumpTime = UnityEngine.Random.Range(minJumpTime, maxJumpTime);
+            }
         }
     }
 
