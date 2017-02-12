@@ -17,17 +17,15 @@ public class EntityManager : MonoBehaviour
     [SerializeField]
     private GameObject[] bossPrefabs;
     private int bossIndex = 0;
-
-<<<<<<< HEAD
+    
     public Transform enemyPrefab;
     public float aiSpawnMinX = -6.0f;
     public float aiSpawnMaxX = 74.0f;
     public float enemyStartHeight = 50.0f;
     public int numberOfEnemies = 3;
     public List<GameObject> enemies;
-=======
+
     bool[] joinedState = new bool[4];
->>>>>>> c45c24a0590c8462914e8db12df4f0570dc70fde
 
     public int currentPlayerCount = 0;    // 0 indexed
 

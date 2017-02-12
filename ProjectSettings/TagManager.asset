@@ -13,11 +13,8 @@ TagManager:
   - Battery
   - Bridge
   - MenuController
-<<<<<<< HEAD
   - Enemy
-=======
   - Ships
->>>>>>> c45c24a0590c8462914e8db12df4f0570dc70fde
   layers:
   - Default
   - TransparentFX
