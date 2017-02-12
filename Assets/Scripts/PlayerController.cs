@@ -144,6 +144,13 @@ public class PlayerController : Entity
     public int cloneNumber;
     public SkinnedMeshRenderer playerMesh;
     public Material[] playerColourMaterials;
+    Transform activeCloneHolder;
+
+    //"Is Active" variables to change
+    bool playerActive = true;
+    public CapsuleCollider playerCollider;
+    public GameObject playerModel;
+    public Rigidbody playerRigidbody;
 
     protected override void OnEnable()
     {
@@ -188,119 +195,134 @@ public class PlayerController : Entity
 
     protected override void Update()
     {
-        if (!usingKeyboard)
+        if(!playerActive)
         {
-            if (ic.LeftHorizontal() != 0)
+            if(ic.PressedStart())
             {
-                if(!waiting)
+                if (em.clonesRemaining > 0)
                 {
-                    input.x = ic.LeftHorizontal();
-                    if (input.x > -0.3f && input.x < 0.3f)
-                        input.x = 0;
+                    SetPlayerActive();
+                    Respawn(false);
                 }
-                
-                if(input.x != 0)
+            }
+        }
+        else
+        {
+            if (!usingKeyboard)
+            {
+                if (ic.LeftHorizontal() != 0)
                 {
-                    if(!waiting)
+                    if (!waiting)
                     {
-                        if (groundState.isGround())
+                        input.x = ic.LeftHorizontal();
+                        if (input.x > -0.3f && input.x < 0.3f)
+                            input.x = 0;
+                    }
+
+                    if (input.x != 0)
+                    {
+                        if (!waiting)
                         {
-                            anim.SetBool("Running", true);
+                            if (groundState.isGround())
+                            {
+                                anim.SetBool("Running", true);
+                            }
+                            else
+                            {
+                                anim.SetBool("Running", false);
+                            }
                         }
                         else
                         {
-                            anim.SetBool("Running", false);
+                            anim.SetBool("Running", true);
                         }
                     }
                     else
                     {
-                        anim.SetBool("Running", true);
+                        anim.SetBool("Running", false);
                     }
                 }
                 else
                 {
-                    anim.SetBool("Running", false);
+                    if (!waiting)
+                    {
+                        input.x = 0;
+                        anim.SetBool("Running", false);
+                    }
                 }
+
+                if (ic.PressedA() && !waiting)
+                {
+                    input.y = 1;
+                    PlayAudio("mb_jump", "Effects");
+                }
+
             }
             else
             {
-                if(!waiting)
+                if (Input.GetAxis("LeftHorizontal") != 0)
                 {
-                    input.x = 0;
-                    anim.SetBool("Running", false);
-                }
-            }
-                
-            if (ic.PressedA() && !waiting)
-            {
-                input.y = 1;
-                PlayAudio("mb_jump", "Effects");
-            }
-                
-        }
-        else
-        {
-            if (Input.GetAxis("LeftHorizontal") != 0)
-            {
-                if(!waiting)
-                {
-                    input.x = Input.GetAxis("LeftHorizontal");
-                }
-                
-                if (groundState.isGround())
-                {
-                    anim.SetBool("Running", true);
+                    if (!waiting)
+                    {
+                        input.x = Input.GetAxis("LeftHorizontal");
+                    }
+
+                    if (groundState.isGround())
+                    {
+                        anim.SetBool("Running", true);
+                    }
+                    else
+                    {
+                        if (!waiting)
+                            anim.SetBool("Running", false);
+                    }
                 }
                 else
                 {
                     if (!waiting)
                         anim.SetBool("Running", false);
                 }
+
+                if (Input.GetButtonDown("Jump") && !waiting)
+                {
+                    input.y = 1;
+                    PlayAudio("mb_jump", "Effects");
+                }
             }
-            else
+
+            if (GameManager.instance.state == GameManager.GameState.GAMEOVER && (ic.PressedStart() || Input.GetKeyDown(KeyCode.Return)))
             {
-                if(!waiting)
-                    anim.SetBool("Running", false);
+                SceneManager.LoadScene(0);
             }
 
-            if ( Input.GetButtonDown("Jump") && !waiting)
-            {
-                input.y = 1;
-                PlayAudio("mb_jump", "Effects");
-            }
+            //if (ic.RightTrigger() > 0)
+            //{
+            //    if (energy - energy_cost >= 0)
+            //    {
+            //        StartCoroutine(AttributeTimer(4.0f));
+            //        energy -= energy_cost;
+            //    }
+            //    else
+            //    {
+            //        Debug.Log("The player is exhausted, you cannot use them until you regain some energy");
+            //    }
+            //}
+            //if (Input.GetKeyUp(KeyCode.LeftShift) || ic.RightTrigger() == 0)
+            //if (ic.RightTrigger() == 0)
+            //{
+            //    StopCoroutine("AttributeTimer");
+            //    mod_factor = 1.0f;
+            //}
+
+            //if (transform.position.y < -10.0f)
+            //    Respawn();
+
+            base.Update();
+
+            // Reverse player if going different direction
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
         }
-
-        if(GameManager.instance.state == GameManager.GameState.GAMEOVER && (ic.PressedStart() || Input.GetKeyDown(KeyCode.Return)))
-        {
-            SceneManager.LoadScene(0);
-        }
-
-        //if (ic.RightTrigger() > 0)
-        //{
-        //    if (energy - energy_cost >= 0)
-        //    {
-        //        StartCoroutine(AttributeTimer(4.0f));
-        //        energy -= energy_cost;
-        //    }
-        //    else
-        //    {
-        //        Debug.Log("The player is exhausted, you cannot use them until you regain some energy");
-        //    }
-        //}
-        //if (Input.GetKeyUp(KeyCode.LeftShift) || ic.RightTrigger() == 0)
-        //if (ic.RightTrigger() == 0)
-        //{
-        //    StopCoroutine("AttributeTimer");
-        //    mod_factor = 1.0f;
-        //}
-
-        //if (transform.position.y < -10.0f)
-        //    Respawn();
-
-        base.Update();
-
-        // Reverse player if going different direction
-        transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
+        
     }
 
     IEnumerator AttributeTimer(float time)
@@ -468,6 +490,24 @@ public class PlayerController : Entity
         
         input.x = 0;
         waiting = false;
+    }
+
+    public void SetPlayerActive()
+    {
+        playerCollider.enabled = true;
+        playerModel.SetActive(true);
+        playerRigidbody.isKinematic = false;
+        playerActive = true;
+        transform.SetParent(activeCloneHolder);
+    }
+
+    public void SetPlayerInactive(Transform activeCloneHolderTransform)
+    {
+        playerCollider.enabled = false;
+        playerModel.SetActive(false);
+        playerRigidbody.isKinematic = true;
+        playerActive = false;
+        activeCloneHolder = activeCloneHolderTransform;
     }
 
     IEnumerator Wait(float timeToWait)

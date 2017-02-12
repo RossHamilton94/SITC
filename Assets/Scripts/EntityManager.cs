@@ -8,6 +8,7 @@ public class EntityManager : MonoBehaviour
     public UIController ui;
     public Transform bossContainer;
     public Transform entityContainer;
+    public Transform inactiveEntityContainer;
     public Transform spawnPointsList;
     public Transform bossSpawnPoint;
     public Transform enemyContainer;
@@ -17,12 +18,16 @@ public class EntityManager : MonoBehaviour
     private GameObject[] bossPrefabs;
     private int bossIndex = 0;
 
+<<<<<<< HEAD
     public Transform enemyPrefab;
     public float aiSpawnMinX = -6.0f;
     public float aiSpawnMaxX = 74.0f;
     public float enemyStartHeight = 50.0f;
     public int numberOfEnemies = 3;
     public List<GameObject> enemies;
+=======
+    bool[] joinedState = new bool[4];
+>>>>>>> c45c24a0590c8462914e8db12df4f0570dc70fde
 
     public int currentPlayerCount = 0;    // 0 indexed
 
@@ -62,6 +67,15 @@ public class EntityManager : MonoBehaviour
         clonesRemaining = PlayerPrefs.GetInt("InitialClones");
         bossIndex = PlayerPrefs.GetInt("BossIndex");
         playerUsingKeyboard = PlayerPrefs.GetInt("KeyboardIndex");
+
+        for (int j = 0; j < 4; j++)
+        {
+            if (PlayerPrefs.GetInt(("Player" + (j + 1) + "Joined")) == 0)
+                joinedState[j] = false;
+            else
+                joinedState[j] = true;
+        }
+
         //if (bossIndex == 4)
         //    bossIndex = 3;
     }
@@ -76,6 +90,10 @@ public class EntityManager : MonoBehaviour
         if (bossIndex == 4)
         {
             bossIndex = UnityEngine.Random.Range(0, player_count);
+            while(!joinedState[bossIndex])
+            {
+                bossIndex = UnityEngine.Random.Range(0, player_count);
+            }
         }
         int playersSpawned = 0;
         for (int i = 0; i < player_count; i++)
@@ -113,8 +131,12 @@ public class EntityManager : MonoBehaviour
                 temp_player.GetComponent<PlayerController>().cloneNumber = playersSpawned;
                 players.Add(temp_player);
                 playersSpawned++;
+                if(!joinedState[i])
+                {
+                    temp_player.GetComponent<PlayerController>().SetPlayerInactive(entityContainer.transform);
+                    temp_player.transform.parent = inactiveEntityContainer.transform;
+                }
             }
-            
             currentPlayerCount++;
         }
     }

@@ -1410,6 +1410,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 9e09dd480171f9b47a473a15da8614b4, type: 2}
   - {fileID: 2100000, guid: 75494b63d8d5ee84892a096604e8dd60, type: 2}
   - {fileID: 2100000, guid: 9c3cd315bcbe1c64493426ae6c2bdf1e, type: 2}
+  playerCollider: {fileID: 136000013652405284}
+  playerModel: {fileID: 1000010054779568}
+  playerRigidbody: {fileID: 54000013975446366}
   input: {x: 0, y: 0}
 --- !u!114 &114000012786678688
 MonoBehaviour:

@@ -30,6 +30,9 @@ public class ObjectiveSystem : MonoBehaviour
     private BossController boss;
     public Transform firelocation;
 
+    public delegate void RocketAction(Vector3 target, float delay);
+    public static event RocketAction OnFire;
+
     void Start()
     {
         //Debug.Log("TurretSystem started");
@@ -73,10 +76,10 @@ public class ObjectiveSystem : MonoBehaviour
         //Debug.Log("TurretSystem spawning");
 
         for (int i = 0; i < objectiveSpawns.Length; i++)
-        { 
+        {
 
-        // foreach (Vector3 spawnPoint in objectiveSpawns)
-        // {
+            // foreach (Vector3 spawnPoint in objectiveSpawns)
+            // {
             GameObject tempObj = Instantiate(objectivePrefab.gameObject, objectiveSpawns[i].position, objectiveSpawns[i].rotation) as GameObject;
 
             objectives.Add(tempObj);
@@ -138,13 +141,36 @@ public class ObjectiveSystem : MonoBehaviour
 
             chargedObjs.Clear();
 
-            boss.Damage(damagePerCharge);
-            
+            // Fire rockets
+            FireRockets(boss.transform.FindChild("Pupil").position, 3.0f);
+
+            Invoke("DamageBoss", 2.0f);
+            // boss.Damage(damagePerCharge);
         }
 
         timeSinceLastBattery = timeSinceLastBattery + Time.deltaTime;
 
         SpawnBatteries();
+    }
+
+    // Emit the fire rockets event to be picked up by the TargetRocket script
+    void FireRockets(Vector3 target, float travelTime)
+    {
+        if (OnFire != null)
+            OnFire(target, travelTime);
+    }
+
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(150, 50, 
+            200, 25), "LAUNCH THE TORPEDOS"))
+            FireRockets(new Vector3(0.0f, 0.0f, 0.0f), 3.0f);
+
+    }
+
+    void DamageBoss()
+    {
+        boss.Damage(damagePerCharge);
     }
 
     public void RegisterChargedObj(Objective chargedObj)

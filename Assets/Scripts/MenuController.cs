@@ -30,17 +30,19 @@ public class MenuController : MonoBehaviour
     public GameObject[] player3JoinedState;
     public GameObject[] player4JoinedState;
     public GameObject pressStartImage;
+    public bool[] joinedState = new bool[4];
 
     public GameObject[] currentlyTheBossImage;
 
     public int currentNoOfPlayers = 0;
 
     public int currentlyTheBoss = 4;
-    private int currentNumberOfClones = 0;
+    private int currentNumberOfClones = 5;
     bool keyboardJoined = false;
     public int currentKeyboardPlayer = 4;
 
     public Text cloneNoText;
+    public Slider clonesSlider;
 
     bool waiting = false;
 
@@ -278,6 +280,15 @@ public class MenuController : MonoBehaviour
             pressStartImage.SetActive(true);
         else
             pressStartImage.SetActive(false);
+
+        if(newState == 0)
+        {
+            joinedState[playerNo] = false;
+        }
+        else
+        {
+            joinedState[playerNo] = true;
+        }
     }
 
     public void SwitchCanvas(int canvasToSwitchTo)
@@ -294,6 +305,7 @@ public class MenuController : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(canvasHolder[currentCanvas]);
                 EventSystem.current.SetSelectedGameObject(defaultButton[currentCanvas]);
             }
+            NumberOfClonesSet();
             SetPlayerPrefs();
         }
     }
@@ -320,19 +332,21 @@ public class MenuController : MonoBehaviour
         PlayerPrefs.SetInt("BossIndex", currentlyTheBoss);
         PlayerPrefs.SetInt("InitialClones", currentNumberOfClones);
         PlayerPrefs.SetInt("KeyboardIndex", currentKeyboardPlayer);
-        PlayerPrefs.SetInt("NoOfPlayers", currentNoOfPlayers);
+        //PlayerPrefs.SetInt("NoOfPlayers", currentNoOfPlayers);
+        PlayerPrefs.SetInt("NoOfPlayers", 4);
+        for (int i = 0; i < 4; i++)
+        {
+            if(joinedState[i])
+                PlayerPrefs.SetInt(("Player" + (i + 1) + "Joined"), 1);
+            else
+                PlayerPrefs.SetInt(("Player" + (i + 1) + "Joined"), 0);
+        }
     }
 
     public void NumberOfClonesSet()
     {
-        if(cloneNoText.text != "")
-        {
-            currentNumberOfClones = int.Parse(cloneNoText.text);
-        }
-        else
-        {
-            currentNumberOfClones = 0;
-        }
+        currentNumberOfClones = (int)clonesSlider.value;
+        cloneNoText.text = "Number of clones: " + currentNumberOfClones;
     }
 
     public void LoadLevel(int levelNumber)

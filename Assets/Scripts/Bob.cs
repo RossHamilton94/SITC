@@ -29,6 +29,7 @@ public class Bob : MonoBehaviour
     {
         if (!startOffset)
         {
+            // Debug.Log("I am bobbing " + this.transform.name);
             transform.position = new Vector3(transform.position.x,
                 originalY + ((float)Mathf.Sin(Time.time) * floatStrength),
                 transform.position.z);

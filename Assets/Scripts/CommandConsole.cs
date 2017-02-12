@@ -156,6 +156,10 @@ public class CommandConsole : MonoBehaviour
                 mc.currentNoOfPlayers = noOfPlayers;
                 mc.currentlyTheBoss = bossPlayer;
                 mc.currentKeyboardPlayer = keyboardPlayer;
+                for (int i = 0; i < noOfPlayers; i++)
+                {
+                    mc.joinedState[i] = true;
+                }
                 mc.LoadLevel(levelToLoad);
                 previousCommands.text = previousCommands.text + "Loading level, Please wait.";
             }
