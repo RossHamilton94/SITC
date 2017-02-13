@@ -14,8 +14,11 @@ public class TransformOverTime
 
 public class SceneTransition : MonoBehaviour
 {
+<<<<<<< HEAD
     private GameObject objectToMove;
     public string tagToSearchFor;
+=======
+>>>>>>> ad8626c0fd88fb5133a7074d495423c33fcf42fe
     public TransformOverTime[] waypoints;
 
     // Use this for initialization
@@ -54,7 +57,12 @@ public class SceneTransition : MonoBehaviour
 
     internal void Play()
     {
+<<<<<<< HEAD
         objectToMove = GameObject.FindGameObjectWithTag(tagToSearchFor);
         StartCoroutine(MoveOverSeconds(objectToMove.transform, waypoints[0].waypoint.position, waypoints[0].timer, 0));
+=======
+        int index = 0;
+        StartCoroutine(MoveOverSeconds(GameObject.FindGameObjectWithTag("Boss").transform, waypoints[index].waypoint.position, waypoints[index].timer, index));
+>>>>>>> ad8626c0fd88fb5133a7074d495423c33fcf42fe
     }
 }
