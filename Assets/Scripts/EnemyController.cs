@@ -112,6 +112,7 @@ public class EnemyController : MonoBehaviour
 
         foreach (GameObject player in em.players)
         {
+ 
             Vector3 diff = player.transform.position - transform.position;
             float dist = diff.magnitude;
 
@@ -119,7 +120,7 @@ public class EnemyController : MonoBehaviour
             {
                 lastSmallestDist = dist;
                 nearestPlayer = player;
-                playerFound = true;
+                playerFound = true; 
             }
         }
 

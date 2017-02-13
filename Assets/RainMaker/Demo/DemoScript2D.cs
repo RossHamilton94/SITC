@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+ ﻿using UnityEngine;
 using System.Collections;
 
 namespace DigitalRuby.RainMaker
@@ -37,5 +37,5 @@ namespace DigitalRuby.RainMaker
         {
             RainScript.CollisionMask = (val ? -1 : 0);
         }
-    }
+    } 
 }

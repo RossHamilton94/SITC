@@ -200,5 +200,5 @@ namespace DigitalRuby.RainMaker
                 return false;
             }
         }
-    }
+    } 
 }

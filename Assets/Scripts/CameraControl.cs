@@ -132,5 +132,5 @@ public class CameraControl : MonoBehaviour
         _nextShakePosition = new Vector3(Random.Range(-_shakeIntensity, _shakeIntensity),
             Random.Range(-_shakeIntensity, _shakeIntensity),
             ShakeAxis.localPosition.z);
-    }
+    } 
 }

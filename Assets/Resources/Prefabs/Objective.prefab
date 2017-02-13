@@ -63,7 +63,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120016}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
+  m_LocalPosition: {x: 15.206345, y: 32.322063, z: 2.5512452}
+=======
   m_LocalPosition: {x: 15.752463, y: 20.735521, z: 13.978859}
+>>>>>>> ad8626c0fd88fb5133a7074d495423c33fcf42fe
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -391,7 +395,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011478738270}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+<<<<<<< HEAD
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+=======
   m_LocalPosition: {x: 0, y: 0, z: 0}
+>>>>>>> ad8626c0fd88fb5133a7074d495423c33fcf42fe
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -672,7 +680,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 0.5
   showDirection: 0
+<<<<<<< HEAD
+  drawColor: {r: 0, g: 1, b: 0, a: 1}
+  selectionColor: {r: 1, g: 0, b: 0, a: 1}
   shape: 1
+  connection: {fileID: 0}
+=======
+  shape: 1
+>>>>>>> ad8626c0fd88fb5133a7074d495423c33fcf42fe
 --- !u!114 &114000013580264244
 MonoBehaviour:
   m_ObjectHideFlags: 1

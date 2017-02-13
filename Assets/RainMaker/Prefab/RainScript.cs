@@ -42,5 +42,5 @@ namespace DigitalRuby.RainMaker
 
             UpdateRain();
         }
-    }
+    } 
 }

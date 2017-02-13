@@ -3,18 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Wall
-  - Rocket
-  - Boss
-  - Pickup
-  - CapturePoint
-  - ObjectiveSystem
-  - Battery
-  - Bridge
-  - MenuController
-  - Enemy
-  - Ships
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -24,9 +13,9 @@ TagManager:
   - UI
   - 
   - 
-  - Player
-  - Weapons
-  - Geometry
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -51,7 +40,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Front
-    uniqueID: 1800439267
     locked: 0

@@ -23,23 +23,12 @@ public class CutsceneManager : MonoBehaviour
     {
 
     }
-
-    internal void Play(int sceneIndex)
-    { 
-        switch (sceneIndex)
-        {
-            case 0:
-                break;
-            case 1:
-                Debug.Log("Playing cutscene for scene index: " + sceneIndex);
-                LetterboxBegin();
-                cutscenes[0].Play();
-                break;
-            default:
-                Debug.Log("There was no cutscene to play for scene index: " + sceneIndex);
-                break;
-        }
-        Debug.Log(name);
+     
+    internal void Play(int index)
+    {
+        Debug.Log("Playing cutscene at index: " + index);
+        LetterboxBegin();
+        cutscenes[index].Play();
     }
 
     public static void LetterboxBegin()

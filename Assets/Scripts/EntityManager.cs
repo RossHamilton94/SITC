@@ -184,6 +184,6 @@ public class EntityManager : MonoBehaviour
         {
             GameObject temp = enemies[enemies.Count - 1];
             temp.GetComponent<EnemyController>().Despawn();
-        }
+        } 
     }
 }
