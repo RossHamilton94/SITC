@@ -15,11 +15,14 @@ public class TransformOverTime
 public class SceneTransition : MonoBehaviour
 {
     public TransformOverTime[] waypoints;
+    ParticleEmitter emitter;
+
+    GameObject splash;
 
     // Use this for initialization
     void Start()
     {
-
+        splash = GameObject.Find("WaterSplash");
     }
 
     // Update is called once per frame
@@ -32,6 +35,18 @@ public class SceneTransition : MonoBehaviour
     {
         float elapsedTime = 0;
         Vector3 startingPos = actor.transform.position;
+
+        //Perform the particle effect during the starting animation.
+        /**if (elapsedTime == 0 && startingPos == actor.transform.position)
+        {
+            //Make the splash happen at the starting position ONCE.
+            splash.transform.position = actor.transform.position;
+            splash.transform.parent = actor.gameObject.transform;
+            //Make it rise up at the same time as the boss.
+            splash.GetComponent<ParticleSystem>().startSpeed = elapsedTime / seconds;
+        }*/
+
+
         while (elapsedTime < seconds)
         {
             actor.position = Vector3.Lerp(startingPos, end, (elapsedTime / seconds));
