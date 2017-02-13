@@ -112,19 +112,7 @@ public class EnemyController : MonoBehaviour
 
         foreach (GameObject player in em.players)
         {
-<<<<<<< HEAD
-            if (player != null)
-            {
-                Vector3 diff = player.transform.position - transform.position;
-                float dist = diff.magnitude;
-
-                if (dist < lastSmallestDist)
-                {
-                    lastSmallestDist = dist;
-                    nearestPlayer = player;
-                    playerFound = true;
-                }
-=======
+ 
             Vector3 diff = player.transform.position - transform.position;
             float dist = diff.magnitude;
 
@@ -132,8 +120,7 @@ public class EnemyController : MonoBehaviour
             {
                 lastSmallestDist = dist;
                 nearestPlayer = player;
-                playerFound = true;
->>>>>>> ad8626c0fd88fb5133a7074d495423c33fcf42fe
+                playerFound = true; 
             }
         }
 

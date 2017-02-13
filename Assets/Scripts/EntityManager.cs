@@ -175,18 +175,6 @@ public class EntityManager : MonoBehaviour
 
     public void Update()
     {
-<<<<<<< HEAD
-        // while (enemies.Count < numberOfEnemies)
-        // {
-        //     SpawnEnemy();
-        // }
-        // 
-        // if (enemies.Count > numberOfEnemies)
-        // {
-        //     GameObject temp = enemies[enemies.Count - 1];
-        //     temp.GetComponent<EnemyController>().Despawn();
-        // }
-=======
         while (enemies.Count < numberOfEnemies)
         {
             SpawnEnemy();
@@ -196,7 +184,6 @@ public class EntityManager : MonoBehaviour
         {
             GameObject temp = enemies[enemies.Count - 1];
             temp.GetComponent<EnemyController>().Despawn();
-        }
->>>>>>> ad8626c0fd88fb5133a7074d495423c33fcf42fe
+        } 
     }
 }
