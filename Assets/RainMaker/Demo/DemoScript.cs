@@ -163,5 +163,5 @@ namespace DigitalRuby.RainMaker
 
             return Mathf.Clamp(angle, min, max);
         }
-    } 
+    }
 }
