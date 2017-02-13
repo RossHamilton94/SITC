@@ -1,0 +1,2 @@
+music_battle.ogg - http://opengameart.org/content/battle-midi
+mb_*.wav - http://www.themushroomkingdom.net/media/mb-nes/wav

@@ -1,0 +1,159 @@
+fileFormatVersion: 2
+guid: 03850fe11a3c55049ba737c480e5252f
+timeCreated: 1484650441
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: SlatA
+    100004: SlatA001
+    100006: SlatA002
+    100008: SlatA003
+    100010: SlatB
+    100012: SlatB001
+    100014: SlatB002
+    100016: SlatB003
+    100018: SlatB004
+    100020: SlatB005
+    100022: SlatB006
+    100024: SlatB007
+    100026: SlatB008
+    100028: SlatB009
+    100030: SlatB010
+    100032: SlatB011
+    100034: SlatB012
+    400000: //RootNode
+    400002: SlatA
+    400004: SlatA001
+    400006: SlatA002
+    400008: SlatA003
+    400010: SlatB
+    400012: SlatB001
+    400014: SlatB002
+    400016: SlatB003
+    400018: SlatB004
+    400020: SlatB005
+    400022: SlatB006
+    400024: SlatB007
+    400026: SlatB008
+    400028: SlatB009
+    400030: SlatB010
+    400032: SlatB011
+    400034: SlatB012
+    2300000: SlatA
+    2300002: SlatA001
+    2300004: SlatA002
+    2300006: SlatA003
+    2300008: SlatB
+    2300010: SlatB001
+    2300012: SlatB002
+    2300014: SlatB003
+    2300016: SlatB004
+    2300018: SlatB005
+    2300020: SlatB006
+    2300022: SlatB007
+    2300024: SlatB008
+    2300026: SlatB009
+    2300028: SlatB010
+    2300030: SlatB011
+    2300032: SlatB012
+    3300000: SlatA
+    3300002: SlatA001
+    3300004: SlatA002
+    3300006: SlatA003
+    3300008: SlatB
+    3300010: SlatB001
+    3300012: SlatB002
+    3300014: SlatB003
+    3300016: SlatB004
+    3300018: SlatB005
+    3300020: SlatB006
+    3300022: SlatB007
+    3300024: SlatB008
+    3300026: SlatB009
+    3300028: SlatB010
+    3300030: SlatB011
+    3300032: SlatB012
+    4300000: SlatB009
+    4300002: SlatA003
+    4300004: SlatB007
+    4300006: SlatA002
+    4300008: SlatA001
+    4300010: SlatA
+    4300012: SlatB002
+    4300014: SlatB
+    4300016: SlatB003
+    4300018: SlatB008
+    4300020: SlatB001
+    4300022: SlatB004
+    4300024: SlatB006
+    4300026: SlatB005
+    4300028: SlatB010
+    4300030: SlatB011
+    4300032: SlatB012
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

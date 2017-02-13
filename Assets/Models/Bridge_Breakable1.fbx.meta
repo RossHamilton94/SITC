@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: ce9c402b5b86e754fa3650eb249a7804
+timeCreated: 1480607143
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: b1
+    100002: b2
+    100004: Bridge_breakable
+    100006: //RootNode
+    100008: Bridge_end2
+    100010: Bridge_end3
+    100012: Bridge_fro2
+    100014: Bridge_fro3
+    100016: Bridge_legleft1
+    100018: Bridge_legleft2
+    100020: Bridge_legright1
+    100022: Bridge_legright2
+    100024: Bridge_mid2
+    100026: Bridge_mid3
+    100028: Final_Back_Level
+    400000: b1
+    400002: b2
+    400004: Bridge_breakable
+    400006: //RootNode
+    400008: Bridge_end2
+    400010: Bridge_end3
+    400012: Bridge_fro2
+    400014: Bridge_fro3
+    400016: Bridge_legleft1
+    400018: Bridge_legleft2
+    400020: Bridge_legright1
+    400022: Bridge_legright2
+    400024: Bridge_mid2
+    400026: Bridge_mid3
+    400028: Final_Back_Level
+    2300000: Bridge_end2
+    2300002: Bridge_end3
+    2300004: Bridge_fro2
+    2300006: Bridge_fro3
+    2300008: Bridge_legleft1
+    2300010: Bridge_legleft2
+    2300012: Bridge_legright1
+    2300014: Bridge_legright2
+    2300016: Bridge_mid2
+    2300018: Bridge_mid3
+    3300000: Bridge_end2
+    3300002: Bridge_end3
+    3300004: Bridge_fro2
+    3300006: Bridge_fro3
+    3300008: Bridge_legleft1
+    3300010: Bridge_legleft2
+    3300012: Bridge_legright1
+    3300014: Bridge_legright2
+    3300016: Bridge_mid2
+    3300018: Bridge_mid3
+    4300000: Bridge_mid2
+    4300002: Bridge_end2
+    4300004: Bridge_fro2
+    4300006: Bridge_legright1
+    4300008: Bridge_legleft1
+    4300010: Bridge_legleft2
+    4300012: Bridge_legright2
+    4300014: Bridge_fro3
+    4300016: Bridge_end3
+    4300018: Bridge_mid3
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
