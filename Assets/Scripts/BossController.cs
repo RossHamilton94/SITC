@@ -300,7 +300,7 @@ public class BossController : MonoBehaviour
                     {
                         case 0:
                             //Debug.DrawLine(leftArmMovePoint.position, rayhit.point, Color.red, 5.0f);
-                            Vector3 leftPos = rayhit.point + new Vector3(0.0f,5.0f,0.0f);
+                            Vector3 leftPos = rayhit.point + new Vector3(0.0f,7.0f,0.0f);
                             leftReticule.transform.position = leftPos;
                             leftReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
                             if (addLeftBob)
@@ -313,7 +313,7 @@ public class BossController : MonoBehaviour
                             //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
-                            Vector3 rightPos = rayhit.point + new Vector3(0.0f, 5.0f, 0.0f);
+                            Vector3 rightPos = rayhit.point + new Vector3(0.0f, 7.0f, 0.0f);
                             rightReticule.transform.position = rightPos;
                             rightReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
                             if (addRightBob)
