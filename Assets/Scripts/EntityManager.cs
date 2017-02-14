@@ -17,7 +17,7 @@ public class EntityManager : MonoBehaviour
     [SerializeField]
     private GameObject[] bossPrefabs;
     private int bossIndex = 0;
-    
+
     public Transform enemyPrefab;
     public float aiSpawnMinX = -6.0f;
     public float aiSpawnMaxX = 74.0f;
@@ -88,7 +88,7 @@ public class EntityManager : MonoBehaviour
         if (bossIndex == 4)
         {
             bossIndex = UnityEngine.Random.Range(0, player_count);
-            while(!joinedState[bossIndex])
+            while (!joinedState[bossIndex])
             {
                 bossIndex = UnityEngine.Random.Range(0, player_count);
             }
@@ -96,7 +96,7 @@ public class EntityManager : MonoBehaviour
         int playersSpawned = 0;
         for (int i = 0; i < player_count; i++)
         {
-            if(i == bossIndex)
+            if (i == bossIndex)
             {
                 GameObject temp_player = Instantiate(bossPrefabs[0], bossSpawnPoint.position, bossSpawnPoint.rotation) as GameObject;
                 temp_player.transform.parent = bossContainer.transform;
@@ -129,7 +129,7 @@ public class EntityManager : MonoBehaviour
                 temp_player.GetComponent<PlayerController>().cloneNumber = playersSpawned;
                 players.Add(temp_player);
                 playersSpawned++;
-                if(!joinedState[i])
+                if (!joinedState[i])
                 {
                     temp_player.GetComponent<PlayerController>().SetPlayerInactive(entityContainer.transform);
                     temp_player.transform.parent = inactiveEntityContainer.transform;
@@ -152,13 +152,13 @@ public class EntityManager : MonoBehaviour
 
     public void CheckWinState()
     {
-        if(ui.bossHealthImage.fillAmount == 0)
+        if (ui.bossHealthImage.fillAmount == 0)
         {
             ui.winnerText.text = "Clones Win!";
             ui.SwitchCanvas(1);
             GameManager.instance.SetState(GameManager.GameState.GAMEOVER);
         }
-        if(entityContainer.childCount == 0)
+        if (entityContainer.childCount == 0)
         {
             ui.winnerText.text = "Boss Wins!";
             ui.SwitchCanvas(1);
@@ -175,15 +175,15 @@ public class EntityManager : MonoBehaviour
 
     public void Update()
     {
-        while (enemies.Count < numberOfEnemies)
-        {
-            SpawnEnemy();
-        }
-
-        if (enemies.Count > numberOfEnemies)
-        {
-            GameObject temp = enemies[enemies.Count - 1];
-            temp.GetComponent<EnemyController>().Despawn();
-        }
+        // while (enemies.Count < numberOfEnemies)
+        // {
+        //     SpawnEnemy();
+        // }
+        // 
+        // if (enemies.Count > numberOfEnemies)
+        // {
+        //     GameObject temp = enemies[enemies.Count - 1];
+        //     temp.GetComponent<EnemyController>().Despawn();
+        // } 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
+using UnityEngine.UI; 
+using System; 
 
 public class UIController : MonoBehaviour
 {
@@ -66,6 +67,11 @@ public class UIController : MonoBehaviour
         }
         StartCoroutine(AnimateHealthLoss(currentFillAmount, currentHealth, 100));
     }
+
+    internal void ToggleUI(int index, bool state)
+    {
+        canvasHolder[index].SetActive(state);
+    } 
 
     IEnumerator AnimateHealthLoss(float oldHealth, float newHealth, float maxHealth)
     {

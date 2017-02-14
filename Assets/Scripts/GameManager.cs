@@ -84,14 +84,8 @@ public class GameManager : MonoBehaviour
         // Spawn players
         em.SpawnPlayers(PlayerPrefs.GetInt("NoOfPlayers"));
 
-        // Play the intro cutscene
-        cm.Play(SceneManager.GetActiveScene().buildIndex);
-
-        // Spawn boss
-        // em.SpawnBoss();
-
-        // Spawn any extra geometry
-        // em.SpawnLevel();
+        // Play the intro cutscene 
+        cm.Play(0); 
 
         // We're good to go
         SetState(GameState.READY);

@@ -214,11 +214,22 @@ public class BossController : MonoBehaviour
         //    {
         //        OnDamage(3, baseHealth, currentHealth, amount);    // Always 3 because our boss is the 4th player
         //    }
-        //}
+        //} 
         currentHealth -= amount;
+
+        if (currentHealth <= 50)
+        {
+            ChangePlaces();
+        } 
         em.ui.UpdateBossHealth(currentHealth, baseHealth);
         em.CheckWinState();
-    }
+    } 
+
+    // CHANGE PLACES!
+    public void ChangePlaces()
+    {
+        GameManager.instance.cm.Play(1);
+    } 
 
     IEnumerator SlamAttack(bool attackWithLeft)
     {
@@ -359,6 +370,7 @@ public class BossController : MonoBehaviour
     }
 
     #region Octopus Methods
+
     void OctopusSpecificInput()
     {
         if (!usingKeyboard)
