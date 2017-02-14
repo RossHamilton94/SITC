@@ -28,3 +28,5 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+Assets/Scenes/GameLevels/Level_1.unity
+Assets/Scenes/GameLevels/Level_1.unity

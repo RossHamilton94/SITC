@@ -62,6 +62,10 @@ public class BossController : MonoBehaviour
     GameObject leftReticule = null;
     GameObject rightReticule = null;
 
+    //Particle Emitter for the explosion attached to the arm.
+    ParticleEmitter explosion;
+
+
     void Start()
     {
         iC = GetComponent<InputController>();
@@ -71,6 +75,14 @@ public class BossController : MonoBehaviour
         leftArmRB = leftArmMovePoint.GetComponent<Rigidbody>();
         rightArmRB = rightArmMovePoint.GetComponent<Rigidbody>();
         entities = transform.parent.transform;
+
+        //Instantiation of objects to prevent overhead.
+        leftReticule = GameObject.Find("LeftReticle");
+        rightReticule = GameObject.Find("RightReticule");
+
+        explosion = this.gameObject.AddComponent<ParticleEmitter>();
+        //this.gameObject.AddComponent<BoxCollider>();
+
         switch (bossType)
         {
             case BossType.OCTOPUS:
@@ -240,10 +252,15 @@ public class BossController : MonoBehaviour
         yield return new WaitForSeconds(attackTime);
 
         if (attackWithLeft)
+        {
             leftCollider.isActive = false;
+            explosion.CreateExplosion(leftArmMovePoint.transform.position);
+        }
         else
+        {
             rightCollider.isActive = false;
-
+            explosion.CreateExplosion(rightArmMovePoint.transform.position);
+        }
         // Give the player back control of the arm when the cooldown expires
         yield return new WaitForSeconds(attackCooldownLength - attackTime);
 
@@ -251,6 +268,7 @@ public class BossController : MonoBehaviour
         {
             leftArmRB.isKinematic = true;
             leftStickActive = true;
+
         }
         else
         {
@@ -262,6 +280,10 @@ public class BossController : MonoBehaviour
     void CalculateReticule(Vector3 armPosition, int tentacleid)
     {
         Physics.Raycast(new Ray(armPosition, Vector3.down), out rayhit);
+        //Convert World Position of hit to screen point to achieve accurate representation of reticle.
+        //Enable this for when UI is enabled.
+        //Vector3 screenPos = Camera.main.WorldToScreenPoint(rayhit.point);
+
 
         if (rayhit.collider != null)
         {
@@ -274,10 +296,12 @@ public class BossController : MonoBehaviour
                         case 0:
                             leftReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
                             leftReticule.transform.position = rayhit.point;
+                            //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
                             rightReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
                             rightReticule.transform.position = rayhit.point;
+                            //rightReticule.transform.position = screenPos;
                             break;
                         default:
                             Debug.Log("Created tentacle with id: " + tentacleid);
@@ -290,9 +314,13 @@ public class BossController : MonoBehaviour
                     {
                         case 0:
                             leftReticule.transform.position = rayhit.point;
+                            //leftReticule.transform.rotation = Quaternion.Euler(80.0f,0.0f,0.0f);
+                            //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
                             rightReticule.transform.position = rayhit.point;
+                            //rightReticule.transform.rotation = Quaternion.Euler(80.0f,0.0f,0.0f);
+                            //rightReticule.transform.position = screenPos;
                             break;
                         default:
                             Debug.Log("Tracking tentacle...");
@@ -466,4 +494,15 @@ public class BossController : MonoBehaviour
     }
 
     #endregion
+
+    /**
+    public Transform GetLeftTentacle()
+    {
+        return leftArmMovePoint;
+    }
+
+    public Transform GetRightTentacle()
+    {
+        return rightArmMovePoint;
+    }*/
 }
