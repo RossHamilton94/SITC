@@ -5,14 +5,14 @@ public class ParticleEmitter : MonoBehaviour {
     //Variable to get the ppositioning of the boss to trigger the particle effect.
     GameObject boss;
     //Reference to the explosion.
-    GameObject[] explosion;
+    GameObject explosion;
     //Reference to the smoke.
     GameObject smoke;
 
     void Start()
     {
         boss = this.gameObject;
-        explosion = GameObject.FindGameObjectsWithTag("Explosion");
+        explosion = GameObject.Find("Explosion");
         smoke = GameObject.Find("Smoke");
     }
 
@@ -21,7 +21,7 @@ public class ParticleEmitter : MonoBehaviour {
         if (boss != null)
         {
             //Debug.Log("Component has been attached successfully at: " + this.gameObject.transform.position.ToString());
-            Debug.Log("Boss is present in the scene.");
+            //Debug.Log("Boss is present in the scene.");
         }
         else
         {
@@ -86,15 +86,15 @@ public class ParticleEmitter : MonoBehaviour {
 
     public void CreateExplosion(Vector3 hitPos)
     {
-        explosion[0].transform.position = hitPos;
-        explosion[0].GetComponent<ParticleSystem>().Play();
+        explosion.transform.position = hitPos;
+        explosion.GetComponent<ParticleSystem>().Play();
 
-        for (int i = 1; i < 5; i++)
-        {
-            Instantiate(explosion[0], (hitPos * Random.Range(1, 2)), Quaternion.identity);
-            explosion[i].GetComponent<ParticleSystem>().Play();
-            Destroy(explosion[i].gameObject);
-        }
+        //for (int i = 1; i < 5; i++)
+        //{
+           // Instantiate(explosion[0], (hitPos * Random.Range(1, 2)), Quaternion.identity);
+           // explosion[i].GetComponent<ParticleSystem>().Play();
+           // Destroy(explosion[i].gameObject);
+       // }
 
         //Debug.Log("The explosion worked");
         //Instantiate(explosion, hitPos, Quaternion.identity);

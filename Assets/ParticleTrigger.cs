@@ -3,13 +3,24 @@ using System.Collections;
 
 public class ParticleTrigger : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    GameObject trigger;
+
+    void Start()
+    {
+        trigger = this.gameObject;
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.tag == "Boss")
+        {
+            Debug.Log("The Boss is Aligned with the receiver");
+        }
+        else
+        {
+            Debug.Log("There is no match");
+        }
+    }
+
+
 }

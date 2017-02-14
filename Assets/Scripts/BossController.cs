@@ -81,7 +81,7 @@ public class BossController : MonoBehaviour
         rightReticule = GameObject.Find("RightReticule");
 
         explosion = this.gameObject.AddComponent<ParticleEmitter>();
-
+        //this.gameObject.AddComponent<BoxCollider>();
 
         switch (bossType)
         {
