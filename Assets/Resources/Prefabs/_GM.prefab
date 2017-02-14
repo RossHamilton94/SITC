@@ -339,6 +339,9 @@ MonoBehaviour:
   currentPlayerCount: 0
   clonesRemaining: 0
   players: []
+  spawnSquidlings: 0
+  squidSpawns: {fileID: 0}
+  squidlingsPerPhase: 5
 --- !u!114 &11430388
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2927,6 +2930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutscenes:
   - {fileID: 114000011837250512}
+  - {fileID: 114000012973903266}
 --- !u!114 &114000013979516250
 MonoBehaviour:
   m_ObjectHideFlags: 1

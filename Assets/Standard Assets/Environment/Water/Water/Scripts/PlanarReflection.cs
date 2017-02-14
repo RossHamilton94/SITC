@@ -44,6 +44,7 @@ namespace UnityStandardAssets.Water
 
             reflectCamera.backgroundColor = clearColor;
             reflectCamera.clearFlags = reflectSkybox ? CameraClearFlags.Skybox : CameraClearFlags.SolidColor;
+            reflectCamera.transform.parent = this.transform;
 
             SetStandardCameraParameter(reflectCamera, reflectionMask);
 

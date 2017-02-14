@@ -94,7 +94,8 @@ public class EnemyController : MonoBehaviour
         Vector3 distance = nearestPlayer.transform.position - this.transform.position;
         if (Mathf.Abs(distance.magnitude) < attackRange)
         {
-            Destroy(nearestPlayer);
+            nearestPlayer.transform.GetComponent<PlayerController>().Respawn(true);
+            // Destroy(nearestPlayer);
         }
     }
 
