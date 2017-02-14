@@ -2285,9 +2285,9 @@ MonoBehaviour:
   - {fileID: 1406809881}
   - {fileID: 1935725303}
   - {fileID: 1406648391}
-  currentNoOfPlayers: 0
-  currentlyTheBoss: 4
-  currentKeyboardPlayer: 4
+  currentNoOfPlayers: 2
+  currentlyTheBoss: 0
+  currentKeyboardPlayer: 0
   cloneNoText: {fileID: 539250189}
   clonesSlider: {fileID: 426465982}
   minNoOfPlayers: 2
