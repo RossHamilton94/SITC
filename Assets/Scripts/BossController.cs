@@ -59,11 +59,14 @@ public class BossController : MonoBehaviour
     [SerializeField]
     List<Transform> rightTenticleObjects = new List<Transform>();
 
-    GameObject leftReticule = null;
-    GameObject rightReticule = null;
-
     //Particle Emitter for the explosion attached to the arm.
     ParticleEmitter explosion;
+
+    GameObject leftReticule;
+    GameObject rightReticule;
+
+    bool addLeftBob = true;
+    bool addRightBob = true;
 
 
     void Start()
@@ -77,7 +80,7 @@ public class BossController : MonoBehaviour
         entities = transform.parent.transform;
 
         //Instantiation of objects to prevent overhead.
-        leftReticule = GameObject.Find("LeftReticle");
+        leftReticule = GameObject.Find("LeftReticule");
         rightReticule = GameObject.Find("RightReticule");
 
         explosion = this.gameObject.AddComponent<ParticleEmitter>();
@@ -254,12 +257,12 @@ public class BossController : MonoBehaviour
         if (attackWithLeft)
         {
             leftCollider.isActive = false;
-            explosion.CreateExplosion(leftArmMovePoint.transform.position);
+            //explosion.CreateExplosion(leftArmMovePoint.transform.position);
         }
         else
         {
             rightCollider.isActive = false;
-            explosion.CreateExplosion(rightArmMovePoint.transform.position);
+            //explosion.CreateExplosion(rightArmMovePoint.transform.position);
         }
         // Give the player back control of the arm when the cooldown expires
         yield return new WaitForSeconds(attackCooldownLength - attackTime);
@@ -284,24 +287,40 @@ public class BossController : MonoBehaviour
         //Enable this for when UI is enabled.
         //Vector3 screenPos = Camera.main.WorldToScreenPoint(rayhit.point);
 
-
         if (rayhit.collider != null)
         {
+            //Hit Something.
             if (rayhit.collider.tag == "Wall")
             {
-                if (leftReticule == null || rightReticule == null)
+                //That Something is called "Wall"
+                if (leftReticule != null || rightReticule != null)
                 {
+                    //The reticules are declared.
                     switch (tentacleid)
                     {
                         case 0:
-                            leftReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                            leftReticule.transform.position = rayhit.point;
+                            //Debug.DrawLine(leftArmMovePoint.position, rayhit.point, Color.red, 5.0f);
+                            Vector3 leftPos = rayhit.point + new Vector3(0.0f,5.0f,0.0f);
+                            leftReticule.transform.position = leftPos;
+                            leftReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
+                            if (addLeftBob)
+                            {
+                                leftReticule.gameObject.AddComponent<Bob>();
+                                addLeftBob = false;
+                            }
+
+                            //Debug.Log(rayhit.point.ToString());
                             //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
-                            rightReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                            rightReticule.transform.position = rayhit.point;
-                            //rightReticule.transform.position = screenPos;
+                            Vector3 rightPos = rayhit.point + new Vector3(0.0f, 5.0f, 0.0f);
+                            rightReticule.transform.position = rightPos;
+                            rightReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
+                            if (addRightBob)
+                            {
+                               rightReticule.gameObject.AddComponent<Bob>();
+                                addRightBob = false;
+                            }
                             break;
                         default:
                             Debug.Log("Created tentacle with id: " + tentacleid);
