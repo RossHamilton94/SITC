@@ -35,6 +35,9 @@ public class EntityManager : MonoBehaviour
 
     public List<GameObject> players;
     private Transform[] spawnPoints;
+
+    public bool spawnSquidlings = false;
+    public int squidlingsPerPhase = 5;
     //bool waiting = false;
 
     // Called when this object is instantiated in the scene
@@ -139,15 +142,19 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(int noToSpawn)
     {
-        //Randomise X
-        float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
+        spawnSquidlings = false;
+        for (int i = noToSpawn; i > 0; i--)
+        {
+            //Randomise X
+            float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
 
-        GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
+            GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
 
-        tempObj.transform.parent = enemyContainer.transform;
-        enemies.Add(tempObj);
+            tempObj.transform.parent = enemyContainer.transform;
+            enemies.Add(tempObj);
+        }
     }
 
     public void CheckWinState()
@@ -175,15 +182,19 @@ public class EntityManager : MonoBehaviour
 
     public void Update()
     {
-        // while (enemies.Count < numberOfEnemies)
-        // {
-        //     SpawnEnemy();
-        // }
-        // 
-        // if (enemies.Count > numberOfEnemies)
-        // {
-        //     GameObject temp = enemies[enemies.Count - 1];
-        //     temp.GetComponent<EnemyController>().Despawn();
-        // } 
+        if (spawnSquidlings)
+        {
+            SpawnEnemy(squidlingsPerPhase);
+        }
+        //while (enemies.Count < numberOfEnemies)
+        //{
+        //    SpawnEnemy();
+        //}
+
+        //if (enemies.Count > numberOfEnemies)
+        //{
+        //    GameObject temp = enemies[enemies.Count - 1];
+        //    temp.GetComponent<EnemyController>().Despawn();
+        //}
     }
 }

@@ -63,7 +63,7 @@ public class EnemyController : MonoBehaviour
             playerCheckTimer = 0.0f;
         }
 
-        if (playerInRange)
+        if (playerInRange && nearestPlayer != null)
         {
             MoveToPlayer();
             AttemptAttack();
@@ -110,18 +110,19 @@ public class EnemyController : MonoBehaviour
         float lastSmallestDist = playerSearchRadius;
         bool playerFound = false;
 
-        foreach (GameObject player in em.players)
+        foreach (Transform player in em.entityContainer.GetComponentInChildren<Transform>())
         {
- 
+
             Vector3 diff = player.transform.position - transform.position;
             float dist = diff.magnitude;
 
             if (dist < lastSmallestDist)
             {
                 lastSmallestDist = dist;
-                nearestPlayer = player;
-                playerFound = true; 
+                nearestPlayer = player.gameObject;
+                playerFound = true;
             }
+
         }
 
         if (playerFound)
