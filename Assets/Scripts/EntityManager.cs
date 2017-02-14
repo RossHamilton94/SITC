@@ -102,14 +102,15 @@ public class EntityManager : MonoBehaviour
                 temp_player.transform.parent = bossContainer.transform;
                 temp_player.GetComponent<BossController>().em = this;
 
-                // Handles all scripts that inherit from entity
-                //if (temp_player.GetComponent<Entity>() != null)
-                //    temp_player.GetComponent<Entity>().id = bossIndex;
                 if (temp_player.GetComponent<BossController>() != null)
                     temp_player.GetComponent<BossController>().playerIndex = bossIndex;
                 if (playerUsingKeyboard == i)
                 {
                     temp_player.GetComponent<BossController>().usingKeyboard = true;
+                }
+                else
+                {
+                    temp_player.GetComponent<BossController>().usingKeyboard = false;
                 }
                 players.Add(temp_player);
             }
@@ -125,6 +126,10 @@ public class EntityManager : MonoBehaviour
                 if (playerUsingKeyboard == i)
                 {
                     temp_player.GetComponent<PlayerController>().usingKeyboard = true;
+                }
+                else
+                {
+                    temp_player.GetComponent<PlayerController>().usingKeyboard = false;
                 }
                 temp_player.GetComponent<PlayerController>().cloneNumber = playersSpawned;
                 players.Add(temp_player);

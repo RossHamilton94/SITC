@@ -201,7 +201,7 @@ public class CommandConsole : MonoBehaviour
                 if(commandHistorySlotFree == 10 && (commandHistory[i] == "" || commandHistory[i] == null))
                 {
                     commandHistorySlotFree = i;
-                    Debug.Log(i);
+                    //Debug.Log(i);
                 }
             }
             if (commandHistorySlotFree < 10)
