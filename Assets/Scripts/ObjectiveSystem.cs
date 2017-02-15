@@ -160,13 +160,13 @@ public class ObjectiveSystem : MonoBehaviour
             OnFire(target, travelTime);
     }
 
-    private void OnGUI()
-    {
-        if (GUI.Button(new Rect(150, 50, 
-            200, 25), "LAUNCH THE TORPEDOS"))
-            FireRockets(new Vector3(0.0f, 0.0f, 0.0f), 3.0f);
-
-    }
+    // private void OnGUI()
+    // {
+    //     if (GUI.Button(new Rect(150, 50, 
+    //         200, 25), "LAUNCH THE TORPEDOS"))
+    //         FireRockets(new Vector3(0.0f, 0.0f, 0.0f), 3.0f);
+    // 
+    // }
 
     void DamageBoss()
     {
