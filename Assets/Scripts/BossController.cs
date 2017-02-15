@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System;
 
 public class BossController : MonoBehaviour
 {
@@ -65,8 +66,8 @@ public class BossController : MonoBehaviour
     GameObject leftReticule;
     GameObject rightReticule;
 
-    bool addLeftBob = true;
-    bool addRightBob = true;
+    Vector3 leftPos;
+    Vector3 rightPos;
 
 
     void Start()
@@ -290,9 +291,9 @@ public class BossController : MonoBehaviour
         if (rayhit.collider != null)
         {
             //Hit Something.
-            if (rayhit.collider.tag == "Wall")
+            if (rayhit.collider.tag == "Wall" || rayhit.collider.tag == "Player")
             {
-                //That Something is called "Wall"
+                //That Something is called "Wall" or "Player".
                 if (leftReticule != null || rightReticule != null)
                 {
                     //The reticules are declared.
@@ -300,27 +301,28 @@ public class BossController : MonoBehaviour
                     {
                         case 0:
                             //Debug.DrawLine(leftArmMovePoint.position, rayhit.point, Color.red, 5.0f);
-                            Vector3 leftPos = rayhit.point + new Vector3(0.0f,7.0f,0.0f);
+                            leftPos = rayhit.point + new Vector3(0.0f, 5.0f, 0.0f);
+
+                            //Bob Logic.
+                            leftPos.y = leftPos.y + (float)Mathf.Sin(Time.time) * 1.0f;
+                            //Calculate the new position.
                             leftReticule.transform.position = leftPos;
-                            leftReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
-                            if (addLeftBob)
+                            //Mathf.Clamp(leftPos.y, rayhit.point.y + 5.0f, rayhit.point.y + 10.0f);
+
+                            /**if (addLeftBob)
                             {
-                                leftReticule.gameObject.AddComponent<Bob>();
+                                StartCoroutine(WaitToSnap(3.0f));
+                                leftReticule.AddComponent<Bob>();
                                 addLeftBob = false;
-                            }
+                            }*/
 
                             //Debug.Log(rayhit.point.ToString());
                             //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
-                            Vector3 rightPos = rayhit.point + new Vector3(0.0f, 7.0f, 0.0f);
+                            rightPos = rayhit.point + new Vector3(0.0f,5.0f,0.0f);
+                            rightPos.y = rightPos.y + (float)Mathf.Sin(Time.time) * 1.0f;
                             rightReticule.transform.position = rightPos;
-                            rightReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
-                            if (addRightBob)
-                            {
-                               rightReticule.gameObject.AddComponent<Bob>();
-                                addRightBob = false;
-                            }
                             break;
                         default:
                             Debug.Log("Created tentacle with id: " + tentacleid);
@@ -348,6 +350,11 @@ public class BossController : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator WaitToSnap(float duration)
+    {
+        yield return new WaitForSeconds(duration);
     }
 
     void InputHandler()
