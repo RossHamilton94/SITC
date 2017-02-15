@@ -221,10 +221,10 @@ public class BossController : MonoBehaviour
         //} 
         currentHealth -= amount;
 
-        if (currentHealth <= 50)
-        {
-            ChangePlaces();
-        }
+        // if (currentHealth <= 50)
+        // {
+        //     ChangePlaces();
+        // }
         em.ui.UpdateBossHealth(currentHealth, baseHealth);
         em.CheckWinState();
     }
