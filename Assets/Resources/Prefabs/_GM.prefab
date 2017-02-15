@@ -328,7 +328,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 1000010264137612, guid: ec1b7118a05f2b54195cc886ad2c4e23,
     type: 2}
   bossPrefabs:
-  - {fileID: 1000013201930778, guid: e68c3cd3970462c48947bcfc26cf1a16, type: 2}
+  - {fileID: 1000012253207648, guid: 423b3996d6bbc1f46a73a6510ee2fa7d, type: 2}
   enemyPrefab: {fileID: 4000010235122388, guid: 9736c9cbdbd0e424f983634f16b9177b,
     type: 2}
   aiSpawnMinX: -6
