@@ -375,6 +375,25 @@ public class PlayerController : Entity
         }
     }
 
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.transform.tag == "Enemy")
+        {
+            if (col.contacts[0].point.y > 0.5f &&
+                gameObject.GetComponent<Rigidbody>().velocity.y <= -2)
+            {
+                Debug.Log("Stomp");
+                col.gameObject.GetComponent<EnemyController>().Despawn();
+            }
+
+            else
+            {
+                Debug.Log("No stomp");
+                Respawn(true);
+            }
+        }
+    }
+
     void OnTriggerStay(Collider col)
     {
         if (col.transform.tag == "CapturePoint")

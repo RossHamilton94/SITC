@@ -38,6 +38,8 @@ public class EnemyController : MonoBehaviour
     private bool hasLanded = false;
     public float attackRange;
 
+    public float squidlingHeight;
+
     // Use this for initialization
     void Start()
     {
@@ -46,6 +48,8 @@ public class EnemyController : MonoBehaviour
 
         rb.constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotationZ | RigidbodyConstraints.FreezeRotationX;
         currentVector = new Vector3();
+
+        squidlingHeight = GetComponent<MeshRenderer>().bounds.size.y;
 
         moveRight = UnityEngine.Random.value > 0.5f;
 
@@ -66,7 +70,6 @@ public class EnemyController : MonoBehaviour
         if (playerInRange && nearestPlayer != null)
         {
             MoveToPlayer();
-            AttemptAttack();
         }
         else
         {
@@ -89,20 +92,19 @@ public class EnemyController : MonoBehaviour
         jumpTimer = jumpTimer + Time.deltaTime;
     }
 
-    void AttemptAttack()
-    {
-        Vector3 distance = nearestPlayer.transform.position - this.transform.position;
-        if (Mathf.Abs(distance.magnitude) < attackRange)
-        {
-            nearestPlayer.transform.GetComponent<PlayerController>().Respawn(true);
-            // Destroy(nearestPlayer);
-        }
-    }
+    //void AttemptAttack()
+    //{
+    //    Vector3 distance = nearestPlayer.transform.position - this.transform.position;
+    //    if (Mathf.Abs(distance.magnitude) < attackRange)
+    //    {
+    //        nearestPlayer.transform.GetComponent<PlayerController>().Respawn(true);
+    //        // Destroy(nearestPlayer);
+    //    }
+    //}
 
     void FixedUpdate()
     {
         rb.AddForce(currentVector);
-
     }
 
     private void FindNearestPlayer()
@@ -206,7 +208,7 @@ public class EnemyController : MonoBehaviour
 
     public void Despawn()
     {
-        em.enemies.Remove(gameObject);
-        Destroy(gameObject);
+        em.enemies.Remove(this.gameObject);
+        Destroy(this.gameObject);
     }
 }
