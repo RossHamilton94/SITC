@@ -35,6 +35,10 @@ public class EntityManager : MonoBehaviour
 
     public List<GameObject> players;
     private Transform[] spawnPoints;
+
+    public bool spawnSquidlings = false;
+    public Transform squidSpawns;
+    public int squidlingsPerPhase = 5;
     //bool waiting = false;
 
     // Called when this object is instantiated in the scene
@@ -144,15 +148,51 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy()
+    public void SpawnEnemy(int noToSpawn)
     {
-        //Randomise X
-        float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
+        spawnSquidlings = false;
+        for (int i = noToSpawn; i > 0; i--)
+        {
+            //Randomise X
+            float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
 
-        GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
+            GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
 
-        tempObj.transform.parent = enemyContainer.transform;
-        enemies.Add(tempObj);
+            tempObj.transform.parent = enemyContainer.transform;
+            enemies.Add(tempObj);
+        }
+    }
+
+    public void SpawnPhaseSquids(int spawnCount)
+    {
+        List<Transform> spawns = new List<Transform>(squidSpawns.GetAllChildren());        
+        for (int i = 0; i < spawnCount; i++)
+        {
+            BezierCurve squidTravelCurve = spawns[UnityEngine.Random.Range(0, spawns.Count)].GetComponent<BezierCurve>();
+            // Debug.Log(squidTravelCurve.GetPointAt(0));
+            GameObject squid = Instantiate(
+                enemyPrefab.gameObject,
+                squidTravelCurve.GetAnchorPoints()[0].position,
+                Quaternion.identity)
+            as GameObject;
+            squid.transform.parent = enemyContainer.transform;
+            enemies.Add(squid);
+            StartCoroutine(MoveSquid(squid, 2.0f, squidTravelCurve));
+        }
+
+    }
+
+    IEnumerator MoveSquid(GameObject g, float travelTime, BezierCurve curve)
+    {
+        float elapsedTime = 0.0f;
+        while (elapsedTime < travelTime)
+        {
+            float reciprocalTime = elapsedTime / travelTime;
+            g.transform.position =
+                curve.GetPointAt(reciprocalTime);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
     }
 
     public void CheckWinState()
@@ -163,32 +203,17 @@ public class EntityManager : MonoBehaviour
             ui.SwitchCanvas(1);
             GameManager.instance.SetState(GameManager.GameState.GAMEOVER);
         }
+
         if (entityContainer.childCount == 0)
         {
             ui.winnerText.text = "Boss Wins!";
             ui.SwitchCanvas(1);
             GameManager.instance.SetState(GameManager.GameState.GAMEOVER);
         }
-    }
-
-    //IEnumerator Wait(float timeToWait)
-    //{
-    //    waiting = true;
-    //    yield return new WaitForSeconds(timeToWait);
-    //    waiting = false;
-    //}
+    } 
 
     public void Update()
-    {
-        // while (enemies.Count < numberOfEnemies)
-        // {
-        //     SpawnEnemy();
-        // }
-        // 
-        // if (enemies.Count > numberOfEnemies)
-        // {
-        //     GameObject temp = enemies[enemies.Count - 1];
-        //     temp.GetComponent<EnemyController>().Despawn();
-        // } 
+    {  
+
     }
 }

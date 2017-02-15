@@ -27,6 +27,7 @@ public class BossController : MonoBehaviour
     Rigidbody leftArmRB;
     Rigidbody rightArmRB;
     public bool usingKeyboard = false;
+    public Transform SquidlingPaths;
 
     //Editable General Variables
     [SerializeField]
@@ -59,8 +60,15 @@ public class BossController : MonoBehaviour
     [SerializeField]
     List<Transform> rightTenticleObjects = new List<Transform>();
 
-    GameObject leftReticule = null;
-    GameObject rightReticule = null;
+    //Particle Emitter for the explosion attached to the arm.
+    ParticleEmitter explosion;
+
+    GameObject leftReticule;
+    GameObject rightReticule;
+
+    bool addLeftBob = true;
+    bool addRightBob = true;
+
 
     void Start()
     {
@@ -71,6 +79,14 @@ public class BossController : MonoBehaviour
         leftArmRB = leftArmMovePoint.GetComponent<Rigidbody>();
         rightArmRB = rightArmMovePoint.GetComponent<Rigidbody>();
         entities = transform.parent.transform;
+
+        //Instantiation of objects to prevent overhead.
+        leftReticule = GameObject.Find("LeftReticule");
+        rightReticule = GameObject.Find("RightReticule");
+
+        explosion = this.gameObject.AddComponent<ParticleEmitter>();
+        //this.gameObject.AddComponent<BoxCollider>();
+
         switch (bossType)
         {
             case BossType.OCTOPUS:
@@ -104,8 +120,8 @@ public class BossController : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-    }
-
+    }     
+     
     void FixedUpdate()
     {
         #region Update tracking
@@ -208,16 +224,30 @@ public class BossController : MonoBehaviour
         if (currentHealth <= 50)
         {
             ChangePlaces();
-        } 
+        }
         em.ui.UpdateBossHealth(currentHealth, baseHealth);
         em.CheckWinState();
-    } 
+    }
 
     // CHANGE PLACES!
     public void ChangePlaces()
     {
         GameManager.instance.cm.Play(1);
-    } 
+        CutsceneManager.CloseLetterbox += CutsceneManager_CloseLetterbox;
+    }
+
+    private void CutsceneManager_CloseLetterbox()
+    {
+        GameManager.instance.em.SpawnPhaseSquids(5);
+        StartCoroutine(ReturnAfterTime(2.0f));
+        CutsceneManager.CloseLetterbox -= CutsceneManager_CloseLetterbox;
+    }
+
+    IEnumerator ReturnAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameManager.instance.cm.Play(0, false);
+    }
 
     IEnumerator SlamAttack(bool attackWithLeft)
     {
@@ -240,10 +270,15 @@ public class BossController : MonoBehaviour
         yield return new WaitForSeconds(attackTime);
 
         if (attackWithLeft)
+        {
             leftCollider.isActive = false;
+            //explosion.CreateExplosion(leftArmMovePoint.transform.position);
+        }
         else
+        {
             rightCollider.isActive = false;
-
+            //explosion.CreateExplosion(rightArmMovePoint.transform.position);
+        }
         // Give the player back control of the arm when the cooldown expires
         yield return new WaitForSeconds(attackCooldownLength - attackTime);
 
@@ -251,6 +286,7 @@ public class BossController : MonoBehaviour
         {
             leftArmRB.isKinematic = true;
             leftStickActive = true;
+
         }
         else
         {
@@ -262,22 +298,44 @@ public class BossController : MonoBehaviour
     void CalculateReticule(Vector3 armPosition, int tentacleid)
     {
         Physics.Raycast(new Ray(armPosition, Vector3.down), out rayhit);
+        // Convert World Position of hit to screen point to achieve accurate representation of reticle.
+        // Enable this for when UI is enabled.
+        // Vector3 screenPos = Camera.main.WorldToScreenPoint(rayhit.point);
 
         if (rayhit.collider != null)
         {
+            //Hit Something.
             if (rayhit.collider.tag == "Wall")
             {
-                if (leftReticule == null || rightReticule == null)
+                //That Something is called "Wall"
+                if (leftReticule != null || rightReticule != null)
                 {
+                    //The reticules are declared.
                     switch (tentacleid)
                     {
                         case 0:
-                            leftReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                            leftReticule.transform.position = rayhit.point;
+                            //Debug.DrawLine(leftArmMovePoint.position, rayhit.point, Color.red, 5.0f);
+                            Vector3 leftPos = rayhit.point + new Vector3(0.0f, 7.0f, 0.0f);
+                            leftReticule.transform.position = leftPos;
+                            leftReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
+                            if (addLeftBob)
+                            {
+                                leftReticule.gameObject.AddComponent<Bob>();
+                                addLeftBob = false;
+                            }
+
+                            //Debug.Log(rayhit.point.ToString());
+                            //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
-                            rightReticule = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                            rightReticule.transform.position = rayhit.point;
+                            Vector3 rightPos = rayhit.point + new Vector3(0.0f, 7.0f, 0.0f);
+                            rightReticule.transform.position = rightPos;
+                            rightReticule.transform.Rotate(Vector3.up * 25.0f * Time.deltaTime);
+                            if (addRightBob)
+                            {
+                                rightReticule.gameObject.AddComponent<Bob>();
+                                addRightBob = false;
+                            }
                             break;
                         default:
                             Debug.Log("Created tentacle with id: " + tentacleid);
@@ -290,9 +348,13 @@ public class BossController : MonoBehaviour
                     {
                         case 0:
                             leftReticule.transform.position = rayhit.point;
+                            //leftReticule.transform.rotation = Quaternion.Euler(80.0f,0.0f,0.0f);
+                            //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
                             rightReticule.transform.position = rayhit.point;
+                            //rightReticule.transform.rotation = Quaternion.Euler(80.0f,0.0f,0.0f);
+                            //rightReticule.transform.position = screenPos;
                             break;
                         default:
                             Debug.Log("Tracking tentacle...");
@@ -466,4 +528,15 @@ public class BossController : MonoBehaviour
     }
 
     #endregion
+
+    /**
+    public Transform GetLeftTentacle()
+    {
+        return leftArmMovePoint;
+    }
+
+    public Transform GetRightTentacle()
+    {
+        return rightArmMovePoint;
+    }*/
 }
