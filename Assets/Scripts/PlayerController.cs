@@ -351,6 +351,10 @@ public class PlayerController : Entity
             GetComponent<Rigidbody>().velocity = new Vector2(
                 -groundState.wallDirection() * (speed * mod_factor) * (wall_push * mod_factor),
                 GetComponent<Rigidbody>().velocity.y); //Add force negative to wall direction (with speed reduction)
+        if (groundState.isGround())
+            anim.SetBool("Grounded", true);
+        else
+            anim.SetBool("Grounded", false);
 
         input.y = 0;
     }
@@ -448,7 +452,7 @@ public class PlayerController : Entity
             transform.position = spawnPos;
             em.clonesRemaining--;
             em.ui.UpdateCloneNumber(em.clonesRemaining);
-            StartCoroutine(MoveOnSpawn());
+            //StartCoroutine(MoveOnSpawn());
         }
         else
         {
