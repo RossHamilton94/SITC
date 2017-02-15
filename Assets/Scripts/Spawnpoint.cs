@@ -29,6 +29,7 @@ public class Spawnpoint : MonoBehaviour
 
     public void OnDrawGizmos()
     {
+#if UNITY_EDITOR 
         if (UnityEditor.Selection.Contains(gameObject))
         {
             Gizmos.color = selectionColor; 
@@ -37,7 +38,7 @@ public class Spawnpoint : MonoBehaviour
         {
             Gizmos.color = drawColor;
         }
-
+#endif
         switch (shape)
         {
             case Shape.BOX:

@@ -33,6 +33,8 @@ public class MenuController : MonoBehaviour
     public bool[] joinedState = new bool[4];
 
     public GameObject[] currentlyTheBossImage;
+    public GameObject[] currentlyAClone;
+    public GameObject[] currentlyAClone2;
 
     public int currentNoOfPlayers = 0;
 
@@ -313,10 +315,19 @@ public class MenuController : MonoBehaviour
     void SwitchBoss(int newBoss)
     {
         if(currentlyTheBoss < 4)
+        {
             currentlyTheBossImage[currentlyTheBoss].SetActive(false);
+            currentlyAClone[currentlyTheBoss].SetActive(true);
+            currentlyAClone2[currentlyTheBoss].SetActive(true);
+        }   
         currentlyTheBoss = newBoss;
         if (currentlyTheBoss < 4)
+        {
             currentlyTheBossImage[currentlyTheBoss].SetActive(true);
+            currentlyAClone[currentlyTheBoss].SetActive(false);
+            currentlyAClone2[currentlyTheBoss].SetActive(false);
+        }
+            
     }
 
     IEnumerator Wait(float timeToWait)
@@ -354,5 +365,10 @@ public class MenuController : MonoBehaviour
         SetPlayerPrefs();
         //sm.LoadLevel("Level_" + levelNumber);
         SceneManager.LoadScene("Level_" + levelNumber);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

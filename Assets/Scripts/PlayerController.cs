@@ -26,7 +26,7 @@ public class PlayerController : Entity
         {
             bool left = Physics.Raycast(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, length);
             bool right = Physics.Raycast(new Vector3(player.transform.position.x + width, player.transform.position.y + (0.5f * height), player.transform.position.z), Vector2.right, length);
-            
+
             // Green is left
             Debug.DrawRay(new Vector3(player.transform.position.x - width, player.transform.position.y + (0.5f * height), player.transform.position.z), -Vector2.right, Color.green, 0.1f);
 
@@ -45,12 +45,12 @@ public class PlayerController : Entity
         public bool isGround()
         {
             bool bottom1 = Physics.Raycast(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), -Vector2.up, length);
-            bool bottom2 = Physics.Raycast(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, length);
-            bool bottom3 = Physics.Raycast(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, length);
+            bool bottom2 = Physics.Raycast(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y, player.transform.position.z), -Vector2.up, length);
+            bool bottom3 = Physics.Raycast(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y, player.transform.position.z), -Vector2.up, length);
 
-            Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
-            Debug.DrawRay(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
-            Debug.DrawRay(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y , player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x + (width - 0.2f), player.transform.position.y, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
+            Debug.DrawRay(new Vector3(player.transform.position.x - (width - 0.2f), player.transform.position.y, player.transform.position.z), -Vector2.up, Color.green, 0.1f);
 
             //Debug.Log("Ground: " + (bottom1 || bottom2 || bottom3));
 
@@ -119,6 +119,8 @@ public class PlayerController : Entity
     public float shift_mod_factor = 1.5f;
     public float mod_factor = 1.0f;
 
+    public float invulnDuration = 2.0f;
+
     public float capture_speed = 0.001f;
 
     //private Rigidbody rb;
@@ -180,6 +182,7 @@ public class PlayerController : Entity
     }
 
     public Vector2 input;
+    private bool isInvuln;
 
     //void OnGUI()
     //{
@@ -195,9 +198,9 @@ public class PlayerController : Entity
 
     protected override void Update()
     {
-        if(!playerActive)
+        if (!playerActive)
         {
-            if(ic.PressedStart())
+            if (ic.PressedStart())
             {
                 if (em.clonesRemaining > 0)
                 {
@@ -322,7 +325,7 @@ public class PlayerController : Entity
             // Reverse player if going different direction
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
         }
-        
+
     }
 
     IEnumerator AttributeTimer(float time)
@@ -348,6 +351,10 @@ public class PlayerController : Entity
             GetComponent<Rigidbody>().velocity = new Vector2(
                 -groundState.wallDirection() * (speed * mod_factor) * (wall_push * mod_factor),
                 GetComponent<Rigidbody>().velocity.y); //Add force negative to wall direction (with speed reduction)
+        if (groundState.isGround())
+            anim.SetBool("Grounded", true);
+        else
+            anim.SetBool("Grounded", false);
 
         input.y = 0;
     }
@@ -369,6 +376,25 @@ public class PlayerController : Entity
         {
             // Make sure we reset the co-routines running on this script otherwise they'll overlap and fuck up the fill amount lerp
             col.gameObject.GetComponent<Objective>().Reset();
+        }
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.transform.tag == "Enemy")
+        {
+            if (col.contacts[0].point.y > 0.5f &&
+                gameObject.GetComponent<Rigidbody>().velocity.y <= -2)
+            {
+                Debug.Log("Stomp");
+                col.gameObject.GetComponent<EnemyController>().Despawn();
+            }
+
+            else
+            {
+                Debug.Log("No stomp");
+                Respawn(true);
+            }
         }
     }
 
@@ -409,15 +435,24 @@ public class PlayerController : Entity
     public void Respawn(bool vibrate)
     {
 #if UNITY_STANDALONE_WIN
-        if(vibrate)
+        if (vibrate)
             ic.VibrateStart();
 #endif
+        if (isInvuln)
+        {
+            return;
+        }
+        else
+        {
+            StartCoroutine(InvulnTimer());
+        }
+
         if (em.clonesRemaining > 0)
         {
             transform.position = spawnPos;
             em.clonesRemaining--;
             em.ui.UpdateCloneNumber(em.clonesRemaining);
-            StartCoroutine(MoveOnSpawn());
+            //StartCoroutine(MoveOnSpawn());
         }
         else
         {
@@ -427,11 +462,18 @@ public class PlayerController : Entity
         em.ui.UpdatePlayerCharge(cloneNumber, carriedCharge);
     }
 
+    IEnumerator InvulnTimer()
+    {
+        isInvuln = true;
+        yield return new WaitForSeconds(invulnDuration);
+        isInvuln = false;
+    }
+
     void OnDestroy()
     {
         em.CheckWinState();
     }
-     
+
     #region Audio Controls
 
     public void PlayAudio(string track, string group)
@@ -464,7 +506,7 @@ public class PlayerController : Entity
         anim.SetBool("Running", true);
         while (!finishedTraveling)
         {
-            
+
             if (spawnDirectionAndDistance[cloneNumber] > 0)
             {
                 input.x = 1;
@@ -472,7 +514,7 @@ public class PlayerController : Entity
                 {
                     finishedTraveling = true;
                 }
-            }    
+            }
             else if (spawnDirectionAndDistance[cloneNumber] < 0)
             {
                 input.x = -1;
@@ -480,14 +522,14 @@ public class PlayerController : Entity
                 {
                     finishedTraveling = true;
                 }
-            } 
+            }
             else
             {
                 Debug.Log("Check SpawnDirectionAndDistance for clone" + cloneNumber);
             }
             yield return finishedTraveling;
         }
-        
+
         input.x = 0;
         waiting = false;
     }

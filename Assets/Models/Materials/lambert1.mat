@@ -8,7 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: lambert1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
+  m_ShaderKeywords: _EMISSION _METALLICGLOSSMAP _NORMALMAP _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
+    _SPECGLOSSMAP
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -18,7 +19,7 @@ Material:
     - first:
         name: _BumpMap
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 670da35d20ef3e147abcb57b03369fe3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -30,7 +31,7 @@ Material:
     - first:
         name: _DetailMask
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c52daa5b3b5d17b43b0428afa8e4a77a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -48,13 +49,13 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 298bf18bec6c97842b6ae76a8a9aa155, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
         name: _MetallicGlossMap
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 203e27e5234b6d9479868429aa4acbdb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -90,7 +91,7 @@ Material:
     - first:
         name: _SpecGlossMap
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c62ba74a2c3b7c742a1fd7ef057fc537, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -105,7 +106,7 @@ Material:
       second: 10
     - first:
         name: _BumpScale
-      second: 1
+      second: 0.9
     - first:
         name: _Cutoff
       second: 0.5
@@ -126,7 +127,7 @@ Material:
       second: 1
     - first:
         name: _GlossMapScale
-      second: 1
+      second: 0.65
     - first:
         name: _Glossiness
       second: 0.5
@@ -156,7 +157,7 @@ Material:
       second: 0.5
     - first:
         name: _SmoothnessTextureChannel
-      second: 0
+      second: 1
     - first:
         name: _SpecularHighlights
       second: 1
@@ -187,7 +188,7 @@ Material:
       second: {r: 1, g: 1, b: -2, a: 3}
     - first:
         name: _Color
-      second: {r: 0.2509804, g: 0.1254902, b: 0.15294118, a: 1}
+      second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _DistortParams
       second: {r: 1, g: 1, b: 2, a: 1.15}
@@ -226,7 +227,7 @@ Material:
       second: {r: 0.54, g: 0.95, b: 0.99, a: 0.5}
     - first:
         name: _SpecColor
-      second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+      second: {r: 0.5, g: 0.5, b: 0.5, a: 0}
     - first:
         name: _SpecularColor
       second: {r: 0.72, g: 0.72, b: 0.72, a: 1}

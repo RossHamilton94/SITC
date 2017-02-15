@@ -28,6 +28,7 @@ public class BossController : MonoBehaviour
     Rigidbody leftArmRB;
     Rigidbody rightArmRB;
     public bool usingKeyboard = false;
+    public Transform SquidlingPaths;
 
     //Editable General Variables
     [SerializeField]
@@ -120,8 +121,8 @@ public class BossController : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-    }
-
+    }     
+     
     void FixedUpdate()
     {
         #region Update tracking
@@ -221,19 +222,33 @@ public class BossController : MonoBehaviour
         //} 
         currentHealth -= amount;
 
-        if (currentHealth <= 50)
-        {
-            ChangePlaces();
-        } 
+        // if (currentHealth <= 50)
+        // {
+        //     ChangePlaces();
+        // }
         em.ui.UpdateBossHealth(currentHealth, baseHealth);
         em.CheckWinState();
-    } 
+    }
 
     // CHANGE PLACES!
     public void ChangePlaces()
     {
         GameManager.instance.cm.Play(1);
-    } 
+        CutsceneManager.CloseLetterbox += CutsceneManager_CloseLetterbox;
+    }
+
+    private void CutsceneManager_CloseLetterbox()
+    {
+        GameManager.instance.em.SpawnPhaseSquids(5);
+        StartCoroutine(ReturnAfterTime(2.0f));
+        CutsceneManager.CloseLetterbox -= CutsceneManager_CloseLetterbox;
+    }
+
+    IEnumerator ReturnAfterTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameManager.instance.cm.Play(0, false);
+    }
 
     IEnumerator SlamAttack(bool attackWithLeft)
     {
@@ -284,9 +299,9 @@ public class BossController : MonoBehaviour
     void CalculateReticule(Vector3 armPosition, int tentacleid)
     {
         Physics.Raycast(new Ray(armPosition, Vector3.down), out rayhit);
-        //Convert World Position of hit to screen point to achieve accurate representation of reticle.
-        //Enable this for when UI is enabled.
-        //Vector3 screenPos = Camera.main.WorldToScreenPoint(rayhit.point);
+        // Convert World Position of hit to screen point to achieve accurate representation of reticle.
+        // Enable this for when UI is enabled.
+        // Vector3 screenPos = Camera.main.WorldToScreenPoint(rayhit.point);
 
         if (rayhit.collider != null)
         {
@@ -302,7 +317,6 @@ public class BossController : MonoBehaviour
                         case 0:
                             //Debug.DrawLine(leftArmMovePoint.position, rayhit.point, Color.red, 5.0f);
                             leftPos = rayhit.point + new Vector3(0.0f, 5.0f, 0.0f);
-
                             //Bob Logic.
                             leftPos.y = leftPos.y + (float)Mathf.Sin(Time.time) * 1.0f;
                             //Calculate the new position.

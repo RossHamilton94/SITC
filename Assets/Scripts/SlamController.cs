@@ -44,7 +44,7 @@ public class SlamController : MonoBehaviour
                 //    break;
                 case "Wall":
                     Debug.Log("I hit a wall");
-                    isActive = false;
+                    //isActive = false;
                     break;
                 case "Bridge":
                     // Get the bridge rigidbodies and send them flying (hopefully)
