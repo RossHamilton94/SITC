@@ -125,6 +125,10 @@ public class BossController : MonoBehaviour
      
     void FixedUpdate()
     {
+        if (transform.rotation.y != 180.0f)
+        {
+            transform.rotation = new Quaternion(transform.rotation.x, 180.0f, transform.rotation.z, transform.rotation.w);
+        }
         #region Update tracking
 
         CalculateReticule(leftArmMovePoint.position, 0);

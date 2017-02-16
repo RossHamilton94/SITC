@@ -232,7 +232,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3.08
+  m_Radius: 5
   m_Center: {x: 0, y: 2.51, z: 0}
 --- !u!222 &22295294
 CanvasRenderer:
@@ -672,7 +672,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugSize: 0.5
   showDirection: 0
+  drawColor: {r: 0, g: 1, b: 0, a: 1}
+  selectionColor: {r: 1, g: 0, b: 0, a: 1}
   shape: 1
+  connection: {fileID: 0}
 --- !u!114 &114000013580264244
 MonoBehaviour:
   m_ObjectHideFlags: 1
