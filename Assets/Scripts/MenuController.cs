@@ -207,7 +207,7 @@ public class MenuController : MonoBehaviour
                         }
                     }
 
-                    if(Input.GetKeyDown(KeyCode.Space))
+                    if(Input.GetKeyDown(KeyCode.B))
                     {
                         if (playerState[0] == 2)
                         {

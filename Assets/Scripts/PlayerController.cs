@@ -149,7 +149,7 @@ public class PlayerController : Entity
     Transform activeCloneHolder;
 
     //"Is Active" variables to change
-    bool playerActive = true;
+    public bool playerActive = true;
     public CapsuleCollider playerCollider;
     public GameObject playerModel;
     public Rigidbody playerRigidbody;
@@ -373,7 +373,7 @@ public class PlayerController : Entity
 
         if (col.transform.tag == "Battery")
         {
-            Debug.Log("battery collision");
+            //Debug.Log("battery collision");
             col.GetComponent<Battery>().Use(this);
         }
 
@@ -483,7 +483,7 @@ public class PlayerController : Entity
 
     public void PlayAudio(string track, string group)
     {
-        Debug.Log("Playing track: " + track + " on channel: " + group);
+        //Debug.Log("Playing track: " + track + " on channel: " + group);
         foreach (AudioSource source in audioSources)
         {
             if (!source.isPlaying)
@@ -545,6 +545,7 @@ public class PlayerController : Entity
         playerModel.SetActive(true);
         playerRigidbody.isKinematic = false;
         playerActive = true;
+        em.pressStartText[cloneNumber].SetActive(false);
         transform.SetParent(activeCloneHolder);
     }
 
@@ -554,6 +555,7 @@ public class PlayerController : Entity
         playerModel.SetActive(false);
         playerRigidbody.isKinematic = true;
         playerActive = false;
+        em.pressStartText[cloneNumber].SetActive(true);
         activeCloneHolder = activeCloneHolderTransform;
     }
 

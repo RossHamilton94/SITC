@@ -79,8 +79,11 @@ public class Objective : MonoBehaviour
 
     public void AddCharge(float chargeToAdd)
     {
-        currentCharge = currentCharge + chargeToAdd;
-        PlayAudio("LoadingPad", "Effects");
+        if(currentCharge < 1.0f)
+        {
+            currentCharge = currentCharge + chargeToAdd;
+            PlayAudio("LoadingPad", "Effects");
+        }
     }
 
     public IEnumerator SmoothBetweenValues(float start, float end, float time)
@@ -166,7 +169,7 @@ public class Objective : MonoBehaviour
 
     public void PlayAudio(string track, string group)
     {
-        Debug.Log("Playing track: " + track + " on channel: " + group);
+        //Debug.Log("Playing track: " + track + " on channel: " + group);
         foreach (AudioSource source in audioSources)
         {
             if (!source.isPlaying)

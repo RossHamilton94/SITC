@@ -43,7 +43,7 @@ public class SlamController : MonoBehaviour
                 //    isActive = false;
                 //    break;
                 case "Wall":
-                    Debug.Log("I hit a wall");
+                    //Debug.Log("I hit a wall");
                     //isActive = false;
                     break;
                 case "Bridge":
@@ -70,7 +70,7 @@ public class SlamController : MonoBehaviour
 
     public void PlayAudio(string track, string group)
     {
-        Debug.Log("Playing track: " + track + " on channel: " + group);
+        //Debug.Log("Playing track: " + track + " on channel: " + group);
         foreach (AudioSource source in audioSources)
         {
             if (!source.isPlaying)

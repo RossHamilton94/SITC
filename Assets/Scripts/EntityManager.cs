@@ -34,6 +34,7 @@ public class EntityManager : MonoBehaviour
     int playerUsingKeyboard = 4;
 
     public List<GameObject> players;
+    public GameObject[] pressStartText;
     private Transform[] spawnPoints;
 
     public bool spawnSquidlings = false;

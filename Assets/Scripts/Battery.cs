@@ -5,7 +5,9 @@ public class Battery : MonoBehaviour {
 
     public float chargeAmount = 0.25f;
     public Transform audioPool;
-    private AudioSource[] audioSources; 
+    private AudioSource[] audioSources;
+    public GameObject collectSound;
+    private bool active = true;
 
 	// Use this for initialization
     void Start()
@@ -20,12 +22,20 @@ public class Battery : MonoBehaviour {
 
     public void Use(PlayerController player)
     {
-        Debug.Log("BATTERY USED");
-        player.AddCharge(chargeAmount);
-        GetComponent<MeshRenderer>().enabled = false;
-        GetComponent<CapsuleCollider>().enabled = false;
-        PlayAudio("mb_coin", "Effects");
-        Destroy(gameObject, 0.2f);
+        //Debug.Log("BATTERY USED");
+        if(active)
+        {
+            active = false;
+            player.AddCharge(chargeAmount);
+            GetComponent<MeshRenderer>().enabled = false;
+            GetComponent<CapsuleCollider>().enabled = false;
+            PlayAudio("mb_coin", "Effects");
+            //GameObject tempCollectSound = Instantiate(collectSound, transform) as GameObject;
+            //Destroy(tempCollectSound, 1.0f);
+            transform.GetComponent<MeshRenderer>().enabled = false;
+            Destroy(gameObject, 0.3f);
+        }
+        
     }
 
     //void OnTriggerEnter(Collider col)
@@ -40,7 +50,7 @@ public class Battery : MonoBehaviour {
 
     public void PlayAudio(string track, string group)
     {
-        Debug.Log("Playing track: " + track + " on channel: " + group);
+        //Debug.Log("Playing track: " + track + " on channel: " + group);
         foreach (AudioSource source in audioSources)
         {
             if (!source.isPlaying)

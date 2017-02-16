@@ -17401,7 +17401,7 @@ GameObject:
   - 23: {fileID: 23000013118580284}
   - 95: {fileID: 95000012471788558}
   m_Layer: 0
-  m_Name: EyeCentered
+  m_Name: Pupil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61897,7 +61897,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62042,7 +62042,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62071,7 +62071,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62100,7 +62100,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62129,7 +62129,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62158,7 +62158,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62187,7 +62187,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62216,7 +62216,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62245,7 +62245,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62303,7 +62303,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62332,7 +62332,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62390,7 +62390,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62419,7 +62419,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62448,7 +62448,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62535,7 +62535,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62593,7 +62593,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62622,7 +62622,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62680,7 +62680,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62709,7 +62709,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62767,7 +62767,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62854,7 +62854,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62883,7 +62883,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62912,7 +62912,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62941,7 +62941,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62970,7 +62970,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -62999,7 +62999,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -63057,7 +63057,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -63086,7 +63086,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -63115,7 +63115,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -63144,7 +63144,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 731977700da82f44087c7616fffabf59, type: 2}
+  - {fileID: 2100000, guid: af9cee2a79f116c4594720526643e8a5, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -64971,6 +64971,7 @@ MonoBehaviour:
   rightTenticleObjHolder: {fileID: 4000012270320812}
   leftTenticleObjects: []
   rightTenticleObjects: []
+  bossEye: {fileID: 1000012289728422}
 --- !u!114 &114000011119441330
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65778,7 +65779,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013287494980}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.08000255, y: -0.85360336, z: 0.07292473}
+  m_ConnectedAnchor: {x: -0.07999992, y: -0.853605, z: 0.07292712}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65798,7 +65799,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000010242274442}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.000002861023, y: -0.9310216, z: -0.121213466}
+  m_ConnectedAnchor: {x: 0.00000071525574, y: -0.931023, z: -0.12120873}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65818,7 +65819,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000010280659570}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000035762787, y: -0.9662003, z: 0.0984104}
+  m_ConnectedAnchor: {x: 0.00000011920929, y: -0.9662024, z: 0.09841259}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65838,7 +65839,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000010933928150}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.08000143, y: -0.83884215, z: -0.070889175}
+  m_ConnectedAnchor: {x: 0.08, y: -0.8388463, z: -0.070884705}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65858,7 +65859,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000011726036288}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000019073486, y: -0.9649877, z: -0.16525298}
+  m_ConnectedAnchor: {x: 0.00000047683716, y: -0.96498877, z: -0.16525266}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65878,7 +65879,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000010441005706}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.40391374, y: -0.97957915, z: -0.23015656}
+  m_ConnectedAnchor: {x: 0.40391576, y: -0.97958, z: -0.23015693}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65898,7 +65899,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000011346469844}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.9957208, z: 0.087788165}
+  m_ConnectedAnchor: {x: -0.00000023841858, y: -0.99572265, z: 0.087791055}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65918,7 +65919,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000011999349768}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000014305115, y: -0.8511982, z: 0.04980856}
+  m_ConnectedAnchor: {x: 0, y: -0.8511995, z: 0.04981193}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65938,7 +65939,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000014280411896}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.6564519, z: -0.03401062}
+  m_ConnectedAnchor: {x: 0.00000035762787, y: -0.6564555, z: -0.034005046}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65958,7 +65959,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000011502505760}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.07999802, y: -0.8900175, z: -0.0041440725}
+  m_ConnectedAnchor: {x: -0.07999992, y: -0.8900223, z: -0.004142046}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65978,7 +65979,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000011538436224}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.019071743, y: -0.99705464, z: -0.013514876}
+  m_ConnectedAnchor: {x: -0.019069739, y: -0.997055, z: -0.013515353}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -65998,7 +65999,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000012992175370}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000014305115, y: -0.9025632, z: -0.15254486}
+  m_ConnectedAnchor: {x: -0.00000071525574, y: -0.9025632, z: -0.15254486}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66018,7 +66019,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013867313996}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00000071525574, y: -0.96498555, z: -0.1652539}
+  m_ConnectedAnchor: {x: -0.00000011920929, y: -0.964986, z: -0.16524795}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66038,7 +66039,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000010920615194}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.00000333786, y: -0.954213, z: 0.05196631}
+  m_ConnectedAnchor: {x: 0.00000047683716, y: -0.95421773, z: 0.051968098}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66058,7 +66059,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013031674754}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000014305115, y: -0.9661994, z: 0.09840503}
+  m_ConnectedAnchor: {x: -0.00000023841858, y: -0.96620136, z: 0.098411016}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66078,7 +66079,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000010038257722}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.07999845, y: -0.8388464, z: -0.07088089}
+  m_ConnectedAnchor: {x: 0.07999928, y: -0.8388479, z: -0.070880234}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66098,7 +66099,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000012164173364}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.07494523, y: -1.1304483, z: 0.076881886}
+  m_ConnectedAnchor: {x: -0.07494667, y: -1.1304486, z: 0.07688141}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66118,7 +66119,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000012985931110}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000019073486, y: -0.9858117, z: -0.092806935}
+  m_ConnectedAnchor: {x: 0, y: -0.9858117, z: -0.092806935}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66138,7 +66139,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000012567902342}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000009536743, y: -0.6564525, z: -0.034012914}
+  m_ConnectedAnchor: {x: 0, y: -0.6564544, z: -0.034010112}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66158,7 +66159,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000012883094942}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000023841858, y: -0.95421517, z: 0.05196929}
+  m_ConnectedAnchor: {x: -0.0000011920929, y: -0.9542185, z: 0.051974177}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66178,7 +66179,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000011632219408}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000011920929, y: -0.85119903, z: 0.049811244}
+  m_ConnectedAnchor: {x: -0.00000029802322, y: -0.8511989, z: 0.049812198}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66198,7 +66199,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013370059222}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.0000038146973, y: -0.8661431, z: -0.07548964}
+  m_ConnectedAnchor: {x: 0.0000014305115, y: -0.8661453, z: -0.07549143}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66218,7 +66219,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013144961318}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 1.413139, y: -1.5621159, z: 0.046612848}
+  m_ConnectedAnchor: {x: 1.4131368, y: -1.5621164, z: 0.046614964}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66238,7 +66239,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000011846023436}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.35025448, y: -1.098133, z: -0.17309251}
+  m_ConnectedAnchor: {x: 0.35025716, y: -1.0981334, z: -0.1730904}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66258,7 +66259,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013411494274}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000015497208, y: -0.9407811, z: 0.060297728}
+  m_ConnectedAnchor: {x: -0.00000011920929, y: -0.9407817, z: 0.060301006}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66278,7 +66279,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013720464050}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.8959131, z: 0.05309998}
+  m_ConnectedAnchor: {x: -0.00000047683716, y: -0.8959136, z: 0.05310287}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66298,7 +66299,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000013802120086}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000008940697, y: -0.8437554, z: -0.09048748}
+  m_ConnectedAnchor: {x: -0.00000023841858, y: -0.84375644, z: -0.09048359}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2
@@ -66318,7 +66319,7 @@ SpringJoint:
   m_ConnectedBody: {fileID: 54000010439436894}
   m_Anchor: {x: 0, y: 0.87500006, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.16680276, y: -1.0756273, z: -0.5633575}
+  m_ConnectedAnchor: {x: -0.16680431, y: -1.0756282, z: -0.56335557}
   serializedVersion: 2
   m_Spring: 100
   m_Damper: 0.2

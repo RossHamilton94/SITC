@@ -26,7 +26,7 @@ public class CutsceneManager : MonoBehaviour
      
     internal void Play(int index, bool playLetterBox = true)
     {
-        Debug.Log("Playing cutscene at index: " + index);
+        //Debug.Log("Playing cutscene at index: " + index);
         if (playLetterBox)
             LetterboxBegin();
         cutscenes[index].Play();

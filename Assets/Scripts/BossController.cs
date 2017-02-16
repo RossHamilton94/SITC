@@ -69,6 +69,7 @@ public class BossController : MonoBehaviour
 
     Vector3 leftPos;
     Vector3 rightPos;
+    public GameObject bossEye;
 
 
     void Start()
@@ -125,6 +126,49 @@ public class BossController : MonoBehaviour
      
     void FixedUpdate()
     {
+        int closestPlayer = 4;
+        float currentDistance = 0.0f;
+        if (em.players[0] != gameObject && em.players[3] != null)
+        {
+            if (em.players[0].GetComponent<PlayerController>().playerActive && (Vector3.Distance(bossEye.transform.position, em.players[0].transform.position) < currentDistance || currentDistance == 0.0f))
+            {
+                currentDistance = Vector3.Distance(bossEye.transform.position, em.players[0].transform.position);
+                closestPlayer = 0;
+            }   
+        }
+        if (em.players[1] != gameObject && em.players[3] != null)
+        {
+            if (em.players[1].GetComponent<PlayerController>().playerActive && (Vector3.Distance(bossEye.transform.position, em.players[1].transform.position) < currentDistance || currentDistance == 0.0f))
+            {
+                currentDistance = Vector3.Distance(bossEye.transform.position, em.players[1].transform.position);
+                closestPlayer = 1;
+            }
+        }
+        if (em.players[2] != gameObject && em.players[3] != null)
+        {
+            if (em.players[2].GetComponent<PlayerController>().playerActive && (Vector3.Distance(bossEye.transform.position, em.players[2].transform.position) < currentDistance || currentDistance == 0.0f))
+            {
+                currentDistance = Vector3.Distance(bossEye.transform.position, em.players[2].transform.position);
+                closestPlayer = 2;
+            }
+        }
+        if (em.players[3] != gameObject && em.players[3] != null)
+        {
+            if (em.players[3].GetComponent<PlayerController>().playerActive && (Vector3.Distance(bossEye.transform.position, em.players[3].transform.position) < currentDistance || currentDistance == 0.0f))
+            {
+                currentDistance = Vector3.Distance(bossEye.transform.position, em.players[3].transform.position);
+                closestPlayer = 3;
+            }
+        }
+        if (closestPlayer != 4)
+        {
+            bossEye.transform.LookAt(em.players[closestPlayer].transform.position);
+        }
+        else
+        {
+            bossEye.transform.rotation = new Quaternion(0, 0, 0, 0);
+        } 
+
         if (transform.rotation.y != 180.0f)
         {
             transform.rotation = new Quaternion(transform.rotation.x, 180.0f, transform.rotation.z, transform.rotation.w);

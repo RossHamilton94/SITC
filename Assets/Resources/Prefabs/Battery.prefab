@@ -361,6 +361,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chargeAmount: 0.33
   audioPool: {fileID: 4000010117304834}
+  collectSound: {fileID: 1000014211044838, guid: 494d1c449e3f12a4ba28d83df7755f24,
+    type: 2}
 --- !u!136 &136000013034134976
 CapsuleCollider:
   m_ObjectHideFlags: 1

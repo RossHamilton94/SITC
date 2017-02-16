@@ -116,7 +116,7 @@ public class CameraControl : MonoBehaviour
     /// <param name="speed">How quickly the camera moves from point to point.</param>
     public void Shake(float intensity, int shakes, float speed)
     {
-        Debug.Log("Begin shek");
+        //Debug.Log("Begin shek");
         enabled = true;
         _isShaking = true;
         _shakeCount = shakes;
