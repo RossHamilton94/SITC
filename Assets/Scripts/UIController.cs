@@ -32,7 +32,7 @@ public class UIController : MonoBehaviour
     void SetupInitialUI()
     {
         bossHealthImage.fillAmount = 1;
-        bossHealthDetail.fillAmount = 1;
+        //bossHealthDetail.fillAmount = 1;
         clonesRemainingText.text = PlayerPrefs.GetInt("InitialClones").ToString();
     }
 
@@ -84,7 +84,7 @@ public class UIController : MonoBehaviour
                 localTimer = 0.0f;
 
             bossHealthImage.fillAmount = (newHealth + ((oldHealth - newHealth) * localTimer)) / maxHealth;
-            bossHealthDetail.fillAmount = (newHealth + ((oldHealth - newHealth) * localTimer)) / maxHealth;
+            //bossHealthDetail.fillAmount = (newHealth + ((oldHealth - newHealth) * localTimer)) / maxHealth;
 
             if (localTimer <= 0.0f)
                 finishedAnimating = true;

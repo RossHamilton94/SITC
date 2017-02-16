@@ -116,7 +116,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &181098
 GameObject:
   m_ObjectHideFlags: 1
@@ -326,7 +326,7 @@ MonoBehaviour:
   spawnPointsList: {fileID: 451576}
   bossSpawnPoint: {fileID: 430776}
   enemyContainer: {fileID: 4000012898917548}
-  playerPrefab: {fileID: 1000010264137612, guid: 2e5937808de224f428fe0b28382f20bc,
+  playerPrefab: {fileID: 1000010264137612, guid: ec1b7118a05f2b54195cc886ad2c4e23,
     type: 2}
   bossPrefabs:
   - {fileID: 1000012253207648, guid: 423b3996d6bbc1f46a73a6510ee2fa7d, type: 2}
