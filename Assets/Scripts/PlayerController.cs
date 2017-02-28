@@ -257,7 +257,8 @@ public class PlayerController : Entity
                 if (ic.PressedA() && !waiting)
                 {
                     input.y = 1;
-                    PlayAudio("mb_jump", "Effects");
+                    if (groundState.isGround() || groundState.isWall())
+                        PlayAudio("mb_jump", "Effects");
                 }
 
             }
@@ -289,7 +290,8 @@ public class PlayerController : Entity
                 if (Input.GetButtonDown("Jump") && !waiting)
                 {
                     input.y = 1;
-                    PlayAudio("mb_jump", "Effects");
+                    if(groundState.isGround() || groundState.isWall())
+                        PlayAudio("mb_jump", "Effects");
                 }
             }
 
