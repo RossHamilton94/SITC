@@ -129,6 +129,7 @@ MonoBehaviour:
   maxJumpTime: 3
   moveForce: 40
   jumpForce: 1500
-  speedTarget: 10
+  speedTarget: 7
+  jumpSpeed: 7
   attackRange: 2
   squidlingHeight: 1

@@ -32,6 +32,7 @@ public class EnemyController : MonoBehaviour
     public float moveForce = 20.0f;
     public float jumpForce = 150.0f;
     public float speedTarget = 10.0f;
+    public float jumpSpeed = 10.0f;
     private Vector3 currentVector;
 
     private bool fallHasBegun = false;
@@ -87,6 +88,12 @@ public class EnemyController : MonoBehaviour
             rb.velocity.Set(-speedTarget, rb.velocity.y, 0.0f);
         }
 
+        if (rb.velocity.y >= jumpSpeed)
+        {
+            currentVector.y = 0;
+            rb.velocity.Set(rb.velocity.x, jumpSpeed, 0.0f);
+        }
+
         playerCheckTimer = playerCheckTimer + Time.deltaTime;
         dirChangeTimer = dirChangeTimer + Time.deltaTime;
         jumpTimer = jumpTimer + Time.deltaTime;
@@ -119,7 +126,7 @@ public class EnemyController : MonoBehaviour
             Vector3 diff = player.transform.position - transform.position;
             float dist = diff.magnitude;
 
-            if (dist < lastSmallestDist)
+            if (dist < lastSmallestDist && !player.GetComponent<PlayerController>().isInvuln)
             {
                 lastSmallestDist = dist;
                 nearestPlayer = player.gameObject;
@@ -164,14 +171,21 @@ public class EnemyController : MonoBehaviour
             currentVector.x = moveForce;
         }
 
-        if (playerPos.y > transform.position.y)
+        //if (playerPos.y > transform.position.y)
+        //{
+        //    if (jumpTimer >= nextJumpTime)
+        //    {
+        //        currentVector.y = jumpForce;
+        //        jumpTimer = 0.0f;
+        //        nextJumpTime = UnityEngine.Random.Range(minJumpTime, maxJumpTime);
+        //    }
+        //}
+        //else 
+        if (jumpTimer >= nextJumpTime)
         {
-            if (jumpTimer >= nextJumpTime)
-            {
-                currentVector.y = jumpForce;
-                jumpTimer = 0.0f;
-                nextJumpTime = UnityEngine.Random.Range(minJumpTime, maxJumpTime);
-            }
+            currentVector.y = jumpForce;
+            jumpTimer = 0.0f;
+            nextJumpTime = UnityEngine.Random.Range(minJumpTime, maxJumpTime);
         }
     }
 
