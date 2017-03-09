@@ -147,6 +147,7 @@ public class PlayerController : Entity
     public SkinnedMeshRenderer playerMesh;
     public Material[] playerColourMaterials;
     Transform activeCloneHolder;
+    Transform inactiveCloneHolder;
 
     //"Is Active" variables to change
     public bool playerActive = true;
@@ -470,7 +471,8 @@ public class PlayerController : Entity
         }
         else
         {
-            Destroy(gameObject, 1.0f);
+            //Destroy(gameObject, 1.0f);
+            KillPlayer();
         }
         carriedCharge = 0.0f;
         em.ui.UpdatePlayerCharge(cloneNumber, carriedCharge);
@@ -558,14 +560,29 @@ public class PlayerController : Entity
         transform.SetParent(activeCloneHolder);
     }
 
-    public void SetPlayerInactive(Transform activeCloneHolderTransform)
+    public void SetPlayerInactive()
     {
         playerCollider.enabled = false;
         playerModel.SetActive(false);
         playerRigidbody.isKinematic = true;
         playerActive = false;
         em.pressStartText[cloneNumber].SetActive(true);
-        activeCloneHolder = activeCloneHolderTransform;
+        //activeCloneHolder = activeCloneHolderTransform;
+    }
+
+    void KillPlayer()
+    {
+        playerCollider.enabled = false;
+        playerModel.SetActive(false);
+        playerRigidbody.isKinematic = true;
+        playerActive = false;
+        transform.SetParent(inactiveCloneHolder);
+    }
+
+    public void SetPlayerHolders(Transform active, Transform inactive)
+    {
+        activeCloneHolder = active;
+        inactiveCloneHolder = inactive;
     }
 
     IEnumerator Wait(float timeToWait)

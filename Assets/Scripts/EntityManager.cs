@@ -135,11 +135,12 @@ public class EntityManager : MonoBehaviour
                     temp_player.GetComponent<PlayerController>().usingKeyboard = false;
                 }
                 temp_player.GetComponent<PlayerController>().cloneNumber = playersSpawned;
+                temp_player.GetComponent<PlayerController>().SetPlayerHolders(entityContainer, inactiveEntityContainer);
                 players.Add(temp_player);
                 playersSpawned++;
                 if (!joinedState[i])
                 {
-                    temp_player.GetComponent<PlayerController>().SetPlayerInactive(entityContainer.transform);
+                    temp_player.GetComponent<PlayerController>().SetPlayerInactive();
                     temp_player.transform.parent = inactiveEntityContainer.transform;
                 }
             }
