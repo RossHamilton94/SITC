@@ -191,7 +191,7 @@ public class EntityManager : MonoBehaviour
 
             squid.transform.parent = enemyContainer.transform;
             enemies.Add(squid);
-            //StartCoroutine(MoveSquid(squid, 2.0f, squidTravelCurve));
+            StartCoroutine(MoveSquid(squid, 2.0f, squidTravelCurve));
         }
 
     }
