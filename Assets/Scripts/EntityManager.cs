@@ -19,10 +19,6 @@ public class EntityManager : MonoBehaviour
     private int bossIndex = 0;
 
     public Transform enemyPrefab;
-    public float aiSpawnMinX = -6.0f;
-    public float aiSpawnMaxX = 74.0f;
-    public float enemyStartHeight = 50.0f;
-    public int numberOfEnemies = 3;
     public List<GameObject> enemies;
 
     bool[] joinedState = new bool[4];
@@ -81,6 +77,8 @@ public class EntityManager : MonoBehaviour
 
         //if (bossIndex == 4)
         //    bossIndex = 3;
+
+        SpawnPhaseSquids(squidlingsPerPhase);
     }
 
     Vector3 RandomSpawnPoint()
@@ -150,30 +148,26 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy(int noToSpawn)
+    public void SpawnPhaseSquids(int spawnCount)
     {
-        spawnSquidlings = false;
-        for (int i = noToSpawn; i > 0; i--)
-        {
-            //Randomise X
-            float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
-
-            GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
-
-            tempObj.transform.parent = enemyContainer.transform;
-            enemies.Add(tempObj);
-        }
-    }
-
-    public void SpawnPhaseSquids(int spawnCount = 0)
-    {
-        if (spawnCount == 0)
-        {
-            spawnCount = squidlingsPerPhase;
-        }
-
         List<Transform> spawns = new List<Transform>(squidSpawns.GetAllChildren());        
-        for (int i = 0; i < spawnCount; i++)
+        //for (int i = 0; i <= spawnCount; i++)
+        //{
+        //    BezierCurve squidTravelCurve = spawns[UnityEngine.Random.Range(0, spawns.Count)].GetComponent<BezierCurve>();
+        //    // Debug.Log(squidTravelCurve.GetPointAt(0));
+        //    GameObject squid = Instantiate(
+        //        enemyPrefab.gameObject,
+        //        squidTravelCurve.GetAnchorPoints()[0].position,
+        //        Quaternion.identity)
+        //    as GameObject;
+        //    squid.transform.parent = enemyContainer.transform;
+        //    enemies.Add(squid);
+        //    StartCoroutine(MoveSquid(squid, 2.0f, squidTravelCurve));
+        //}
+
+        int i = 0;
+
+        while (i < spawnCount)
         {
             BezierCurve squidTravelCurve = spawns[UnityEngine.Random.Range(0, spawns.Count)].GetComponent<BezierCurve>();
             // Debug.Log(squidTravelCurve.GetPointAt(0));
@@ -182,18 +176,11 @@ public class EntityManager : MonoBehaviour
                 squidTravelCurve.GetAnchorPoints()[0].position,
                 Quaternion.identity)
             as GameObject;
-
-            //GameObject squid = Instantiate(
-            //    enemyPrefab.gameObject,
-            //    new Vector3(0.0f,0.0f,0.0f),
-            //    Quaternion.identity)
-            //as GameObject;
-
             squid.transform.parent = enemyContainer.transform;
             enemies.Add(squid);
             StartCoroutine(MoveSquid(squid, 2.0f, squidTravelCurve));
+            i++;
         }
-
     }
 
     IEnumerator MoveSquid(GameObject g, float travelTime, BezierCurve curve)
@@ -224,14 +211,10 @@ public class EntityManager : MonoBehaviour
             ui.SwitchCanvas(1);
             GameManager.instance.SetState(GameManager.GameState.GAMEOVER);
         }
-    }
+    } 
 
     public void Update()
-    {
-        if (spawnSquidlings)
-        {
-            SpawnEnemy(squidlingsPerPhase);
-            spawnSquidlings = false;
-        }
+    {  
+
     }
 }

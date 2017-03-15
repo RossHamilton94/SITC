@@ -183,7 +183,7 @@ public class PlayerController : Entity
     }
 
     public Vector2 input;
-    private bool isInvuln;
+    public bool isInvuln;
 
     //void OnGUI()
     //{
@@ -391,9 +391,7 @@ public class PlayerController : Entity
     {
         if (col.transform.tag == "Enemy")
         {
-            if (col.contacts[0].point.y > 0.5f &&
-                gameObject.GetComponent<Rigidbody>().velocity.y <= -2)
-            {
+            if (col.contacts[0].point.y - transform.position.y < 0.1f)            {
                 Debug.Log("Stomp");
                 col.gameObject.GetComponent<EnemyController>().Despawn();
             }
@@ -402,7 +400,16 @@ public class PlayerController : Entity
             {
                 Debug.Log("No stomp");
                 Respawn(true);
+                Debug.Log(col.contacts[0].point.y);
             }
+        }
+    }
+    
+    void OnCollisionExit(Collision col)
+    {
+        if (col.transform.tag == "Enemy")
+        {
+            Respawn(false);
         }
     }
 
