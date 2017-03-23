@@ -19,16 +19,22 @@ public class ObjectiveSystem : MonoBehaviour
 
     public Transform batterySpawnList;
     public Transform batteryPrefab;
+    private Transform[] batterySpawns;
+
+    public Transform fallingBatterySpawnList;
+    public Transform fallingBatteryPrefab;
+    private Transform[] fallingBatterySpawns;
 
     public List<GameObject> objectives;
     public int currentObjectiveCount = 0;
 
     private Transform[] objectiveSpawns;
-    private Transform[] batterySpawns;
 
     private List<Objective> chargedObjs;
     private BossController boss;
     public Transform firelocation;
+
+    public bool fallingBatteries = true;
 
     public delegate void RocketAction(Vector3 target, float delay);
     public static event RocketAction OnFire;
@@ -38,7 +44,15 @@ public class ObjectiveSystem : MonoBehaviour
         //Debug.Log("TurretSystem started");
 
         SpawnObjectives();
-        SpawnBatteries();
+
+        if (fallingBatteries)
+        {
+            SpawnFallingBatteries();
+        }
+        else
+        {
+            SpawnBatteries();
+        }
     }
 
     void Awake()
@@ -57,6 +71,8 @@ public class ObjectiveSystem : MonoBehaviour
         int i = 0;
         objectiveSpawns = new Transform[objectiveSpawnList.childCount];
         batterySpawns = new Transform[batterySpawnList.childCount];
+        fallingBatterySpawns = new Transform[fallingBatterySpawnList.childCount];
+
 
         chargedObjs = new List<Objective>();
 
@@ -68,7 +84,10 @@ public class ObjectiveSystem : MonoBehaviour
         {
             batterySpawns[i] = batterySpawnList.GetChild(i).transform;
         }
-
+        for (i = 0; i < fallingBatterySpawnList.childCount; i++)
+        {
+            fallingBatterySpawns[i] = fallingBatterySpawnList.GetChild(i).transform;
+        }
     }
 
     public void SpawnObjectives()
@@ -89,6 +108,7 @@ public class ObjectiveSystem : MonoBehaviour
             currentObjectiveCount++;
         }
     }
+
     public void SpawnBatteries()
     {
         GameObject[] batteries = GameObject.FindGameObjectsWithTag("Battery");
@@ -122,6 +142,36 @@ public class ObjectiveSystem : MonoBehaviour
         //}
     }
 
+
+    private void SpawnFallingBatteries()
+    {
+        GameObject[] batteries = GameObject.FindGameObjectsWithTag("Battery");
+
+        if (batteries.Length < maxBatteries)
+        {
+            if (timeSinceLastBattery >= secsBetweenBatterySpawns)
+            {
+                int rand = UnityEngine.Random.Range(0, fallingBatterySpawns.Length);
+
+                while (rand == lastBatterySpawn)
+                {
+                    rand = UnityEngine.Random.Range(0, fallingBatterySpawns.Length);
+                }
+
+                lastBatterySpawn = rand;
+
+                GameObject tempObj = Instantiate(fallingBatteryPrefab.gameObject, fallingBatterySpawns[rand].position, Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+
+                tempObj.transform.parent = GameObject.Find("BatteryHolder").transform;
+
+                tempObj.transform.Rotate(new Vector3(UnityEngine.Random.Range(0.0f, 90.0f), UnityEngine.Random.Range(0.0f, 90.0f), UnityEngine.Random.Range(0.0f, 90.0f)));
+                tempObj.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-500.0f, 500.0f), 0.0f, 0.0f));
+
+                timeSinceLastBattery = 0.0f;
+            }
+        }
+    }
+
     public void Update()
     {
         //Debug.Log("Number of charged turrets = " + chargedObjs.Count);
@@ -150,7 +200,14 @@ public class ObjectiveSystem : MonoBehaviour
 
         timeSinceLastBattery = timeSinceLastBattery + Time.deltaTime;
 
-        SpawnBatteries();
+        if (fallingBatteries)
+        {
+            SpawnFallingBatteries();
+        }
+        else
+        {
+            SpawnBatteries();
+        }
     }
 
     // Emit the fire rockets event to be picked up by the TargetRocket script

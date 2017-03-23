@@ -146,20 +146,20 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    public void SpawnEnemy(int noToSpawn)
-    {
-        spawnSquidlings = false;
-        for (int i = noToSpawn; i > 0; i--)
-        {
-            //Randomise X
-            float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
+    //public void SpawnEnemy(int noToSpawn)
+    //{
+    //    spawnSquidlings = false;
+    //    for (int i = noToSpawn; i > 0; i--)
+    //    {
+    //        //Randomise X
+    //        float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
 
-            GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
+    //        GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
 
-            tempObj.transform.parent = enemyContainer.transform;
-            enemies.Add(tempObj);
-        }
-    }
+    //        tempObj.transform.parent = enemyContainer.transform;
+    //        enemies.Add(tempObj);
+    //    }
+    //}
 
     public void SpawnPhaseSquids(int spawnCount = 0)
     {
@@ -222,12 +222,12 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        if (spawnSquidlings)
-        {
-            SpawnEnemy(squidlingsPerPhase);
-            spawnSquidlings = false;
-        }
-    }
+    //public void Update()
+    //{
+    //    if (spawnSquidlings)
+    //    {
+    //        SpawnEnemy(squidlingsPerPhase);
+    //        spawnSquidlings = false;
+    //    }
+    //}
 }
