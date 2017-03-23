@@ -33,7 +33,6 @@ public class EntityManager : MonoBehaviour
     public GameObject[] pressStartText;
     private Transform[] spawnPoints;
 
-    public bool spawnSquidlings = false;
     public Transform squidSpawns;
     public int squidlingsPerPhase = 5;
     //bool waiting = false;
@@ -146,21 +145,6 @@ public class EntityManager : MonoBehaviour
         }
     }
 
-    //public void SpawnEnemy(int noToSpawn)
-    //{
-    //    spawnSquidlings = false;
-    //    for (int i = noToSpawn; i > 0; i--)
-    //    {
-    //        //Randomise X
-    //        float randX = UnityEngine.Random.Range(aiSpawnMinX, aiSpawnMaxX);
-
-    //        GameObject tempObj = Instantiate(enemyPrefab.gameObject, new Vector3(randX, enemyStartHeight, 6.0f), Quaternion.identity) as GameObject;
-
-    //        tempObj.transform.parent = enemyContainer.transform;
-    //        enemies.Add(tempObj);
-    //    }
-    //}
-
     public void SpawnPhaseSquids(int spawnCount = 0)
     {
         if (spawnCount == 0)
@@ -169,7 +153,8 @@ public class EntityManager : MonoBehaviour
         }
 
         List<Transform> spawns = new List<Transform>(squidSpawns.GetAllChildren());        
-        for (int i = 0; i < spawnCount; i++)
+
+        while (enemies.Count < spawnCount)
         {
             BezierCurve squidTravelCurve = spawns[UnityEngine.Random.Range(0, spawns.Count)].GetComponent<BezierCurve>();
             // Debug.Log(squidTravelCurve.GetPointAt(0));
@@ -178,12 +163,6 @@ public class EntityManager : MonoBehaviour
                 squidTravelCurve.GetAnchorPoints()[0].position,
                 Quaternion.identity)
             as GameObject;
-
-            //GameObject squid = Instantiate(
-            //    enemyPrefab.gameObject,
-            //    new Vector3(0.0f,0.0f,0.0f),
-            //    Quaternion.identity)
-            //as GameObject;
 
             squid.transform.parent = enemyContainer.transform;
             enemies.Add(squid);
@@ -221,13 +200,4 @@ public class EntityManager : MonoBehaviour
             GameManager.instance.SetState(GameManager.GameState.GAMEOVER);
         }
     }
-
-    //public void Update()
-    //{
-    //    if (spawnSquidlings)
-    //    {
-    //        SpawnEnemy(squidlingsPerPhase);
-    //        spawnSquidlings = false;
-    //    }
-    //}
 }

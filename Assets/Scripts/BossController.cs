@@ -287,7 +287,6 @@ public class BossController : MonoBehaviour
 
     private void CutsceneManager_CloseLetterbox()
     {
-        GameManager.instance.em.spawnSquidlings = true;
         StartCoroutine(ReturnAfterTime(2.0f));
         CutsceneManager.CloseLetterbox -= CutsceneManager_CloseLetterbox;
     }

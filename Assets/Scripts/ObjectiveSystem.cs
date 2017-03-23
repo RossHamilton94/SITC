@@ -36,6 +36,8 @@ public class ObjectiveSystem : MonoBehaviour
 
     public bool fallingBatteries = true;
 
+    public bool spawnEnemiesOnCharge = true;
+
     public delegate void RocketAction(Vector3 target, float delay);
     public static event RocketAction OnFire;
 
@@ -236,6 +238,8 @@ public class ObjectiveSystem : MonoBehaviour
         {
             chargedObjs.Add(chargedObj);
         }
+
+        GameObject.Find("_GM").GetComponent<EntityManager>().SpawnPhaseSquids();
     }
 
     public void RegisterDechargedObj(Objective dechargedObj)
