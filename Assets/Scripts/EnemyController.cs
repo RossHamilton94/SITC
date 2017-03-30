@@ -155,6 +155,9 @@ public class EnemyController : MonoBehaviour
         if (fallHasBegun && rb.velocity.y > -0.1f)
         {
             hasLanded = true;
+            Vector3 pos = transform.position;
+            pos.z = 6.0f;
+            transform.position = pos;
         }
     }
 

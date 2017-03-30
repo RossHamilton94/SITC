@@ -8,11 +8,13 @@ public class Battery : MonoBehaviour {
     private AudioSource[] audioSources;
     public GameObject collectSound;
     private bool active = true;
+    public float destroyTime = 15.0f;
 
 	// Use this for initialization
     void Start()
     { 
         audioSources = audioPool.gameObject.GetComponents<AudioSource>();
+        Destroy(gameObject, destroyTime);
     }
 	
 	// Update is called once per frame
