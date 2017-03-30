@@ -64962,7 +64962,7 @@ MonoBehaviour:
   SquidlingPaths: {fileID: 0}
   leftArmMovePoint: {fileID: 4000012501825120}
   rightArmMovePoint: {fileID: 4000012270320812}
-  armSpeed: 10
+  armSpeed: 25
   attackCooldownLength: 2
   attackTime: 1
   baseHealth: 100

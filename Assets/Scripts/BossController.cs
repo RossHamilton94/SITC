@@ -122,8 +122,8 @@ public class BossController : MonoBehaviour
         {
             SceneManager.LoadScene(0);
         }
-    }     
-     
+    }
+
     void FixedUpdate()
     {
         int closestPlayer = 4;
@@ -381,7 +381,7 @@ public class BossController : MonoBehaviour
                             //leftReticule.transform.position = screenPos;
                             break;
                         case 1:
-                            rightPos = rayhit.point + new Vector3(0.0f,5.0f,0.0f);
+                            rightPos = rayhit.point + new Vector3(0.0f, 5.0f, 0.0f);
                             rightPos.y = rightPos.y + (float)Mathf.Sin(Time.time) * 1.0f;
                             rightReticule.transform.position = rightPos;
                             break;
