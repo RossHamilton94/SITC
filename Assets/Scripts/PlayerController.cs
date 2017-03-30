@@ -403,6 +403,12 @@ public class PlayerController : Entity
                 Debug.Log(col.contacts[0].point.y);
             }
         }
+
+        if (col.transform.tag == "Battery")
+        {
+            //Debug.Log("battery collision");
+            col.gameObject.GetComponent<Battery>().Use(this);
+        }
     }
     
     void OnCollisionExit(Collision col)

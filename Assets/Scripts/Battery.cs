@@ -33,7 +33,7 @@ public class Battery : MonoBehaviour {
             //GameObject tempCollectSound = Instantiate(collectSound, transform) as GameObject;
             //Destroy(tempCollectSound, 1.0f);
             transform.GetComponent<MeshRenderer>().enabled = false;
-            Destroy(gameObject, 0.3f);
+            Destroy(gameObject, 0.0f);
         }
         
     }
