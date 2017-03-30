@@ -3,10 +3,29 @@ guid: 1bce1f32336e559449196358a449ab37
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
+    100000: //RootNode
+    100002: buoy 1
+    100004: greenLight
+    100006: redLigh
+    100008: yellowLight
+    400000: //RootNode
+    400002: buoy 1
+    400004: greenLight
+    400006: redLigh
+    400008: yellowLight
+    2300000: buoy 1
+    2300002: greenLight
+    2300004: redLigh
+    2300006: yellowLight
+    3300000: buoy 1
+    3300002: greenLight
+    3300004: redLigh
+    3300006: yellowLight
     4300000: yellowLight
     4300002: greenLight
     4300004: redLigh
     4300006: buoy
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
