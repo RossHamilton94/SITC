@@ -136,12 +136,6 @@ public class ObjectiveSystem : MonoBehaviour
             }
         }
 
-        //foreach (Vector3 spawnPoint in batterySpawns)
-        //{
-        //    GameObject tempObj = Instantiate(batteryPrefab.gameObject, spawnPoint, Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
-
-        //    tempObj.transform.parent = GameObject.Find("BatteryHolder").transform;
-        //}
     }
 
 

@@ -1,0 +1,180 @@
+fileFormatVersion: 2
+guid: e0b34d17cf86cf341a09391b1b5edb7d
+timeCreated: 1490864597
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: group
+    100002: group1
+    100004: group2
+    100006: Group55418
+    100008: Group55418 1
+    100010: Group55419
+    100012: Group55419 1
+    100014: Group55420
+    100016: ikHandle1
+    100018: ikHandle2
+    100020: ikHandle3
+    100022: ikHandle4
+    100024: ikHandle5
+    100026: ikHandle6
+    100028: joint10
+    100030: joint11
+    100032: joint12
+    100034: joint13
+    100036: joint2
+    100038: joint3
+    100040: joint4
+    100042: joint5
+    100044: joint6
+    100046: joint7
+    100048: joint8
+    100050: joint9
+    100052: //RootNode
+    100054: Octonob2
+    100056: pasted__joint10
+    100058: pasted__joint11
+    100060: pasted__joint12
+    100062: pasted__joint13
+    100064: pasted__joint14
+    100066: pasted__joint15
+    100068: pasted__joint16
+    100070: pasted__joint17
+    100072: pasted__joint18
+    100074: pasted__joint19
+    100076: pasted__joint2
+    100078: pasted__joint20
+    100080: pasted__joint3
+    100082: pasted__joint3 1
+    100084: pasted__joint4
+    100086: pasted__joint4 1
+    100088: pasted__joint5
+    100090: pasted__joint5 1
+    100092: pasted__joint6
+    100094: pasted__joint6 1
+    100096: pasted__joint7
+    100098: pasted__joint7 1
+    100100: pasted__joint8
+    100102: pasted__joint9
+    100104: RootJoint
+    400000: group
+    400002: group1
+    400004: group2
+    400006: Group55418
+    400008: Group55418 1
+    400010: Group55419
+    400012: Group55419 1
+    400014: Group55420
+    400016: ikHandle1
+    400018: ikHandle2
+    400020: ikHandle3
+    400022: ikHandle4
+    400024: ikHandle5
+    400026: ikHandle6
+    400028: joint10
+    400030: joint11
+    400032: joint12
+    400034: joint13
+    400036: joint2
+    400038: joint3
+    400040: joint4
+    400042: joint5
+    400044: joint6
+    400046: joint7
+    400048: joint8
+    400050: joint9
+    400052: //RootNode
+    400054: Octonob2
+    400056: pasted__joint10
+    400058: pasted__joint11
+    400060: pasted__joint12
+    400062: pasted__joint13
+    400064: pasted__joint14
+    400066: pasted__joint15
+    400068: pasted__joint16
+    400070: pasted__joint17
+    400072: pasted__joint18
+    400074: pasted__joint19
+    400076: pasted__joint2
+    400078: pasted__joint20
+    400080: pasted__joint3
+    400082: pasted__joint3 1
+    400084: pasted__joint4
+    400086: pasted__joint4 1
+    400088: pasted__joint5
+    400090: pasted__joint5 1
+    400092: pasted__joint6
+    400094: pasted__joint6 1
+    400096: pasted__joint7
+    400098: pasted__joint7 1
+    400100: pasted__joint8
+    400102: pasted__joint9
+    400104: RootJoint
+    4300000: Octonob2
+    9500000: //RootNode
+    13700000: Octonob2
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
